@@ -1,0 +1,46 @@
+.section1 {
+  font-weight: 300;
+  font-size: 23px;
+  line-height: 34px;
+  margin: 200px 0 100px;
+
+  .h1 {
+    font-weight: 400;
+    font-size: 45px;
+    line-height: 48px;
+  }
+
+  .font {
+    font-size: 30px;
+    line-height: 43px;
+  }
+
+  .green {
+    width: 90%;
+    background-color: var(--salad);
+    padding: 10px;
+    border-radius: 15px;
+  }
+}
+
+@media (min-width: 1600px){
+  .section1 {
+    .green {
+      width: 70%;
+    }
+  }
+}
+
+
+
+@media (max-width: 1125px) {
+  .section1 {
+    font-size: 18px;
+    line-height: 25px;
+
+    .h1 {
+      font-size: 30px;
+      line-height: 28px;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+<div class="d-flex w-100 j-c-space-between">
+  <div class="d-flex direction-column j-c-center a-1-center w-30">
+    <div class="d-flex j-c-center a-1-center">
+      <div>
+        <img src="images/profile.svg" alt="profile"/>
+      </div>
+      <div>
+        <img src="images/button_plus.svg" alt="button"/>
+      </div>
+    </div>
+    <div class="d-flex direction-column j-c-center a-1-center mb-100">
+      <div>Компания</div>
+      <button>{{naming.change}}</button>
+      <div>{{naming.cityMy}}</div>
+    </div>
+    <div class="d-flex direction-column">
+      <button routerLink="personal_data">{{naming.personalData}}</button>
+      <button routerLink="responses">{{naming.personalVacancy}}</button>
+      <button routerLink="offers">{{naming.personalOffers}}</button>
+      <div class="d-flex direction-row">
+        <img src="images/button_exit.svg" alt="exit"/>
+        <button>{{naming.exit}}</button>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex w-70">
+    <app-responses></app-responses>
+  </div>
+</div>
+
+

@@ -1,1 +1,250 @@
-/* You can add global styles to this file, and also import other style files */
+@import "fonts";
+
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --brown: #56413B;
+  --dark-green: #688281;
+  --light-green: #74A475;
+  --light-light-green: #A2C2A3;
+  --dark-grey: #263238;
+  --light-grey: #A0A0A0;
+  --light-light-grey: #d2d2d2;
+  --dark-orange: #E19379;
+  --light-orange: #F9C0AD;
+  --background-profile: #E7E7E7;
+  --background-footer: #5E5E5E;
+  --salad: #CDE9B7CC;
+}
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+  font-family: 'SF UI Display Regular';
+}
+
+a {
+  text-decoration: transparent;
+  color: var(--black);
+}
+
+button {
+  font-family: 'SF UI Display Regular';
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+  padding-block: 0;
+  padding-inline: 0;
+  color: var(--black);
+
+  &:hover {
+    border: none;
+    background-color: transparent;
+  }
+}
+
+ul {
+  padding-inline-start: 0;
+
+  li {
+    padding-left: 30px;
+    list-style: none;
+    background: url("/images/marker.svg") no-repeat left center;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+h1 {
+  margin: 0;
+  font-size: 45px;
+  font-weight: 700;
+}
+
+h2 {
+  margin: 0;
+}
+
+input, select, textarea {
+  font-family: 'SF UI Display Regular';
+  outline: none;
+}
+
+select {
+  display: block;
+  border: transparent;
+  cursor: pointer;
+}
+
+.container-main {
+  width: 90%;
+  margin: 0 auto 0;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.j-c-space-between {
+  justify-content: space-between;
+}
+
+.j-c-center {
+  justify-content: center;
+}
+
+.j-c-start {
+  justify-content: start;
+}
+
+.a-1-center {
+  align-items: center;
+}
+
+.a-1-start {
+  align-items: start;
+}
+
+.direction-column {
+  flex-direction: column;
+}
+
+.direction-row {
+  flex-direction: row;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.w-80 {
+  width: 80%;
+}
+
+.w-70 {
+  width: 70%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.w-45 {
+  width: 45%;
+}
+
+.w-30 {
+  width: 30%;
+}
+
+.w-10 {
+  width: 10%;
+}
+
+.mb-100 {
+  margin-bottom: 6%;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.mb-5 {
+  margin-bottom: 5px;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+.mr-30 {
+  margin-right: 30px;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.container-section1__links {
+  margin-top: 20px;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+
+  a {
+    margin-right: 10px;
+  }
+
+  .radius {
+    border-radius: 43px;
+    padding: 25px;
+  }
+
+  .container-section1__link-customer {
+    text-align: center;
+    background-color: var(--dark-orange);
+    color: var(--white);
+  }
+
+  .container-section1__link-performer {
+    text-align: center;
+    background-color: var(--salad);
+    color: var(--brown);
+  }
+}
+
+.section3 {
+  border-radius: 20px;
+  background-color: var(--light-green);
+  opacity: 80%;
+  color: var(--white);
+  padding: 50px 0;
+  margin-bottom: 10%;
+
+  .section3-container {
+    text-align: center;
+
+    .section3-container__h1 {
+      line-height: 53px;
+      margin-bottom: 10px;
+    }
+
+    .section3-container__subtitle {
+      font-size: 20px;
+      line-height: 35px;
+      width: 75%;
+    }
+  }
+}
+
+.section5__subtitle {
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 30px;
+}
+
+.section5__list {
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 26px;
+}
+

@@ -1,0 +1,30 @@
+.container {
+  height: calc(100vh - 286px);
+  width: 90%;
+  margin-top: 60px;
+
+  .container-search {
+    padding: 0 10px;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid var(--light-grey);
+  }
+
+  input {
+    outline: none;
+    border: none;
+  }
+
+  .btn-submit {
+    width: 15%;
+    background-color: var(--light-green);
+    color: var(--white);
+    font-size: 17px;
+    line-height: 30px;
+    height: 50px;
+    padding: 0 30px;
+    border-radius: 10px;
+  }
+}
+
+

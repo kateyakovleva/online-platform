@@ -1,0 +1,40 @@
+h1 {
+  font-size: 30px;
+}
+
+.sub_title {
+  font-size: 25px;
+  line-height: 29px;
+}
+
+.sub-title__text {
+  font-size: 18px;
+  line-height: 21px
+}
+
+.skill {
+  text-align: center;
+  margin-right: 10px;
+  background-color: var(--light-light-grey);
+  border-radius: 48px;
+  min-width: 5%;
+  padding: 5px;
+}
+
+.container__btn-resume {
+  width: 13%;
+  background-color: var(--light-grey);
+  border-radius: 43px;
+  padding: 15px 20px;
+}
+
+.btn-resume {
+  color: var(--white);
+}
+
+.btn-change {
+  color: var(--light-grey);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+}

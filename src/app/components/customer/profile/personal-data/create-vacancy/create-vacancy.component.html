@@ -1,0 +1,64 @@
+<div class="d-flex direction-column">
+  <div>
+    <h3>{{ naming.createVacancy }}</h3>
+    <div class="d-flex direction-column">
+      <label>{{ naming.nameCompany}}</label>
+      <input/>
+    </div>
+    <div class="d-flex direction-column">
+      <label>{{ naming.stack }}</label>
+      <div class="d-flex direction-row">
+        @for (item of items; track item){
+        <div>{{ item.name }}</div>
+        }
+      </div>
+    </div>
+    <div class="d-flex direction-column">
+      <label>{{ naming.whichSkills }}</label>
+      <div>текст текст текст</div>
+      <textarea></textarea>
+    </div>
+    <div class="d-flex direction-column">
+      <label>{{ naming.whichTasks }}</label>
+      <div>текст текст текст</div>
+      <textarea></textarea>
+    </div>
+    <div class="d-flex direction-column">
+      <label>{{ naming.whichProgress }}</label>
+      <div>текст текст текст</div>
+      <textarea></textarea>
+    </div>
+    <div class="d-flex direction-row">
+      <div class="d-flex direction-column">
+        <label>{{ naming.cityMy }}</label>
+        <select></select>
+      </div>
+      <div class="d-flex direction-column">
+        <label>{{ naming.workForm }}</label>
+        <select></select>
+      </div>
+    </div>
+    <div class="d-flex direction-column">
+      <label>{{ naming.whichOffer }}</label>
+      <div class="direction-row d-flex">
+        <label>От</label>
+        <input/>
+        <label>До</label>
+        <input/>
+        <input type="checkbox"/>
+        <label>По договоренности</label>
+      </div>
+    </div>
+    <div class="d-flex direction-column">
+      <label>{{ naming.benefits }}</label>
+      <div>текст текст текст</div>
+      <textarea></textarea>
+    </div>
+    <div class="d-flex direction-column">
+      <label>{{ naming.comment }}</label>
+      <div>текст текст текст</div>
+      <textarea></textarea>
+    </div>
+  </div>
+  <button>text</button>
+</div>

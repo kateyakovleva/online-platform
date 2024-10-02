@@ -1,0 +1,27 @@
+.article {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 27px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.section5__list {
+  li {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 1125px){
+  h1 {
+    font-size: 30px;
+    line-height: 28px;
+  }
+
+  .section5__subtitle, .section5__list, .article {
+    font-size: 18px;
+    line-height: 25px;
+  }
+}

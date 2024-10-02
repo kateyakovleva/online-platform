@@ -1,0 +1,43 @@
+.header {
+  padding: 20px 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  background: var(--background-footer);
+  position: fixed;
+  z-index: 99;
+
+  .container-link-menu {
+
+    font-size: 18px;
+
+    a {
+      margin-right: 8px;
+      color: var(--white)
+    }
+
+  }
+
+  .height-radius {
+    padding: 25px 20px;
+    border-radius: 48px;
+  }
+
+  .container-link-auth {
+
+    background-color: var(--white);
+
+      button {
+        font-size: 16px;
+        line-height: 17px;
+        color: var(--dark-grey);
+      }
+    }
+}
+
+@media (max-width: 1125px) {
+  :host {
+    font-size: 12px;
+    line-height: 14px;
+  }
+}

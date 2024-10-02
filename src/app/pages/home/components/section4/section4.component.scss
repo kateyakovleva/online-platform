@@ -1,0 +1,239 @@
+.section4-container__title {
+  text-align: center;
+  font-weight: 400;
+}
+
+.w-24 {
+  min-height: 650px;
+  min-width: 24%;
+}
+
+.btn-container {
+  top: 18%;
+  right: 15%;
+
+  .filter {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .allCandidates {
+    color: var(--white);
+    background-color: var(--dark-orange);
+    padding: 25px 60px;
+    border-radius: 45px;
+  }
+}
+
+  .card {
+    position: relative;
+    min-height: 650px;
+    min-width: 24%;
+    border-radius: 16px;
+
+    .card-container {
+      margin-top: 20px;
+      width: 80%;
+
+      .card-container__title {
+        background-color: var(--light-green);
+        color: var(--white);
+        padding: 15px;
+        border-radius: 48px;
+      }
+
+      .card-container__skills-container {
+        flex-wrap: wrap;
+        width: 100%;
+
+        .skills-container__skill {
+          text-align: center;
+          min-width: 10%;
+          background-color: var(--light-grey);
+          color: var(--white);
+          padding: 10px 15px;
+          border-radius: 48px;
+          margin: 2%;
+        }
+      }
+
+      .container-white {
+        background-color: var(--white);
+        border-radius: 16px;
+        margin: 2%;
+      }
+
+      .card-container__courses {
+        .card-container__courses-container {
+          margin: 2%;
+
+          .card-container__courses-container-title {
+            font-weight: 600;
+            font-size: 20px;
+            margin: 2%;
+            line-height: 23px;
+            text-align: center;
+          }
+
+          .card-container__courses-container-text {
+            font-weight: 300;
+            font-size: 18px;
+            line-height: 26px;
+            margin-bottom: 2%;
+          }
+        }
+      }
+
+      .task {
+        text-align: center;
+        margin: 2%;
+        line-height: 26px;
+      }
+
+      .card-container__btns {
+       position: absolute;
+        margin: auto;
+        right: 0;
+        left: 0;
+        bottom: 2%;
+
+        .btns {
+          padding: 10px 25px;
+          color: var(--white);
+          font-weight: 300;
+          font-size: 18px;
+          line-height: 21px;
+          border-radius: 48px;
+        }
+
+        .card-container__btn-city {
+          background-color: var(--dark-grey);
+          margin-right: 2%;
+        }
+
+        .card-container__btn-status {
+          background-color: var(--light-green);
+        }
+      }
+    }
+  }
+
+
+  .btn-talk-with-users {
+    font-size: 14px;
+    padding: 20px;
+    border-radius: 49px;
+    color: var(--brown);
+    background-color: var(--salad);
+    margin: 3%;
+  }
+
+
+
+
+@media (min-width: 1600px) {
+
+  .card {
+    .card-container {
+
+      .card-container__title {
+        padding: 25px 15px;
+      }
+
+      .card-container__skills-container {
+
+        .skills-container__skill {
+          min-width: 15%;
+          padding: 15px;
+          margin: 3%;
+        }
+      }
+
+      .container-white {
+        margin: 3%;
+      }
+
+      .card-container__courses {
+        .card-container__courses-container {
+          margin: 3%;
+
+          .card-container__courses-container-title {
+            margin: 3%;
+            line-height: 26px;
+          }
+
+          .card-container__courses-container-text {
+            font-size: 20px;
+            margin-bottom: 3%;
+          }
+        }
+      }
+
+      .task {
+        margin: 3%;
+        font-size: 20px;
+      }
+
+      .card-container__btns {
+        position: absolute;
+        margin: auto;
+        right: 0;
+        left: 0;
+        bottom: 2%;
+
+        .btns {
+          padding: 15px 30px;
+          font-size: 20px;
+          line-height: 26px;
+        }
+      }
+    }
+  }
+
+
+  .btn-talk-with-users {
+    font-size: 18px;
+    line-height: 26px;
+    padding: 25px;
+  }
+
+}
+
+@media (max-width: 1288px) {
+  .section4-container {
+
+    .section4-container__title {
+      font-size: 30px;
+      font-weight: 400;
+    }
+  }
+
+  .card {
+    .card-container {
+      .card-container__courses {
+        .card-container__courses-container {
+          .card-container__courses-container-title {
+            font-size: 16px;
+            line-height: 20px;
+          }
+
+          .card-container__courses-container-text {
+            font-size: 16px;
+            line-height: 20px;
+          }
+        }
+      }
+
+      .task {
+        line-height: 17px;
+      }
+
+      .card-container__btns {
+        .btns {
+          font-size: 16px;
+          line-height: 10px;
+        }
+      }
+    }
+  }
+}

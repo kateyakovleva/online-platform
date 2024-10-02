@@ -1,0 +1,31 @@
+<section class="mb-100 w-100 direction-column a-1-center j-c-center d-flex">
+  <div class="d-flex w-80 a-1-center j-c-center direction-column mb-20">
+    <h1 class="mb-20">{{naming.h1Section10}}</h1>
+    <div class="h1__subtitle mb-20">{{naming.subtextSection10}}</div>
+  </div>
+  <div class="d-flex direction-row w-100 j-c-space-between mt-10">
+    @for (item of items; track item.id){
+      <div class="d-flex card-price direction-column a-1-center j-c-start">
+        <div class="card-price__title mb-20">{{item.profession}}</div>
+        <div class="d-flex direction-column a-1-center j-c-center">
+          <div class="card-price__count mb-20">40.000</div>
+          <div class="card-price__text mb-20">{{item.text}}</div>
+          <div class='card-price__subtext mb-20 w-100'>{{item.subtext}}</div>
+        </div>
+        <div class='w-50 card-price__change'>{{item.change}}</div>
+      </div>
+    }
+    <div class="d-flex card-price1 direction-column a-1-center j-c-center">
+      <div class="card-price__title mb-20">Платиновый</div>
+      <div class="d-flex direction-column a-1-center j-c-center">
+        <div class="card-price__count mb-20">40.000</div>
+        <div class="d-flex direction-column a-1-center j-c-center container mb-20">
+          <div class="card-price__text mb-20">за одного кандидата</div>
+          <div class='card-price__subtext mb-20 w-100'>*при трудоустройстве <b>6-12 кандидатов</b> в месяц</div>
+        </div>
+      </div>
+      <div class='card-price__change container'><b>бесплатная замена каждого нового сотрудника</b> при непрохождении испытательного срока </div>
+    </div>
+  </div>
+  <button class="btn-choose">{{naming.but}}</button>
+</section>

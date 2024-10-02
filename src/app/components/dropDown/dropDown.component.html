@@ -1,0 +1,13 @@
+<div class="d-flex direction-column relative">
+  <div>
+    <button type="button" (click)="showItemsList()">
+      <img [style.transform]="'rotate(' + (items_list ? '180deg' : '0deg') +')'" src="images/icon_profile.svg" alt="icon"/>
+    </button>
+  </div>
+  <div class="d-flex direction-column absolute items-list" *ngIf="items_list">
+    @for(item of items; track item){
+        <a href="#" class="mb-5">{{ item.name }}</a>
+    }
+  </div>
+</div>
+

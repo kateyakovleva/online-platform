@@ -1,0 +1,38 @@
+.section5__list {
+  li {
+    margin-bottom: 10px;
+  }
+}
+
+.container-section1__links {
+  .container-section1__link-performer1 {
+    text-align: center;
+    color: var(--brown);
+    background-color: var(--light-orange);
+    border-radius: 43px;
+    padding: 18px;
+  }
+}
+
+
+@media (min-width: 1600px){
+  .section5__list {
+    li {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+@media (max-width: 1125px) {
+
+  h1 {
+    font-size: 30px;
+    line-height: 28px;
+  }
+
+  .section5__subtitle, section5__list {
+    font-size: 18px;
+    line-height: 25px;
+  }
+
+}

@@ -1,0 +1,62 @@
+<div class="d-flex direction-column w-100">
+  <h1 class="mb-20">{{naming.personalData}}</h1>
+  <div class="d-flex direction-row j-c-space-between w-100">
+    <div class="d-flex direction-column">
+      <div class="sub_title">{{naming.speciality}}</div>
+      <div class="sub-title__text">текст текст текст текст текст</div>
+    </div>
+    <div class="d-flex direction-column">
+      <div class="sub_title">{{naming.interestVacancy}}</div>
+      <ul class="sub-title__text">
+        <li class="mb-5">текст текст текст текст текст</li>
+        <li class="mb-5">текст текст текст текст текст</li>
+        <li class="mb-5">текст текст текст текст текст</li>
+        <li class="mb-5">текст текст текст текст текст</li>
+      </ul>
+    </div>
+    <div class="d-flex direction-column">
+      <div class="sub_title">{{naming.coursesMy}}</div>
+      <ul class="sub-title__text">
+        <li class="mb-5">текст текст текст текст текст</li>
+        <li class="mb-5">текст текст текст текст текст</li>
+        <li class="mb-5">текст текст текст текст текст</li>
+        <li class="mb-5">текст текст текст текст текст</li>
+      </ul>
+    </div>
+  </div>
+  <div class="d-flex direction-column j-c-center a-1-center">
+    <div class="sub_title mb-20">{{naming.skillsMy}}</div>
+    <div class="d-flex direction-row a-1-center j-c-center w-80 flex-wrap">
+      @for (skill of skills; track skill){
+        <div class="skill">{{skill.name}}</div>
+      }
+    </div>
+  </div>
+  <div class="d-flex direction-column">
+    <div class="sub_title">{{naming.interestTasks}}</div>
+    <ul class="sub-title__text">
+      <li class="mb-5">текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст</li>
+      <li class="mb-5">текст текст текст текст текст</li>
+      <li class="mb-5">текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст</li>
+      <li class="mb-5">текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст</li>
+    </ul>
+  </div>
+  <div class="d-flex direction-column">
+    <div class="sub_title mb-20">{{naming.payMy}}</div>
+    <div class="sub-title__text mb-20">текст текст текст текст текст текст текст текст текст 400 000 текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст</div>
+  </div>
+  <div class="d-flex direction-column mb-20">
+    <div class="sub_title mb-20">{{naming.comment}}</div>
+    <div class="sub-title__text mb-20">текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст</div>
+  </div>
+  <div class="d-flex direction-row a-1-center j-c-start">
+    <div class="sub_title mr-30">{{naming.resume1}}</div>
+    <div class="d-flex direction-row a-1-center j-c-center container__btn-resume">
+      <button class="d-flex a-1-center j-c-center btn-resume">
+        <img class="mr-10" src="images/resume.svg" alt="resume"/>
+        <div>посмотреть</div>
+      </button>
+    </div>
+  </div>
+  <button class="btn-change mb-100">{{naming.change}}</button>
+</div>

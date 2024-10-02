@@ -1,0 +1,22 @@
+<div class="d-flex container a-1-start j-c-center">
+  <form class="d-flex a-1-center j-c-space-between w-80">
+    <div class="d-flex container-search a-1-center j-c-center w-30">
+      <img src="images/search.svg" alt="search" class="mr-10"/>
+      <input placeholder="поиск" class="w-100"/>
+    </div>
+    <div class="d-flex a-1-center j-c-space-between container-search w-10">
+      <div class="mr-10">{{naming.workForm}}</div>
+      <app-dropDown></app-dropDown>
+    </div>
+    <div class="d-flex a-1-center j-c-space-between container-search w-10">
+      <div class="mr-10">{{naming.cityMy}}</div>
+      <app-dropDown></app-dropDown>
+    </div>
+    <div class="d-flex a-1-center j-c-space-between container-search w-10">
+      <div class="mr-10">{{naming.stack}}</div>
+      <app-dropDown></app-dropDown>
+    </div>
+    <button type="submit" class="btn-submit">{{naming.buttonFind}}</button>
+  </form>
+</div>
+
