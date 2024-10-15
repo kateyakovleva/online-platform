@@ -1,7 +1,7 @@
 @import "fonts";
 
 :root {
-  --black: #000000;
+  --black: rgb(0, 0, 0);
   --white: #ffffff;
   --brown: #56413B;
   --dark-green: #688281;
@@ -9,7 +9,7 @@
   --light-light-green: #A2C2A3;
   --dark-grey: #263238;
   --light-grey: #A0A0A0;
-  --light-light-grey: #d2d2d2;
+  --light-light-grey: #D9D9D9;
   --dark-orange: #E19379;
   --light-orange: #F9C0AD;
   --background-profile: #E7E7E7;
@@ -24,6 +24,7 @@ body {
 }
 
 a {
+  cursor: pointer;
   text-decoration: transparent;
   color: var(--black);
 }
@@ -80,7 +81,7 @@ select {
 }
 
 .container-main {
-  width: 90%;
+  width: 80%;
   margin: 0 auto 0;
 }
 
@@ -94,6 +95,10 @@ select {
 
 .j-c-space-between {
   justify-content: space-between;
+}
+
+.j-c-end {
+  justify-content: end;
 }
 
 .j-c-center {
@@ -112,6 +117,10 @@ select {
   align-items: start;
 }
 
+.a-1-end {
+  align-items: end;
+}
+
 .direction-column {
   flex-direction: column;
 }
@@ -128,8 +137,20 @@ select {
   width: 80%;
 }
 
+.w-75 {
+  width: 75%;
+}
+
 .w-70 {
   width: 70%;
+}
+
+.w-60 {
+  width: 60%;
+}
+
+.w-55 {
+  width: 55%;
 }
 
 .w-50 {
@@ -138,6 +159,10 @@ select {
 
 .w-45 {
   width: 45%;
+}
+
+.w-40 {
+  width: 40%;
 }
 
 .w-30 {
@@ -248,3 +273,46 @@ select {
   line-height: 26px;
 }
 
+@media (max-width: 1150px) {
+
+  .section3 {
+    padding: 20px 0;
+    .section3-container {
+      width: 90%;
+      .section3-container__h1 {
+        line-height: 26px;
+        font-size: 22px;
+      }
+
+      .section3-container__subtitle {
+        font-size: 12px;
+        line-height: 17px;
+        width: 60%;
+      }
+    }
+  }
+
+  .section5__subtitle {
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  .section5__list {
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  .radius {
+    border-radius: 36px;
+    padding: 18px;
+  }
+
+  h1 {
+    font-size: 22px;
+    line-height: 26px;
+  }
+
+  .container-main {
+    width: 95%;
+  }
+}

@@ -1,57 +1,55 @@
-<section class="mb-100 w-100 direction-column a-1-center j-c-center">
-  <div class="w-100 d-flex j-c-center a-1-center">
-    <h1 class="mb-20">{{naming.h1Section8}}</h1>
-  </div>
-  <div class="d-flex direction-row w-100 j-c-space-between">
+<section class="mb-100 w-100 direction-column a-1-center j-c-center d-flex">
+  <h1 class="mb-20">{{naming.h1Section8}}</h1>
+  <div class="d-flex direction-row w-100 j-c-space-between height">
     @for (item of items; track item.id){
       <div class="d-flex card a-1-start j-c-center">
         <div class="d-flex direction-column card-container">
-          <div class="card-container__company d-flex a-1-center j-c-center mb-5">{{item.profession}}</div>
-          <div class="card-container__role d-flex a-1-center j-c-center mb-10">{{item.profession}}</div>
+          <div class="card-container__company d-flex a-1-center j-c-center mb-5">{{item.company}}</div>
+          <div class="card-container__role d-flex a-1-center j-c-center mb-10">{{item.role}}</div>
           <div class="card-container__title d-flex a-1-center j-c-center mb-10">{{item.profession}}</div>
-          <!--      цикл навыков -->
+          <!--      цикл скилов -->
           <div class="card-container__skills-container d-flex direction-row j-c-center">
             @for (x of item.skills.slice(0,3); track x){
               <div class="skills-container__skill">{{x.name}}</div>
             }
           </div>
           <div class="card-container__courses-container direction-column j-c-center a-1-center d-flex">
-            <div class="card-container__courses-container-title">{{naming.tasks}}</div>
+            <div class="card-container__courses-container-title w-80">{{naming.tasks}}</div>
+            <div class="d-flex a-1-center j-c-center direction-column mb-5 w-80">
+              <!--      цикл навыков -->
+              @for (x of item.yourSkills; track x){
+                <div class="task border">{{x.name}}</div>
+              }
+            </div>
+            <div class="card-container__courses-container-title">{{naming.taskss}}</div>
             <div class="d-flex a-1-center j-c-center direction-column mb-5">
               <!--      цикл задач -->
-              @for (x of item.tasks; track x){
+              @for (x of item.yourTasks.slice(0,1); track x){
                 <div class="task">{{x.name}}</div>
               }
             </div>
-            <div class="card-container__courses-container-title">{{naming.tasks}}</div>
-            <div class="d-flex a-1-center j-c-center direction-column mb-5">
-              <!--      цикл задач -->
-              @for (x of item.tasks.slice(0,1); track x){
-                <div class="task">{{x.name}}</div>
-              }
-            </div>
-            <div class="card-container__courses-container-title">{{naming.tasks}}</div>
+            <div class="card-container__courses-container-title">{{naming.tasksss}}</div>
             <div class="d-flex a-1-center j-c-center direction-column mb-100">
-              <!--      цикл задач -->
-              @for (x of item.tasks.slice(0,1); track x){
+              <!--      цикл прогресс -->
+              @for (x of item.yourProgress.slice(0,1); track x){
                 <div class="task">{{x.name}}</div>
               }
             </div>
           </div>
           <div class="d-flex direction-row j-c-center mt-10 card-container__btns">
-            <div class="card-container__btn-city">{{item.city}}</div>
-            <div class="card-container__btn-status">{{item.status}}</div>
+            <div class="card-container__btn mr-10">{{item.city}}</div>
+            <div class="card-container__btn">{{item.status}}</div>
           </div>
           <div class="d-flex a-1-center j-c-center w-100 text__btn">
-            <a href="#" class="btn w-100">Текст</a>
+            <a href="#" class="btn w-50">Текст</a>
           </div>
         </div>
       </div>
     }
   </div>
   <div class="d-flex a-1-center j-c-center container-section1__links mb-100">
-    <a href='#' class="container-section1__link-performer1 height-radius radius">{{naming.profile}}</a>
-    <a href='#' class="container-section1__link-customer height-radius radius">{{naming.vacancy}}</a>
+    <button type="button" class="container-section1__link-performer1 height-radius radius">{{naming.profile}}</button>
+    <button type="button" class="container-section1__link-customer height-radius radius">{{naming.vacancy}}</button>
     <a href='#' class="container-section1__link-filter">{{naming.filter}}</a>
   </div>
 </section>

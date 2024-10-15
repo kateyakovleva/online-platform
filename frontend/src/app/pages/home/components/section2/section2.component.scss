@@ -4,11 +4,36 @@
   font-size: 18px;
 }
 
-@media (max-width: 1125px){
+@media (min-width: 701px) and (max-width: 1150px) {
 
-  .section2-container__subtitle {
-    line-height: 20px;
-    font-size: 16px;
+  section {
+    flex-direction: column;
+    align-items: center;
+
+    .w-45 {
+      width: 70%;
+    }
+
+    .section2-container__subtitle {
+      line-height: 22px;
+      font-size: 16px;
+    }
+  }
+}
+
+@media (max-width: 700px){
+
+  section {
+    flex-direction: column;
+
+    .w-45 {
+      width: 100%;
+    }
+
+    .section2-container__subtitle {
+      line-height: 18px;
+      font-size: 12px;
+    }
   }
 }
 

@@ -23,16 +23,38 @@
   }
 }
 
-@media (max-width: 1125px) {
+@media (max-width: 1150px) {
 
-  h1 {
-    font-size: 30px;
-    line-height: 28px;
+  section {
+
+    .j-c-space-between {
+      flex-direction: column;
+    }
+
+    .w-45 {
+      width: 100%;
+    }
+
+    .container-section1__links {
+      flex-direction: column;
+      width: 100%;
+      font-size: 13px;
+      line-height: 15px;
+
+      .radius {
+        padding: 25px 0;
+      }
+
+      .container-section1__link-customer {
+        margin-bottom: 10px;
+      }
+
+      .w-30 {
+        width: 200px;
+      }
+    }
   }
 
-  .section5__subtitle, section5__list {
-    font-size: 18px;
-    line-height: 25px;
-  }
+
 
 }

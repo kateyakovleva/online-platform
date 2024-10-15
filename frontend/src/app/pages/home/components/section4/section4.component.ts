@@ -11,17 +11,20 @@ import {naming} from "../../../../data/naming/naming/naming.service";
 export class Section4Component {
 
   items = [
-    {id: 1, profession: 'John', skills: [{name: 'js'}, {name: 'react'}, {name: 'react'}, {name: 'js'}, {name: 'react'},
-        {name: 'react'}], city: 'Moscow', status: true,
-      tasks: [{name: 'fnbjdhhurhureh cvb ddgdjkgh bfhg bfehg'}, {name: 'fnbjd bvjdgh hhurh ureh bfh'}, {name: 'fnbjdhhurhureh nbhfg hfhufuyuy'}]
+    {id: 1, profession: 'IT-специалист', skills: [{name: 'scala'}, {name: 'react'}, {name: 'java'}, {name: 'js'}, {name: 'C/C++'},
+        {name: 'PHP'}], city: 'Moscow', status: true,
+      tasks: [{name: 'написание, отладку и тестирование кода'}, {name: 'анализ и написание алгоритмов'}, {name: 'работу с системами контроля версий (Git)'}],
+      courses: [{name: 'skillbox, разработчик фронтенд'}, {name: 'яндекс-практикум, разработчик бэкенд'}, {name: 'skillbox, разработчик фронтенд'}]
     },
-    {id: 2, profession: 'Doe', skills: [{name: 'vue'}, {name: 'vuex'}], city: 'Omsk', status: true,
-      tasks: [{name: 'fnbjdhhurhureh cvb ddgdjkgh bfhg bfehg'}, {name: 'fnbjd bvjdgh hhurh ureh bfh'}, {name: 'fnbjdhhurhureh nbhfg hfhufuyuy'}]
+    {id: 2, profession: 'IT-специалист', skills: [{name: 'vue'}, {name: 'C/C++'}], city: 'Omsk', status: true,
+      tasks: [{name: 'написание, отладку и тестирование кода'}, {name: 'анализ и написание алгоритмов'}, {name: 'работу с системами контроля версий (Git)'}],
+      courses: [{name: 'skillbox, разработчик фронтенд'}, {name: 'яндекс-практикум, разработчик бэкенд'}, {name: 'skillbox, разработчик фронтенд'}]
     },
-    {id: 3, profession: 'Kate', skills: [{name: 'react'}, {name: 'vuex'}, {name: 'vuex'}],
+    {id: 3, profession: 'IT-специалист', skills: [{name: 'react'}, {name: 'vuex'}, {name: 'C/C++'}],
       city: 'Kazan',
       status: false,
-      tasks: [{name: 'fnbjdhhur bvdshg jhureh cvb bfhg bfehg'}, {name: 'tgv urh ureh bfh'}, {name: 'ueb b e8yteufy euyuyf wuwwureh nbhfg hfhufuyuy'}]
+      tasks: [{name: 'написание, отладку и тестирование кода'}, {name: 'анализ и написание алгоритмов'}, {name: 'работу с системами контроля версий (Git)'}],
+      courses: [{name: 'skillbox, разработчик фронтенд'}, {name: 'яндекс-практикум, разработчик бэкенд'}, {name: 'skillbox, разработчик фронтенд'}]
     },
 
   ]

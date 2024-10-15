@@ -5,22 +5,23 @@
   width: 90%;
 }
 
-@media (max-width: 1125px) {
-  .section3-container {
+@media (max-width: 1150px) {
+  .section3 {
+    width: 100%;
+    padding: 20px 0;
 
-    .section3-container__h1 {
-      font-size: 30px;
-      line-height: 30px;
-    }
+      .section3-container__h1 {
+        text-align: center;
+        line-height: 26px;
+        font-size: 22px;
+        width: 80%;
+      }
 
-    .section3-container__subtitle {
-      font-size: 20px;
-      line-height: 25px;
-    }
-
-    ul li {
-      font-size: 20px;
-      line-height: 25px;
+      .section3-container__subtitle1 {
+        font-size: 12px;
+        line-height: 17px;
+        width: 80%;
+      }
     }
   }
-}
+

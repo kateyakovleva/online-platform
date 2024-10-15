@@ -1,3 +1,4 @@
 <section class="mb-100 d-flex a-1-center j-c-center">
-  <img src="/images/platform.svg" alt="platform"/>
+  <img src="/images/platform.svg" alt="platform" *ngIf="!isMobile"/>
+  <img src="/images/platform-m.svg" alt="platform" *ngIf="isMobile"/>
 </section>

@@ -7,19 +7,25 @@
   position: fixed;
   z-index: 99;
 
+  .logo {
+    width: 80%;
+  }
+
   .container-link-menu {
 
-    font-size: 18px;
+    font-size: 16px;
+    margin-left: 20px;
 
-    a {
-      margin-right: 8px;
-      color: var(--white)
+    .link {
+
+      cursor: pointer;
+      color: var(--white);
     }
 
   }
 
   .height-radius {
-    padding: 25px 20px;
+    padding: 10px 20px;
     border-radius: 48px;
   }
 
@@ -35,9 +41,51 @@
     }
 }
 
-@media (max-width: 1125px) {
-  :host {
+@media (min-width: 1351px) and (max-width: 1600px){
+
+  .header {
+
+    .w-75 {
+      width: 95%;
+    }
+
+    .logo {
+      width: 100%;
+    }
+
+    .img {
+      width: 50px;
+      height: 50px;
+    }
+
+  }
+}
+
+
+@media (max-width: 1350px) {
+  .header {
+    padding: 10px 0;
+    background: var(--white);
+    border-bottom: 1px solid var(--light-light-grey);
+
+    .w-10 {
+      width: 100px;
+      justify-content: space-between;
+    }
+
+    .logo {
+      width: 100%;
+    }
+
+    .img {
+      width: 50px;
+      height: 50px;
+    }
+
+
     font-size: 12px;
     line-height: 14px;
   }
 }
+
+

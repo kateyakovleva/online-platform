@@ -1,9 +1,9 @@
-<section class="mb-100 w-100 direction-column a-1-center j-c-center">
+<section class="mb-100 w-100 direction-column a-1-center j-c-center d-flex">
   <div class="d-flex j-c-center a-1-center section4-container mb-100">
     <h1 class="section4-container__title">{{naming.h1Section4}}<b>{{naming.h11Section4}}</b></h1>
   </div>
 
-  <div class="d-flex direction-row w-100 j-c-space-between">
+  <div class="d-flex direction-row w-100 j-c-space-between height">
     <!--  цикл самой карточки-->
     @for (item of items; track item.id){
       <div class="d-flex card a-1-start j-c-center">
@@ -18,7 +18,9 @@
           <div class="card-container__courses container-white d-flex">
             <div class="card-container__courses-container direction-column j-c-center a-1-center d-flex">
               <div class="card-container__courses-container-title">{{naming.courses}}</div>
-              <div class="card-container__courses-container-text">,nxzjhv gusdhgu esdh gdsuh gue xnbvjhds dsguegev shh gfeegr ytr ytyjjgeytg</div>
+              @for(x of item.courses.slice(0,3); track x){
+              <div class="card-container__courses-container-text w-80 border">{{x.name}}</div>
+    }
             </div>
           </div>
           <div class="card-container__courses container-white d-flex">
@@ -31,12 +33,12 @@
                 }
               </div>
 
-              <div class="card-container__courses-container-title">{{naming.tasks}}</div>
+              <div class="card-container__courses-container-title">{{naming.taskss}}</div>
 
               <div class="d-flex a-1-center j-c-center direction-column">
                 <!--      цикл задач -->
                 @for (x of item.tasks; track x){
-                  <div class="task">{{x.name}}</div>
+                  <div class="task w-80 border">{{x.name}}</div>
                 }
               </div>
             </div>
@@ -48,11 +50,11 @@
         </div>
       </div>
     }
-    <div class="relative w-24">
-      <img class="w-100" src="/images/4section.svg" alt="picture4"/>
-      <div class="d-flex absolute direction-column btn-container">
+    <div class="relative d-flex w-24">
+      <img class="d-flex" src="/images/4section.svg" alt="picture4"/>
+      <div class="d-flex absolute direction-column btn-container a-1-center">
         <button class="filter mb-20">{{naming.filter}}</button>
-        <button class="allCandidates">{{naming.allCandidates}}</button>
+        <button class="allCandidates w-80">{{naming.allCandidates}}</button>
       </div>
     </div>
   </div>

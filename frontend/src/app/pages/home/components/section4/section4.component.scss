@@ -3,14 +3,11 @@
   font-weight: 400;
 }
 
-.w-24 {
-  min-height: 650px;
-  min-width: 24%;
-}
-
 .btn-container {
-  top: 18%;
-  right: 15%;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 150px auto 0;
 
   .filter {
     font-size: 20px;
@@ -25,15 +22,35 @@
   }
 }
 
+.height {
+  height: 850px;
+
+  .w-24 {
+    height: 100%;
+    min-width: 22%;
+    margin-left: 10px;
+
+    img {
+      height: auto;
+      object-fit: cover;
+    }
+  }
+
+  .border {
+    border-bottom: 0.5px solid var(--light-light-grey);
+  }
+
   .card {
+    background-color: var(--light-light-grey);
     position: relative;
-    min-height: 650px;
-    min-width: 24%;
+    min-height: 100%;
+    min-width: 22%;
+    margin: 0 10px;
     border-radius: 16px;
 
     .card-container {
       margin-top: 20px;
-      width: 80%;
+      width: 90%;
 
       .card-container__title {
         background-color: var(--light-green);
@@ -50,7 +67,7 @@
           text-align: center;
           min-width: 10%;
           background-color: var(--light-grey);
-          color: var(--white);
+          color: var(--black);
           padding: 10px 15px;
           border-radius: 48px;
           margin: 2%;
@@ -64,6 +81,9 @@
       }
 
       .card-container__courses {
+        width: 100%;
+        align-items: center;
+        justify-content: center;
         .card-container__courses-container {
           margin: 2%;
 
@@ -80,6 +100,9 @@
             font-size: 18px;
             line-height: 26px;
             margin-bottom: 2%;
+            padding: 3px;
+            text-align: center;
+
           }
         }
       }
@@ -91,7 +114,7 @@
       }
 
       .card-container__btns {
-       position: absolute;
+        position: absolute;
         margin: auto;
         right: 0;
         left: 0;
@@ -117,9 +140,11 @@
       }
     }
   }
+}
 
 
-  .btn-talk-with-users {
+
+.btn-talk-with-users {
     font-size: 14px;
     padding: 20px;
     border-radius: 49px;
@@ -129,62 +154,66 @@
   }
 
 
-
-
 @media (min-width: 1600px) {
 
-  .card {
-    .card-container {
+  .height {
 
-      .card-container__title {
-        padding: 25px 15px;
-      }
+    height: 1000px;
 
-      .card-container__skills-container {
+    .card {
 
-        .skills-container__skill {
-          min-width: 15%;
-          padding: 15px;
+      .card-container {
+
+        .card-container__title {
+          padding: 25px 15px;
+        }
+
+        .card-container__skills-container {
+
+          .skills-container__skill {
+            min-width: 15%;
+            padding: 15px;
+            margin: 3%;
+          }
+        }
+
+        .container-white {
           margin: 3%;
         }
-      }
 
-      .container-white {
-        margin: 3%;
-      }
-
-      .card-container__courses {
-        .card-container__courses-container {
-          margin: 3%;
-
-          .card-container__courses-container-title {
+        .card-container__courses {
+          .card-container__courses-container {
             margin: 3%;
+
+            .card-container__courses-container-title {
+              margin: 3%;
+              line-height: 26px;
+            }
+
+            .card-container__courses-container-text {
+              font-size: 20px;
+              margin-bottom: 3%;
+            }
+          }
+        }
+
+        .task {
+          margin: 3%;
+          font-size: 20px;
+        }
+
+        .card-container__btns {
+          position: absolute;
+          margin: auto;
+          right: 0;
+          left: 0;
+          bottom: 2%;
+
+          .btns {
+            padding: 15px 30px;
+            font-size: 20px;
             line-height: 26px;
           }
-
-          .card-container__courses-container-text {
-            font-size: 20px;
-            margin-bottom: 3%;
-          }
-        }
-      }
-
-      .task {
-        margin: 3%;
-        font-size: 20px;
-      }
-
-      .card-container__btns {
-        position: absolute;
-        margin: auto;
-        right: 0;
-        left: 0;
-        bottom: 2%;
-
-        .btns {
-          padding: 15px 30px;
-          font-size: 20px;
-          line-height: 26px;
         }
       }
     }
@@ -200,38 +229,87 @@
 }
 
 @media (max-width: 1288px) {
-  .section4-container {
 
-    .section4-container__title {
-      font-size: 30px;
-      font-weight: 400;
+  section {
+
+    .btn-talk-with-users {
+      margin: 7% 3%;
+      font-size: 12px;
+      line-height: 16px;
     }
-  }
 
-  .card {
-    .card-container {
-      .card-container__courses {
-        .card-container__courses-container {
-          .card-container__courses-container-title {
-            font-size: 16px;
-            line-height: 20px;
+    .section4-container {
+      width: 80%
+    }
+
+    .height{
+      flex-direction: column;
+      align-items: center;
+      height: auto;
+
+      .w-24 {
+        height: 100%;
+        min-width: 90%;
+        margin-left: 0;
+      }
+      .card {
+        height: 700px;
+        min-width: 90%;
+        margin: 0 0 20px;
+        align-items: start;
+        justify-content: center;
+        .card-container {
+          width: 85%;
+          align-items: center;
+          .card-container__skills-container {
+            .skills-container__skill {
+              min-width: 15%;
+              border-radius: 38px;
+              font-size: 12px;
+              line-height: 14px;
+              padding: 7px;
+              margin: 2%;
+            }
+          }
+          .card-container__title {
+            padding: 10px;
+            width: 60%;
+          }
+          .card-container__courses {
+            .card-container__courses-container {
+              width: 90%;
+              .card-container__courses-container-title {
+                font-size: 16px;
+                line-height: 20px;
+              }
+
+              .card-container__courses-container-text {
+                padding: 10px 0;
+                width: 80%;
+                font-size: 12px;
+                line-height: 15px;
+              }
+            }
           }
 
-          .card-container__courses-container-text {
-            font-size: 16px;
-            line-height: 20px;
+          .w-80 {
+            width: 100%;
           }
-        }
-      }
 
-      .task {
-        line-height: 17px;
-      }
+          .task {
+            padding: 10px 0;
+            font-size: 12px;
+            line-height: 15px;
+          }
 
-      .card-container__btns {
-        .btns {
-          font-size: 16px;
-          line-height: 10px;
+          .card-container__btns {
+            .btns {
+              font-size: 14px;
+              line-height: 16px;
+              margin-right: 30px;
+              padding: 12px 25px;
+            }
+          }
         }
       }
     }

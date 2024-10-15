@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import {naming} from "../../data/naming/naming/naming.service";
-import { DropDownComponent } from "../dropDown/dropDown.component";
+import {DropDownWithComponent} from "../dropDownWith/dropDownWith.component";
 
 @Component({
   selector: 'app-filter',
   standalone: true,
   imports: [
-    DropDownComponent
+    DropDownWithComponent
   ],
   templateUrl: './filter.component.html',
   styleUrl: './filter.component.scss'

@@ -1,0 +1,29 @@
+<form class="popup-container w-100 d-flex a-1-center j-c-center" *ngIf="popUp">
+  <div class="container-form w-40 d-flex direction-column a-1-center j-c-center relative">
+    <button class="absolute close" type="button" (click)="close()">закрыть</button>
+    <div class="w-70 d-flex a-1-start direction-column">
+      <div class="d-flex w-100 direction-column mb-20">
+        <label class="label relative">Тариф*</label>
+        <div class="absolute text-input">выбрать</div>
+        <app-dropDownWith></app-dropDownWith>
+      </div>
+      <div class="d-flex w-100 direction-column mb-20">
+        <label class="label relative">Имя*</label>
+        <input class="input-form w-100"/>
+      </div>
+      <div class="d-flex w-100 direction-column mb-20">
+        <label class="label relative">Название компании*</label>
+        <input class="input-form w-100"/>
+      </div>
+      <div class="d-flex w-100 direction-column mb-20">
+        <label class="label relative">Телефон*</label>
+        <input class="input-form w-100"/>
+      </div>
+      <div class="d-flex w-100 direction-column mb-20">
+        <label class="label relative">E-mail</label>
+        <input class="input-form w-100"/>
+      </div>
+    </div>
+    <button class="submit">отправить</button>
+  </div>
+</form>
