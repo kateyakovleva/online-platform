@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\SettingsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +17,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+
+Route::prefix('settings')->group(function () {
+    Route::get('/', [SettingsController::class, 'index']);
+});
+
+Route::prefix('vacancies')->group(function () {
+    Route::get('/', [\App\Http\Controllers\Api\VacanciesController::class, 'index']);
+});
+
+Route::prefix('resumes')->group(function () {
+    Route::get('/', [\App\Http\Controllers\Api\ResumesController::class, 'index']);
 });

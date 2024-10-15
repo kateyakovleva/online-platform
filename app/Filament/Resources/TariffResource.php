@@ -32,11 +32,11 @@ class TariffResource extends Resource
                     ->required()
                     ->numeric()
                     ->prefix('$'),
-                Forms\Components\Textarea::make('description')
+                Forms\Components\MarkdownEditor::make('description')
                     ->required()
                     ->maxLength(65535)
                     ->columnSpanFull(),
-                Forms\Components\Textarea::make('comment')
+                Forms\Components\MarkdownEditor::make('comment')
                     ->required()
                     ->maxLength(65535)
                     ->columnSpanFull(),

@@ -27,4 +27,18 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+    protected static bool|null $shouldReturnJson = null;
+
+    public static function setShouldReturnJson(bool|null $value): void
+    {
+        static::$shouldReturnJson = $value;
+    }
+
+    protected function shouldReturnJson($request, Throwable $e)
+    {
+        if (static::$shouldReturnJson !== null) return static::$shouldReturnJson;
+
+        return parent::shouldReturnJson($request, $e);
+    }
 }

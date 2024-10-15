@@ -54,7 +54,8 @@ class CompanyResource extends Resource
                 DatePicker::make('tariff_end_of')
                     ->label('Когда кончается подписка'),
                 MarkdownEditor::make('data.description')
-                    ->label('Описание'),
+                    ->label('Описание')
+                    ->columnSpanFull(),
             ]);
     }
 
