@@ -1,8 +1,7 @@
-.height {
-  height: calc(100vh - 286px);
-  background-color: var(--background-profile);
-
-}
+//.height {
+//  height: calc(100vh - 286px);
+//  background-color: var(--background-profile);
+//}
 
 .container {
   width: 25%;
@@ -31,17 +30,17 @@
 }
 
 .input {
-    height: 65px;
-    border: 1px solid var(--light-light-grey);
-    border-radius: 88px;
-    padding-left: 30px;
+  height: 65px;
+  border: 1px solid var(--light-light-grey);
+  border-radius: 88px;
+  padding-left: 30px;
 
-    &::placeholder {
-      font-size: 16px;
-      line-height: 18px;
-      color: var(--light-light-grey);
-    }
+  &::placeholder {
+    font-size: 16px;
+    line-height: 18px;
+    color: var(--light-light-grey);
   }
+}
 
 .form__btn-enter {
   height: 65px;
