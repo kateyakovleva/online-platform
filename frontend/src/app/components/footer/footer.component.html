@@ -9,7 +9,7 @@
   </div>
   <div class="d-flex direction-column a-1-start j-c-center w-30">
     <div>Контакты</div>
-    <div>Телефон: 8 (900) 567 56 78</div>
-    <div>Почта: mail.ru</div>
+    <div>Телефон: {{ (settings.content | async)?.telephone }}</div>
+    <div>Почта: {{ (settings.content | async)?.email }}</div>
   </div>
 </section>

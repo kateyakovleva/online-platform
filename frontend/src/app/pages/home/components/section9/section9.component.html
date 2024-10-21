@@ -6,10 +6,8 @@
     </div>
     <div class="d-flex direction-column w-40">
       <div class="section5__subtitle mb-20">{{naming.boss}}</div>
-      <article class="article mb-10">{{naming.article1}}</article>
-      <div class="mb-10 section5__list">{{naming.item1sec9}}</div>
-      <div class="mb-20 section5__list">{{naming.item2sec9}}</div>
-      <article class="article">{{naming.article2}}</article>
+
+      <markdown class="section5__list" [data]="(settings.content | async)?.advantages_company_2"></markdown>
     </div>
   </div>
   <div class="d-flex direction-row j-c-space-between w-100 mb-10">
@@ -18,19 +16,16 @@
     </div>
     <div class="d-flex direction-column w-40">
       <div class="section5__subtitle mb-20">{{naming.notBoss}}</div>
-      <ul class="section5__list">
-        <li>{{naming.item3sec9}}</li>
-        <li>{{naming.item4sec9}}</li>
-        <li>{{naming.item5sec9}}</li>
+      <ul class="section5__list" *ngIf="settings.content | async; let content">
+        <li *ngFor="let item of content.advantages_worker_2 | splitString">
+          <markdown [data]="item"></markdown>
+        </li>
       </ul>
       <div>Достаточно</div>
-      <ul class="section5__list">
-        <li>{{naming.item6sec9}}</li>
-        <li>{{naming.item7sec9}}</li>
-        <li>{{naming.item8sec9}}</li>
-        <li>{{naming.item9sec9}}</li>
-        <li>{{naming.item10sec9}}</li>
-        <li>{{naming.item11sec9}}</li>
+      <ul class="section5__list" *ngIf="settings.content | async; let content">
+        <li *ngFor="let item of content.advantages_worker_3 | splitString">
+          <markdown [data]="item"></markdown>
+        </li>
       </ul>
     </div>
   </div>

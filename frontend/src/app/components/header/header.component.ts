@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { naming } from "../../data/naming/naming/naming.service";
 import { ProfileButtonComponent } from "./profile-button/profile-button.component";
 import { MobileHeaderComponent } from "./mobile-header/mobile-header.component";
 import { NgIf } from "@angular/common";
-import { RouterLink } from "@angular/router";
+import { ActivatedRoute, RouterLink } from "@angular/router";
 
 
 @Component( {
@@ -18,7 +18,17 @@ import { RouterLink } from "@angular/router";
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 } )
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
+  constructor(
+    private route: ActivatedRoute,
+  ) {
+  }
+
+  ngOnInit() {
+    this.route.fragment.subscribe( ( fragment ) => {
+      if ( fragment ) this.scroll( fragment );
+    } )
+  }
 
   get isMobile() {
     if ( typeof window !== 'undefined' ) {
@@ -34,10 +44,8 @@ export class HeaderComponent {
   }
 
   scroll( name: string ) {
-    setTimeout( () => {
-      let top = ( document.querySelector( 'app-' + name ) as HTMLElement )?.offsetTop - 150;
-      window.scrollTo( { top: top, behavior: 'smooth' } );
-    }, 200 );
+    let top = ( document.querySelector( 'app-' + name ) as HTMLElement )?.offsetTop - 150;
+    window.scrollTo( { top: top, behavior: 'smooth' } );
   }
 
   naming = naming;

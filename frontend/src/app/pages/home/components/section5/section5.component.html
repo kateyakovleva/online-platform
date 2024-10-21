@@ -6,23 +6,19 @@
     <div class="w-45">
       <img src="/images/5section1.svg" alt="picture5"/>
       <div class="mt-10 mb-10 section5__subtitle">{{naming.employer}}</div>
-      <ul class="section5__list">
-        <li><b>{{naming.item1sec5}}</b>{{naming.item1sec55}}</li>
-        <li><b>{{naming.item2sec5}}</b>{{naming.item2sec55}}</li>
-        <li>{{naming.item3sec5}}<b>{{naming.item3sec55}}</b></li>
-        <li><b>{{naming.item4sec5}}</b></li>
-        <li><b>{{naming.item5sec5}}</b>{{naming.item5sec55}}</li>
+      <ul class="section5__list" *ngIf="settings.content | async; let content;">
+        <li *ngFor="let item of content.advantages_company | splitString">
+          <markdown [data]="item"></markdown>
+        </li>
       </ul>
     </div>
     <div class="w-45">
       <img src="/images/5section2.svg" alt="picture6"/>
       <div class="mt-10 mb-10 section5__subtitle">{{naming.performer}}</div>
-      <ul class="section5__list">
-        <li><b>{{naming.item6sec5}}</b>{{naming.item6sec55}}</li>
-        <li><b>{{naming.item7sec5}}</b>{{naming.item7sec55}}</li>
-        <li><b>{{naming.item8sec5}}</b></li>
-        <li>{{naming.item9sec5}}<b>{{naming.item9sec5}}</b></li>
-        <li><b>{{naming.item10sec5}}</b></li>
+      <ul class="section5__list" *ngIf="settings.content | async; let content;">
+        <li *ngFor="let item of content.advantages_worker | splitString">
+          <markdown [data]="item"></markdown>
+        </li>
       </ul>
     </div>
   </div>

@@ -1,8 +1,8 @@
 <section class="d-flex j-c-space-between a-1-center w-100">
   <div class="w-55 d-flex direction-column">
-    <h1 class="h1 w-100 mb-20">{{naming.h1}}</h1>
-    <div class="green d-flex j-c-center mb-20 font"><b class="mr-10">{{naming.subTitle1}}</b>{{naming.subTitle2}}</div>
-    <div class="mb-20 font">{{naming.subTitle3}}<b>{{naming.subTitle4}}</b>{{naming.subTitle5}}</div>
+    <h1 class="h1 w-100 mb-20">{{ (settings.content | async)?.title }}</h1>
+    <markdown class="green d-flex j-c-center mb-20 font" [data]="(settings.content | async)?.sub_title"></markdown>
+    <markdown class="mb-20 font" [data]="(settings.content | async)?.description"></markdown>
     <div class="d-flex a-1-center container-section1__links ">
       <a routerLink="/auth/signup" class="container-section1__link-performer radius">{{naming.signUpCustomer}}</a>
       <a routerLink="/auth/signup" class="container-section1__link-customer radius">{{naming.signUpExecutor}}</a>

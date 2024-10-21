@@ -1,14 +1,10 @@
 <section class="mb-100 w-100 d-flex j-c-space-between">
   <div class="d-flex a-1-center j-c-center direction-column w-45 mb-100">
     <img class="mb-20" src="/images/2section1.svg" alt="picture2"/>
-    <div class="section2-container__subtitle">Считаете что <b>рынок кандидатов исчерпан?</b> Кандидатов нет?
-      <b>Стоимость</b> подбора персонала растет, а количество соискателей <b>уменьшается?
-        Кандидаты менее активны</b> и менее заинтересованны в работе? <b>Прогнозы</b>> рынка труда <b>не радуют?</b>
-    </div>
+    <markdown class="section2-container__subtitle" [data]="(settings.content | async)?.description_1"></markdown>
   </div>
   <div class="d-flex a-1-center j-c-center direction-column w-45 mb-100">
     <img class="mb-20" src="/images/2section2.svg" alt="picture3"/>
-    <div class="section2-container__subtitle"><b>НОВЫЙ канал</b> поиска сотрудников для компаний готовых к переменам.
-      <b>Убираем дефицит рынка</b> труда и <b>открываем возможности</b> выпускникам образовательных программ.</div>
+    <markdown class="section2-container__subtitle" [data]="(settings.content | async)?.description_2"></markdown>
   </div>
 </section>

@@ -2,18 +2,18 @@
   <div class="d-flex container-main a-i-center j-c-space-between">
     <div class="d-flex a-1-center j-c-space-start w-70">
       <div class="d-flex a-i-center j-c-center w-10">
-        <a routerLink="/" (click)="scroll('')">
+        <a href="#" (click)="scroll('')">
           <img class="logo" src="images/logo.svg" alt="logo"/>
         </a>
       </div>
       <div class="container-link-menu d-flex j-c-space-between a-1-center w-75" *ngIf="!isMobile">
-        <a routerLink="/" class="link" (click)="scroll('section7')">{{naming.mission}}</a>
-        <a routerLink="/" class="link" (click)="scroll('section9')">{{naming.howItWorks}}</a>
-        <a routerLink="/" class="link" (click)="scroll('section4')">{{naming.partners}}</a>
-        <a routerLink="/" class="link" (click)="scroll('section8')">{{naming.candidates}}</a>
-        <a routerLink="/" class="link" (click)="scroll('section3')">{{naming.projects}}</a>
-        <a routerLink="/" class="link" (click)="scroll('section10')">{{naming.tariffs}}</a>
-        <a routerLink="/" class="link" (click)="scroll('footer')">{{naming.contacts}}</a>
+        <a href="#section7" class="link">{{naming.mission}}</a>
+        <a href="#section9" class="link">{{naming.howItWorks}}</a>
+        <a href="#section4" class="link">{{naming.partners}}</a>
+        <a href="#section8" class="link">{{naming.candidates}}</a>
+        <a href="#section3" class="link">{{naming.projects}}</a>
+        <a href="#section10" class="link">{{naming.tariffs}}</a>
+        <a href="#footer" class="link">{{naming.contacts}}</a>
       </div>
     </div>
 

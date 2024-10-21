@@ -1,8 +1,6 @@
 <section class="section3 d-flex a-1-center j-c-center">
   <div class="section3-container d-flex direction-column w-70 j-c-center a-1-center">
     <h1 class="section3-container__h1">{{naming.h1Section3}}</h1>
-    <div class="section3-container__subtitle">{{naming.subTitle1Section3}}</div>
-    <div class="section3-container__subtitle">{{naming.subTitle2Section3}}</div>
-    <div class="section3-container__subtitle">{{naming.subTitle3Section3}}</div>
+    <markdown class="section3-container__subtitle" [data]="(settings.content | async)?.advantages"></markdown>
   </div>
 </section>
