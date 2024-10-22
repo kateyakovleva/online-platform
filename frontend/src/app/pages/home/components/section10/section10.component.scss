@@ -36,8 +36,8 @@ h1 {
   .card-price__title {
     padding-top: 20px;
     font-weight: 600;
-    font-size: 25px;
-    line-height: 30px;
+    font-size: 30px;
+    line-height: 35px;
   }
 
   .card-price__count {
@@ -80,12 +80,14 @@ h1 {
   border-radius: 20px;
   position: relative;
   width: 24%;
-  min-height: 600px;
+  //min-height: 600px;
+  padding-bottom: 40px;
 
   .card-price__title {
+    padding-top: 20px;
     color: var(--white);
-    font-size: 25px;
-    line-height: 30px;
+    font-size: 30px;
+    line-height: 35px;
   }
 
   .card-price__count {
@@ -101,7 +103,7 @@ h1 {
     text-align: center;
     font-size: 20px;
     line-height: 26px;
-    font-weight: 700;
+    //font-weight: 700;
   }
 
   .card-price__subtext {
@@ -115,28 +117,28 @@ h1 {
   }
 }
 
-@media (max-width: 1150px){
+@media (max-width: 1150px) {
   h1 {
     margin: 0;
   }
 
-    .w-80 {
-      width: 65%;
-    }
+  .w-80 {
+    width: 65%;
+  }
 
 
- .btn-choose {
+  .btn-choose {
     font-size: 13px;
     line-height: 15px;
     width: 80%;
     margin-bottom: 20px;
   }
 
-    .h1__subtitle {
-      margin-top: 10px;
-      font-size: 16px;
-      line-height: 19px;
-    }
+  .h1__subtitle {
+    margin-top: 10px;
+    font-size: 16px;
+    line-height: 19px;
+  }
 
   .direction-row {
     flex-direction: column;

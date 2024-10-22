@@ -1,11 +1,7 @@
 <section class="d-flex w-100 mb-100 j-c-center">
   <div class="d-flex direction-column w-50 grey-container">
     <h1 class="mb-20">{{naming.h1Section11}}</h1>
-    <div class="section11-text"> текст текст текст текст текст текст текст текст текст текст текст текст
-      текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
-      текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
-      текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст
-    </div>
+    <markdown class="section11-text" [data]="(settings.content | async)?.contact_form_description"></markdown>
   </div>
   <div class="d-flex grey-container-form w-45">
     <form class="d-flex direction-column section11-form w-100">

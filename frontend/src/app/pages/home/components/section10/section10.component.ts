@@ -1,19 +1,26 @@
 import { Component } from '@angular/core';
 import { naming } from "../../../../data/naming/naming/naming.service";
 import { PriceFormComponent } from "../price-form/price-form.component";
-import { NgIf } from "@angular/common";
+import { AsyncPipe, NgForOf, NgIf } from "@angular/common";
+import { SettingsService } from "../../../../stores/SettingsService";
+import { MarkdownComponent } from "ngx-markdown";
 
 @Component( {
   selector: 'app-section10',
   standalone: true,
   imports: [
     PriceFormComponent,
-    NgIf
+    NgIf,
+    NgForOf,
+    AsyncPipe,
+    MarkdownComponent
   ],
   templateUrl: './section10.component.html',
   styleUrl: './section10.component.scss'
 } )
 export class Section10Component {
+  constructor( public settings: SettingsService ) {
+  }
 
   priceForm: boolean = false;
 
@@ -23,4 +30,5 @@ export class Section10Component {
 
   naming = naming;
 
+  protected readonly console = console;
 }
