@@ -23,7 +23,7 @@ export class SettingsService {
   }
 
   constructor( private http: HttpClient ) {
-    this.http.get( apiUrl( '/api/settings' ) ).subscribe( ( response ) => {
+    this.http.get( apiUrl( '/settings' ) ).subscribe( ( response ) => {
       this._settings.next( response as ISetting );
     } )
   }

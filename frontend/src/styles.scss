@@ -322,3 +322,54 @@ select {
     width: 95%;
   }
 }
+
+.tab-buttons {
+  width: 100%;
+  display: flex;
+
+  input {
+    opacity: 0;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+  }
+
+  .tab-button {
+    width: 50%;
+    height: 60px;
+    border: 1px solid gainsboro;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 20px;
+
+    &.left {
+      border-top-left-radius: 30px;
+      border-bottom-left-radius: 30px;
+    }
+
+    &.right {
+      border-left-width: 0;
+      border-top-right-radius: 30px;
+      border-bottom-right-radius: 30px;
+    }
+  }
+
+  input:checked + .tab-button {
+    color: var(--white);
+    background-color: var(--dark-orange);
+
+    &.right {
+      background-color: var(--light-green);
+    }
+  }
+}
+
+span.error {
+  margin-top: -10px;
+  color: red;
+  margin-bottom: 10px;
+  padding-left: 20px;
+}

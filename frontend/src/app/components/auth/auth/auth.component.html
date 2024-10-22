@@ -1,8 +1,10 @@
 <div class="d-flex a-1-start j-c-center w-100 height">
   <div class="container d-flex direction-column w-30">
     <div class="container__links d-flex j-c-space-between">
-      <button routerLink="signin" class="link" type="button">{{naming.sighInCandidate}}</button>
-      <button routerLink="signup" class="link" type="button">{{naming.sighUpCandidate}}</button>
+      <button routerLink="signin" routerLinkActive="active" class="link"
+              type="button">{{naming.sighInCandidate}}</button>
+      <button routerLink="signup" routerLinkActive="active" class="link"
+              type="button">{{naming.sighUpCandidate}}</button>
     </div>
     <div>
       <router-outlet></router-outlet>

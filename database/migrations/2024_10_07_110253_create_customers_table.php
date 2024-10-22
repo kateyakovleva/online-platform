@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->string('name');
             $table->string('image');
             $table->string('email')->unique();
+            $table->string('phone')->unique();
             $table->string('password');
             $table->json('data')->nullable();
             $table->foreignId('tariff_id')

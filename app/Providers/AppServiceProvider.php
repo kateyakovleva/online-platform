@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Services\Frontend;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,6 +17,12 @@ class AppServiceProvider extends ServiceProvider
         if ($this->app->isLocal()) {
             $this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
         }
+
+        $this->app->resolving('App\Exceptions\Handler', function ($handler) {
+            $handler->renderable(function (NotFoundHttpException $e, $request) {
+                return (new Frontend)->handle();
+            });
+        });
     }
 
     /**

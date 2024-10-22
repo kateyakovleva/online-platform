@@ -1,11 +1,35 @@
-<form class="d-flex direction-column  w-100">
+<form (submit)="signUp($event)" class="d-flex direction-column  w-100">
   <div class="form__inputs d-flex direction-column">
-    <input class="input mb-10" placeholder="имя"/>
-    <input class="input mb-10" placeholder="телефон"/>
-    <input class="input mb-10" placeholder="e-mail"/>
+    <input required class="input mb-10" name="name" placeholder="имя"/>
+    <span *ngIf="errors.name" class="error">{{errors.name?.join(',')}}</span>
+    <input required class="input mb-10" name="phone" placeholder="телефон"/>
+    <span *ngIf="errors.phone" class="error">{{errors.phone?.join(',')}}</span>
+    <input required class="input mb-10" type="email" name="email" placeholder="e-mail"/>
+    <span *ngIf="errors.email" class="error">{{errors.email?.join(',')}}</span>
+
+    <div class="d-flex mb-10 tab-buttons">
+      <input required id="customer-type-1" type="radio" [value]="ECustomerType.WORKER" name="type" class="" checked
+             (change)="changeType($event)"/>
+      <label for="customer-type-1" class="tab-button left">
+        Соискатель
+      </label>
+      <input required id="customer-type-2" type="radio" [value]="ECustomerType.COMPANY" name="type" class=""
+             (change)="changeType($event)"/>
+      <label for="customer-type-2" class="tab-button right">
+        Компания
+      </label>
+    </div>
+
   </div>
   <div class="w-100 mb-10">
-    <button class="form__btn-enter w-100" type="submit" routerLink="/verify">{{naming.getAuth}}</button>
+    <button [class]="'form__btn-enter w-100 ' + (type === ECustomerType.COMPANY ? 'company' : '')"
+            type="submit">{{naming.getAuth}}</button>
   </div>
-  <div class="form__sub-text w-100">{{naming.confidenceText}}</div>
+  <div class="form__sub-text w-100">
+    Нажав на кнопку "Создать аккаунт", Вы соглашаетесь с условиями <a [href]="(settings.content | async)?.offer_link"
+                                                                      target="_blank"><b>оферты</b></a> и <a
+    [href]="(settings.content | async)?.personal_policy_link"
+    target="_blank"><b>политики
+    конфиденциальности</b></a>
+  </div>
 </form>

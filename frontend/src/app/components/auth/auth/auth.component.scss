@@ -21,7 +21,7 @@
     font-size: 24px;
     line-height: 28px;
 
-    &:hover, &:active {
+    &:hover, &:active, &.active {
       font-weight: 600;
       color: var(--dark-grey);
       border-bottom: 2px solid var(--dark-grey);
@@ -48,7 +48,12 @@
   color: var(--white);
   font-size: 18px;
   line-height: 20px;
+  text-transform: uppercase;
   background-color: var(--dark-orange);
+
+  &.company {
+    background-color: var(--light-green);
+  }
 }
 
 .form__sub-text {

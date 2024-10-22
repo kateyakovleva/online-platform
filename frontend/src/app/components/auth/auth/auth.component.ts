@@ -1,17 +1,18 @@
 import { Component } from '@angular/core';
-import {naming} from "../../../data/naming/naming/naming.service";
-import {RouterLink, RouterOutlet} from "@angular/router";
+import { naming } from "../../../data/naming/naming/naming.service";
+import { RouterLink, RouterLinkActive, RouterOutlet } from "@angular/router";
 
-@Component({
+@Component( {
   selector: 'app-auth',
   standalone: true,
-	imports: [
-		RouterLink,
-		RouterOutlet,
-	],
+  imports: [
+    RouterLink,
+    RouterOutlet,
+    RouterLinkActive,
+  ],
   templateUrl: './auth.component.html',
   styleUrl: './auth.component.scss'
-})
+} )
 export class AuthComponent {
-    naming = naming;
+  naming = naming;
 }

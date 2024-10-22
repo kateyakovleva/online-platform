@@ -31,3 +31,6 @@ Route::prefix('vacancies')->group(function () {
 Route::prefix('resumes')->group(function () {
     Route::get('/', [\App\Http\Controllers\Api\ResumesController::class, 'index']);
 });
+
+Route::post('/register', [\App\Http\Controllers\Api\CustomerController::class, 'register']);
+Route::post('/auth', [\App\Http\Controllers\Api\CustomerController::class, 'auth']);

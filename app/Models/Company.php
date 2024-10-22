@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property string $name
  * @property string $image
  * @property string $email
+ * @property string $phone
  * @property mixed $password
  * @property array|null $data
  * @property int|null $tariff_id
@@ -20,6 +21,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read bool $is_company
  * @property-read \App\Models\Tariff|null $tariff
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Laravel\Sanctum\PersonalAccessToken> $tokens
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Vacancy> $vacancies

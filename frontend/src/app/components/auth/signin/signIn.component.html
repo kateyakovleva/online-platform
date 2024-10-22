@@ -1,10 +1,12 @@
-<form class="d-flex direction-column w-100">
+<form (submit)="signIn($event)" class="d-flex direction-column w-100">
   <div class="form__inputs d-flex direction-column">
-    <input class="input mb-10" placeholder="e-mail"/>
-    <input class="input mb-10" placeholder="код"/>
+    <input class="input mb-10" name="email" placeholder="e-mail"/>
+    <span *ngIf="errors.email" class="error">{{errors.email?.join(',')}}</span>
+    <input class="input mb-10" name="password" placeholder="пароль"/>
+    <span *ngIf="errors.password" class="error">{{errors.password?.join(',')}}</span>
   </div>
   <div class="w-100">
-    <button class="form__btn-enter w-100" type="submit" routerLink="profile">{{naming.setEnter}}</button>
+    <button class="form__btn-enter w-100" type="submit">{{naming.setEnter}}</button>
   </div>
 </form>
 
