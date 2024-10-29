@@ -45,6 +45,10 @@ button {
   }
 }
 
+label[for] {
+  cursor: pointer;
+}
+
 ul {
   padding-inline-start: 0;
 

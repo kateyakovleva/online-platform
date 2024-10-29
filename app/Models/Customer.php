@@ -61,6 +61,10 @@ class Customer extends BaseUser
         'password',
     ];
 
+    protected $appends = [
+        'is_company'
+    ];
+
     public function setPasswordAttribute($value)
     {
         if ($value) $this->attributes['password'] = Hash::make($value);
@@ -94,7 +98,7 @@ class Customer extends BaseUser
 
     public function getInstanceClassName($attributes = []): string
     {
-        return match ($attributes['type']) {
+        return match ($attributes['type'] ?? '') {
             self::COMPANY_TYPE => Company::class,
             default => Worker::class
         };

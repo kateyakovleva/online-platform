@@ -1,6 +1,9 @@
 export interface ISetting {
   content: ISettingContent;
   tariffs: ISettingTariffs[];
+  specializations: ISpecialization[];
+  skills: ISkill[];
+  cities: ICity[];
 }
 
 export interface ISettingContent {
@@ -34,3 +37,18 @@ export interface ISettingTariffs {
   created_at: string;
   updated_at: string;
 }
+
+export interface IBaseItemType {
+  id: number;
+  name: string;
+}
+
+export interface ICity extends IBaseItemType {
+}
+
+export interface ISkill extends IBaseItemType {
+}
+
+export interface ISpecialization extends IBaseItemType {
+}
+

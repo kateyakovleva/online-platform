@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\City;
 use App\Models\Setting;
+use App\Models\Skill;
+use App\Models\Specialization;
 use App\Models\Tariff;
 
 class SettingsController extends Controller
@@ -16,6 +19,9 @@ class SettingsController extends Controller
         }
 
         $response['tariffs'] = Tariff::all();
+        $response['specializations'] = Specialization::all();
+        $response['skills'] = Skill::all();
+        $response['cities'] = City::all();
 
         return response()->json($response);
     }
