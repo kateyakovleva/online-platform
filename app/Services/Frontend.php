@@ -11,5 +11,8 @@ class Frontend
         if (is_file(public_path('index.html'))) {
             return response(file_get_contents(public_path('index.html')));
         }
+        if (is_file(public_path('index.csr.html'))) {
+            return response(file_get_contents(public_path('index.csr.html')));
+        }
     }
 }
