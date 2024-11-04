@@ -1,0 +1,47 @@
+.container-checkbox {
+  flex-wrap: wrap;
+  border-radius: 10px;
+  border: 1px solid var(--light-grey);
+  padding: 20px;
+
+  .writeSkills {
+    border-radius: 10px;
+    border: 1px solid var(--light-light-grey);
+    height: 50px;
+
+    &::placeholder {
+      padding-left: 20px;
+      font-size: 18px;
+      line-height: 21px;
+    }
+  }
+}
+
+.input-skill {
+  display: none;
+}
+
+.checkbox-img {
+  display: block;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  background-color: var(--light-light-grey)
+}
+
+.input-skill:checked + label .checkbox-img {
+  border-radius: 3px;
+  background-image: url("../../../../public/images/marker-orange.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 1150px) {
+
+  .w-6 {
+    width: 35%;
+    margin-bottom: 10px;
+  }
+
+}

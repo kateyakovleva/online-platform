@@ -1,0 +1,10 @@
+<div class="d-flex mb-20 container-checkbox">
+  <div *ngFor="let item of (settings.skills | async);" class="d-flex direction-row w-6 a-1-center j-c-start mr-30">
+    <input class="input-skill" [id]="'skill-'+item.id" name="skills[]" [value]="item.id"
+           [checked]="profile.skills.indexOf(item.id) !== -1" type="checkbox"/>
+    <label [for]="'skill-'+item.id" class="checkbox-name d-flex">
+      <span class="checkbox-img mr-5"></span>
+      {{item.name}}
+    </label>
+  </div>
+</div>

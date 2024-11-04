@@ -1,15 +1,22 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HeaderComponent } from "./components/header/header.component";
-import { FooterComponent } from "./components/footer/footer.component";
-import { provideHttpClient, withFetch } from "@angular/common/http";
-import { MarkdownModule, MARKED_OPTIONS, provideMarkdown } from "ngx-markdown";
-import { SplitStringPipe } from "./filters/splitString.pipe";
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {HeaderComponent} from "./components/header/header.component";
+import {FooterComponent} from "./components/footer/footer.component";
+import {provideHttpClient, withFetch} from "@angular/common/http";
+import {MarkdownModule, MARKED_OPTIONS, provideMarkdown} from "ngx-markdown";
+import {SplitStringPipe} from "./filters/splitString.pipe";
+import {SignUpVerifyComponent} from "./components/auth/signup/signupverify/signUpVerify.component";
+import {
+  CreateProfileCompanyComponent
+} from "./components/customer/create-profile-company/create-profile-company.component";
+import {CardResponseComponent} from "./components/customer/card-response/card-response.component";
+import {CreateProfileComponent} from "./components/candidate/createProfile/createProfile.component";
+import {ProfileComponent} from "./components/candidate/profile/profile.component";
 
-@NgModule( {
+@NgModule({
   declarations: [
     AppComponent,
   ],
@@ -19,7 +26,7 @@ import { SplitStringPipe } from "./filters/splitString.pipe";
     AppRoutingModule,
     HeaderComponent,
     FooterComponent,
-    MarkdownModule.forRoot( {
+    MarkdownModule.forRoot({
       markedOptions: {
         provide: MARKED_OPTIONS,
         useValue: {
@@ -27,17 +34,22 @@ import { SplitStringPipe } from "./filters/splitString.pipe";
           breaks: true
         }
       }
-    } )
+    }),
+    SignUpVerifyComponent,
+    CreateProfileCompanyComponent,
+    CardResponseComponent,
+    CreateProfileComponent,
+    ProfileComponent
   ],
   providers: [
-    provideClientHydration(),
-    provideHttpClient( withFetch() ),
+    // provideClientHydration(),
+    provideHttpClient(withFetch()),
     provideMarkdown()
   ],
   exports: [
     SplitStringPipe
   ],
-  bootstrap: [ AppComponent ]
-} )
+  bootstrap: [AppComponent]
+})
 export class AppModule {
 }

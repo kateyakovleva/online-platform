@@ -1,17 +1,15 @@
 import {Component} from '@angular/core';
-import {naming} from "../../../data/naming/naming/naming.service";
+import {naming} from "../../data/naming/naming/naming.service";
 import {RouterLink, RouterOutlet} from "@angular/router";
 import {CheckboxModule} from 'primeng/checkbox';
 import {FormsModule} from "@angular/forms";
 import {AsyncPipe, NgForOf, NgIf} from "@angular/common";
-import {SettingsService} from "../../../stores/SettingsService";
+import {SettingsService} from "../../stores/SettingsService";
 import {File} from "buffer";
-import {DropDownWithComponent} from "../../dropDownWith/dropDownWith.component";
-import {CustomSelectComponent} from "../customSelect/customSelect.component";
-import {CheckboxComponent} from "../../checkbox/checkbox.component";
+
 
 @Component({
-  selector: 'app-createProfile',
+  selector: 'app-checkbox',
   standalone: true,
   imports: [
     RouterLink,
@@ -20,15 +18,12 @@ import {CheckboxComponent} from "../../checkbox/checkbox.component";
     FormsModule,
     NgForOf,
     AsyncPipe,
-    DropDownWithComponent,
-    CustomSelectComponent,
-    NgIf,
-    CheckboxComponent
+    NgIf
   ],
-  templateUrl: './createProfile.component.html',
-  styleUrl: './createProfile.component.scss'
+  templateUrl: './checkbox.component.html',
+  styleUrl: './checkbox.component.scss'
 })
-export class CreateProfileComponent {
+export class CheckboxComponent {
   constructor(public settings: SettingsService) {
   }
 

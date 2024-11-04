@@ -12,6 +12,7 @@ import { CreateProfileComponent } from "./components/candidate/createProfile/cre
 import { ProfileComponent } from "./components/candidate/profile/profile.component";
 
 
+
 const authRoutes: Routes = [
   { path: 'signin', component: SignInComponent },
   { path: 'signup', component: SignUpComponent },

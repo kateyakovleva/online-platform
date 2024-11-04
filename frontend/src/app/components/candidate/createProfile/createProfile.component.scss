@@ -1,10 +1,12 @@
-.container {
-  width: 90%;
-  margin: 0 auto 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+form {
+  background-color: var(--white);
+
+  h1 {
+    margin: 60px 0 40px;
+    font-weight: 500;
+  }
 }
+
 
 .label {
   font-size: 30px;
@@ -40,26 +42,12 @@
   }
 }
 
-.container-checkbox  {
-  flex-wrap: wrap;
-  border-radius: 10px;
-  border: 1px solid var(--light-grey);
-  padding: 20px;
-
-  .container-skill {
-    width: 150px;
-  }
-
-  .checkbox {
-    background-color: var(--light-grey)
-  }
-
-  .checkbox-name {
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 21px;
-  }
+.checkbox-name {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 21px;
 }
+
 
 .select {
   height: 50px;
@@ -72,7 +60,7 @@
   height: 58px;
   color: var(--white);
   background-color: var(--light-grey);
-  width: 10%;
+  width: 11%;
   border-radius: 43px;
 
   .btn-resume {
@@ -95,3 +83,75 @@
   }
 }
 
+@media (max-width: 1150px) {
+
+  form {
+    margin-top: -20px;
+
+    h1 {
+      margin: 20px 0;
+      text-align: center;
+    }
+  }
+
+  .container-main {
+    width: 90%;
+  }
+
+  .mb-40 {
+    margin-bottom: 10px;
+  }
+
+  .label {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .subtext {
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  .w-50 {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .mr-30 {
+    margin-bottom: 20px;
+  }
+
+  .textarea {
+    padding: 10px;
+    font-size: 15px;
+
+    &::placeholder {
+      font-size: 15px;
+      line-height: 18px;
+    }
+  }
+
+  .mob {
+    align-items: center;
+  }
+
+  .container-btn-resume {
+    height: 48px;
+    width: 50%;
+
+    .btn-resume {
+      font-size: 12px;
+      line-height: 14px;
+    }
+  }
+
+  .container-btn-save {
+    height: 48px;
+    width: 62%;
+
+    .btn-save {
+      font-size: 10px;
+      line-height: 12px;
+    }
+  }
+}

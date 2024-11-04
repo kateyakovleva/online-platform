@@ -7,6 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "clean": "ng cache clean",
     "serve:ssr:online-platform": "node dist/online-platform/server/server.mjs"
   },
   "private": true,
@@ -23,6 +24,7 @@
     "@angular/ssr": "^18.1.2",
     "express": "^4.18.2",
     "ngx-markdown": "^18.1.0",
+    "ngx-scrollbar": "^16.0.0",
     "primeng": "^17.18.9",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
