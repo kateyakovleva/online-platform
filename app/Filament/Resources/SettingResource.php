@@ -8,7 +8,6 @@ use App\Models\Setting;
 use Filament\Forms;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Forms\Get;
@@ -32,8 +31,7 @@ class SettingResource extends Resource
                     ->options([
                         'bool' => 'Переключатель',
                         'string' => 'Строка',
-                        'markdown' => 'Текст с форматированием',
-                        'tags' => 'Список'
+                        'markdown' => 'Текст с форматированием'
                     ])
                     ->default('markdown')
                     ->live()
@@ -56,16 +54,10 @@ class SettingResource extends Resource
                                 ->required()
                                 ->columnSpanFull(),
                         ],
-                        'tags' => [
-                            TagsInput::make('value')
-                                ->helperText('Что бы выделить текст жирным оберните его **, например **жирный текст**')
-                                ->required()
-                                ->columnSpanFull(),
-                        ],
                         default => [
                             TextInput::make('value')
                                 ->required()
-                                ->helperText('Что бы выделить текст жирным оберните его **, например **жирный текст**')
+//                                ->helperText('Что бы выделить текст жирным оберните его **, например **жирный текст**')
                                 ->columnSpanFull(),
                         ],
                     })

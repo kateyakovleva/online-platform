@@ -8,7 +8,7 @@ use App\Models\Company;
 use App\Models\Customer;
 use App\Models\Worker;
 use Auth;
-use Illuminate\Http\Client\Request;
+use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
@@ -41,8 +41,10 @@ class CustomerController extends Controller
 
     public function updateProfile(Request $request)
     {
-        
+        /** @var Company|Worker $customer */
+        $customer = Auth::user();
+        $customer->update($request->all());
 
-        return $this->profile();
+        return $customer;
     }
 }
