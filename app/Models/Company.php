@@ -26,6 +26,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property-read \App\Models\Tariff|null $tariff
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Laravel\Sanctum\PersonalAccessToken> $tokens
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Vacancy> $vacancies
+ * @method static \Database\Factories\CompanyFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Company newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Company newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Company onlyTrashed()

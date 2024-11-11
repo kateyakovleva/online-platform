@@ -99,6 +99,10 @@ class Customer extends BaseUser
 
     public function getInstanceClassName($attributes = []): string
     {
+        if (!$attributes) {
+            return static::class;
+        }
+
         return match ($attributes['type'] ?? '') {
             self::COMPANY_TYPE => Company::class,
             default => Worker::class

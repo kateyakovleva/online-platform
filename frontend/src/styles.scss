@@ -60,6 +60,10 @@ button {
     border: none;
     background-color: transparent;
   }
+
+  &:disabled {
+    opacity: .6;
+  }
 }
 
 label[for] {
@@ -97,6 +101,10 @@ h2 {
 input, select, textarea {
   font-family: 'SF UI Display Regular';
   outline: none;
+
+  &:disabled {
+    opacity: .6;
+  }
 }
 
 select {

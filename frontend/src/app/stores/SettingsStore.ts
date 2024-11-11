@@ -1,13 +1,13 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, map, Observable } from "rxjs";
-import { HttpClient } from "@angular/common/http";
-import { ICity, ISetting, ISettingContent, ISettingTariffs, ISkill, ISpecialization } from "../types/settings";
-import { apiUrl } from "../utils";
+import { ISetting, ISettingContent, ISettingTariffs } from "../types/settings";
+import { AppClient } from "../services/AppClient";
+import { ICity, ISkill, ISpecialization } from "../types/other_types";
 
 @Injectable( {
   providedIn: 'root'
 } )
-export class SettingsService {
+export class SettingsStore {
   _settings: BehaviorSubject<ISetting | null> = new BehaviorSubject<ISetting | null>( null );
 
   get config(): Observable<ISetting | null> {
@@ -34,8 +34,8 @@ export class SettingsService {
     return this._settings.asObservable().pipe( map( r => r?.cities ) );
   }
 
-  constructor( private http: HttpClient ) {
-    this.http.get( apiUrl( '/settings' ) ).subscribe( ( response ) => {
+  constructor( private http: AppClient ) {
+    this.http.get( '/settings' ).subscribe( ( response ) => {
       this._settings.next( response as ISetting );
     } )
   }

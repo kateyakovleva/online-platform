@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from "@angular/router";
 import { naming } from "../../../../data/naming/naming/naming.service";
-import { SettingsService } from "../../../../stores/SettingsService";
+import { SettingsStore } from "../../../../stores/SettingsStore";
 import { AsyncPipe } from "@angular/common";
 import { MarkdownComponent } from "ngx-markdown";
 
@@ -20,6 +20,6 @@ export class Section1Component {
 
   naming = naming;
 
-  constructor( public settings: SettingsService ) {
+  constructor( public settings: SettingsStore ) {
   }
 }

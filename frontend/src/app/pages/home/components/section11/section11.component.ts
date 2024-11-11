@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { naming } from "../../../../data/naming/naming/naming.service";
-import { SettingsService } from "../../../../stores/SettingsService";
+import { SettingsStore } from "../../../../stores/SettingsStore";
 import { MarkdownComponent } from "ngx-markdown";
 import { AsyncPipe } from "@angular/common";
 
@@ -15,7 +15,7 @@ import { AsyncPipe } from "@angular/common";
   styleUrl: './section11.component.scss'
 } )
 export class Section11Component {
-  constructor( public settings: SettingsService ) {
+  constructor( public settings: SettingsStore ) {
   }
 
   naming = naming;

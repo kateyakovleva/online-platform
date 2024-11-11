@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { naming } from "../../../data/naming/naming/naming.service";
 import { Router, RouterLink, RouterOutlet } from "@angular/router";
-import { SettingsService } from "../../../stores/SettingsService";
+import { SettingsStore } from "../../../stores/SettingsStore";
 import { AsyncPipe, NgIf } from "@angular/common";
 import { ECustomerType } from "../../../types/customer";
 import { FormsModule } from "@angular/forms";
-import { HttpClient } from "@angular/common/http";
-import { apiUrl } from "../../../utils";
+import { RegisterStore } from "../../../stores/RegisterStore";
+import { AppClient } from "../../../services/AppClient";
+import { AuthStore } from "../../../stores/AuthStore";
 
 @Component( {
   selector: 'app-signUp',
@@ -22,7 +23,18 @@ import { apiUrl } from "../../../utils";
   styleUrl: '../auth/auth.component.scss'
 } )
 export class SignUpComponent {
-  constructor( public settings: SettingsService, private http: HttpClient, private router: Router ) {
+  constructor(
+    public settings: SettingsStore,
+    private http: AppClient,
+    private router: Router,
+    private regStore: RegisterStore,
+    private auth: AuthStore,
+  ) {
+    this.auth.auth$.subscribe( ( a ) => {
+      if ( a ) {
+        this.router.navigate( [ "/profile" ] );
+      }
+    } );
   }
 
   naming = naming;
@@ -39,7 +51,8 @@ export class SignUpComponent {
 
   signUp( $event: SubmitEvent ) {
     $event.preventDefault();
-    this.http.post( apiUrl( '/register' ), new FormData( $event.target as HTMLFormElement ) )
+    this.regStore.registerData.next( new FormData( $event.target as HTMLFormElement ) );
+    this.http.post( '/register', this.regStore.registerData.getValue() )
       .subscribe( {
         next: data => {
           this.router.navigate( [ "/verify" ] );
@@ -49,4 +62,20 @@ export class SignUpComponent {
         }
       } )
   }
+
+  @ViewChild( 'password', { static: false } )
+  password: ElementRef | null = null;
+
+  @ViewChild( 'confirm', { static: false } )
+  confirm: ElementRef | null = null;
+
+  comparePassword( event: Event ) {
+    if ( this.password?.nativeElement?.value !== this.confirm?.nativeElement?.value ) {
+      this.errors.password = [ 'Введенные пароли не совпадают.' ];
+    } else {
+      delete this.errors.password;
+    }
+  }
+
+  protected readonly Object = Object;
 }

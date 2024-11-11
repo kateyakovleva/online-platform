@@ -30,6 +30,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property-read \App\Models\Company $company
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Skill> $skills
  * @property-read \App\Models\Specialization $specialization
+ * @method static \Database\Factories\VacancyFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Vacancy newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Vacancy newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Vacancy query()
@@ -56,6 +57,6 @@ class Vacancy extends Model
 
     public function company(): BelongsTo
     {
-        return $this->belongsTo(Company::class);
+        return $this->belongsTo(Company::class, 'company_id');
     }
 }

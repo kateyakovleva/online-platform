@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $name
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Database\Factories\SkillFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Skill newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Skill newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Skill query()

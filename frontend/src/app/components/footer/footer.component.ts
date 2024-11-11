@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SettingsService } from "../../stores/SettingsService";
+import { SettingsStore } from "../../stores/SettingsStore";
 import { AsyncPipe, NgIf } from "@angular/common";
 
 @Component( {
@@ -13,6 +13,6 @@ import { AsyncPipe, NgIf } from "@angular/common";
   styleUrl: './footer.component.scss'
 } )
 export class FooterComponent {
-  constructor( public settings: SettingsService ) {
+  constructor( public settings: SettingsStore ) {
   }
 }

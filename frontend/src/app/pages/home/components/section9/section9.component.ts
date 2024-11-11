@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { naming } from "../../../../data/naming/naming/naming.service";
-import { SettingsService } from "../../../../stores/SettingsService";
+import { SettingsStore } from "../../../../stores/SettingsStore";
 import { MarkdownComponent } from "ngx-markdown";
 import { AsyncPipe, NgForOf, NgIf } from "@angular/common";
 import { SplitStringPipe } from "../../../../filters/splitString.pipe";
@@ -19,7 +19,7 @@ import { SplitStringPipe } from "../../../../filters/splitString.pipe";
   styleUrl: './section9.component.scss'
 } )
 export class Section9Component {
-  constructor( public settings: SettingsService ) {
+  constructor( public settings: SettingsStore ) {
   }
 
   naming = naming;

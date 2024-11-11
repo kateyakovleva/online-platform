@@ -1,7 +1,7 @@
 export const apiUrl = ( url: string ) => {
   if ( !url.startsWith( 'http' ) ) {
     if ( !url.startsWith( '/' ) ) url = '/' + url;
-    url = `http://hh.wi-studio.ru/api${ url }`;
+    url = `http://online-platform.ru/api${ url }`;
     console.log( '==================', url )
   }
 

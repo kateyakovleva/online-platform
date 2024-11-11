@@ -27,6 +27,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Skill> $skills
  * @property-read \App\Models\Specialization $specialization
  * @property-read \App\Models\Worker|null $worker
+ * @method static \Database\Factories\ResumeFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Resume newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Resume newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Resume query()

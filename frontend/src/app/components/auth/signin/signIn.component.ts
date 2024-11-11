@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { naming } from "../../../data/naming/naming/naming.service";
 import { Router, RouterLink } from "@angular/router";
-import { SettingsService } from "../../../stores/SettingsService";
-import { HttpClient } from "@angular/common/http";
-import { apiUrl } from "../../../utils";
+import { SettingsStore } from "../../../stores/SettingsStore";
 import { NgIf } from "@angular/common";
+import { AppClient } from "../../../services/AppClient";
+import { AuthStore } from "../../../stores/AuthStore";
 
 @Component( {
   selector: 'app-signIn',
@@ -17,7 +17,17 @@ import { NgIf } from "@angular/common";
   styleUrl: '../auth/auth.component.scss'
 } )
 export class SignInComponent {
-  constructor( public settings: SettingsService, private http: HttpClient, private router: Router ) {
+  constructor(
+    public settings: SettingsStore,
+    private http: AppClient,
+    private auth: AuthStore,
+    private router: Router
+  ) {
+    this.auth.auth$.subscribe( ( a ) => {
+      if ( a ) {
+        this.router.navigate( [ "/profile" ] );
+      }
+    } );
   }
 
   naming = naming;
@@ -25,10 +35,13 @@ export class SignInComponent {
 
   signIn( $event: SubmitEvent ) {
     $event.preventDefault();
-    this.http.post( apiUrl( '/auth' ), new FormData( $event.target as HTMLFormElement ) )
+    this.http.post( '/auth', new FormData( $event.target as HTMLFormElement ) )
       .subscribe( {
-        next: data => {
-          this.router.navigate( [ "/profile" ] );
+        next: ( data: any ) => {
+          if ( data.token ) {
+            this.auth.updateToken( data.token );
+          }
+          // this.router.navigate( [ "/profile" ] );
         },
         error: error => {
           this.errors = error.error?.errors || {}

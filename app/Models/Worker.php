@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
- *
+ * 
  *
  * @property int $id
  * @property int $type
@@ -23,9 +23,10 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null $photo
  * @property-read bool $is_company
- * @property-read \App\Models\Resume|null $resume
+ * @property-read \App\Models\Resume $resume
  * @property-read \App\Models\Tariff|null $tariff
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Laravel\Sanctum\PersonalAccessToken> $tokens
+ * @method static \Database\Factories\WorkerFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Worker newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Worker newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Worker onlyTrashed()

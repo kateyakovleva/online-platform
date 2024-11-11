@@ -7,6 +7,13 @@
     <input required class="input mb-10" type="email" name="email" placeholder="e-mail"/>
     <span *ngIf="errors.email" class="error">{{errors.email?.join(',')}}</span>
 
+    <input #password required class="input mb-10" type="password" name="password" placeholder="пароль"
+           (change)="comparePassword($event)"/>
+    <span *ngIf="errors.password" class="error">{{errors.password?.join(',')}}</span>
+    <input #confirm required class="input mb-10" type="password" name="password_confirmation"
+           placeholder="повторите пароль"
+           (change)="comparePassword($event)"/>
+
     <div class="d-flex mb-10 tab-buttons">
       <input required id="customer-type-1" type="radio" [value]="ECustomerType.WORKER" name="type" class="" checked
              (change)="changeType($event)"/>
@@ -23,7 +30,7 @@
   </div>
   <div class="w-100 mb-10">
     <button [class]="'form__btn-enter w-100 ' + (type === ECustomerType.COMPANY ? 'company' : '')"
-            type="submit">{{naming.getAuth}}</button>
+            type="submit" [disabled]="errors.password">{{naming.getAuth}}</button>
   </div>
   <div class="form__sub-text w-100">
     Нажав на кнопку "Создать аккаунт", Вы соглашаетесь с условиями <a [href]="(settings.content | async)?.offer_link"
