@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { naming } from "../../../../data/naming/naming/naming.service";
 import { RouterLink } from "@angular/router";
 import { UserStore } from "../../../../stores/UserStore";
-import { async } from "rxjs";
 import { AsyncPipe, NgIf } from "@angular/common";
 
 @Component( {
@@ -20,6 +19,4 @@ export class PersonalDataComponent {
     public user: UserStore,
   ) {
   }
-
-  protected readonly async = async;
 }
