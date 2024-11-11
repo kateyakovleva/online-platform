@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { naming } from "../../../data/naming/naming/naming.service";
-import { RouterLink, RouterOutlet } from "@angular/router";
+import { Router, RouterLink, RouterOutlet } from "@angular/router";
 import { CheckboxModule } from 'primeng/checkbox';
 import { FormsModule } from "@angular/forms";
 import { AsyncPipe, NgForOf, NgIf } from "@angular/common";
@@ -11,6 +11,7 @@ import { CheckboxComponent } from "../../checkbox/checkbox.component";
 import { UserStore } from "../../../stores/UserStore";
 import { ICity, ISkill, ISpecialization } from "../../../types/other_types";
 import { IResume } from "../../../types/customer";
+import { AppClient } from "../../../services/AppClient";
 
 @Component( {
   selector: 'app-createProfile',
@@ -33,6 +34,8 @@ export class CreateProfileComponent {
   constructor(
     public settings: SettingsStore,
     public user: UserStore,
+    private http: AppClient,
+    private router: Router,
   ) {
   }
 
@@ -55,5 +58,15 @@ export class CreateProfileComponent {
 
   getSelectedSpecialization( cities?: ISpecialization[] | null, resume?: IResume ) {
     return cities?.find( c => c.id === resume?.specialization_id );
+  }
+
+  onSave( event: Event ) {
+    event.preventDefault();
+    const data = new FormData( event.target as HTMLFormElement );
+
+    this.http.post( '/profile/resume', data ).subscribe( r => {
+      this.user.updateUser();
+      this.router.navigate( [ "/profile" ] );
+    } )
   }
 }

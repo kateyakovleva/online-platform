@@ -1,12 +1,12 @@
 <input
   class="input-skill"
-  [id]="'checkbox-'+name"
+  [id]="id"
   [name]="name"
   [value]="value"
   [checked]="checked"
   type="checkbox"
 />
-<label *ngIf="label" [for]="'checkbox-'+name" class="checkbox-name d-flex">
+<label *ngIf="label" [for]="id" class="checkbox-name d-flex">
   <span class="checkbox-img mr-5"></span>
   {{label}}
 </label>

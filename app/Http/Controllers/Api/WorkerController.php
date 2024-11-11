@@ -19,6 +19,6 @@ class WorkerController extends Controller
             $customer->resume->save();
         }
 
-        return $this->profile();
+        return response()->json();
     }
 }

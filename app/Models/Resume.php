@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
- * 
+ *
  *
  * @property int $id
  * @property int $customer_id
@@ -55,5 +55,12 @@ class Resume extends Model
     public function worker(): BelongsTo
     {
         return $this->belongsTo(Worker::class);
+    }
+
+    public function setSkillsAttribute($value)
+    {
+        if ($this->exists) {
+            $this->skills()->sync($value);
+        }
     }
 }

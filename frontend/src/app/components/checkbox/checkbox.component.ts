@@ -5,7 +5,7 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { FormsModule } from "@angular/forms";
 import { AsyncPipe, NgForOf, NgIf } from "@angular/common";
 import { SettingsStore } from "../../stores/SettingsStore";
-
+import { v4 as uuidv4 } from 'uuid';
 
 @Component( {
   selector: 'app-checkbox',
@@ -27,9 +27,12 @@ import { SettingsStore } from "../../stores/SettingsStore";
 } )
 export class CheckboxComponent {
   constructor( public settings: SettingsStore ) {
+    this.id = uuidv4();
   }
 
   naming = naming;
+
+  id = '';
 
   @Input()
   name?: string | null = null;

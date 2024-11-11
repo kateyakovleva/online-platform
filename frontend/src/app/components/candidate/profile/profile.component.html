@@ -4,7 +4,7 @@
     <div class="d-flex direction-column j-c-start a-1-center container-border w-80 padding-top30">
       <div class="d-flex j-c-center a-1-center w-100 relative">
         <div class="w-100 a-1-center j-c-center d-flex">
-          <img class="img-profile" src="images/profile.svg" alt="profile"/>
+          <img class="img-profile" [src]="profile?.image || 'images/profile.svg'" alt="profile"/>
         </div>
         <div class="d-flex container__img-plus absolute">
           <img src="images/button_plus.svg" alt="img-button"/>

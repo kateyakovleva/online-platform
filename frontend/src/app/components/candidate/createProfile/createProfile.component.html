@@ -1,7 +1,7 @@
 @let profile = user.worker$ | async;
 @let cities = settings.cities | async;
 @let specializations = settings.specializations | async;
-<form class="d-flex a-1-start j-c-center w-100">
+<form (submit)="onSave($event)" class="d-flex a-1-start j-c-center w-100">
   <div class="container-main d-flex direction-column">
     <h1>{{naming.tellAbout}}</h1>
     <div class="d-flex direction-column mb-40">
@@ -56,15 +56,9 @@
         <app-custom-select
           [items]="[{id: 'бла бла бла', name: 'бла бла бла'},
           {id: 'бла бла бла', name: 'бла бла бла'},
-          {id: 'бла бла бла', name: 'бла бла бла'},
-          {id: 'бла бла бла', name: 'бла бла бла'},
-          {id: 'бла бла бла', name: 'бла бла бла'},
-          {id: 'бла бла бла', name: 'бла бла бла'},
-          {id: 'бла бла бла', name: 'бла бла бла'},
-          {id: 'бла бла бла', name: 'бла бла бла'},]"
+          {id: 'бла бла бла', name: 'бла бла бла'}]"
           labelFieldName="name"
           valueFieldName="id"
-          name="specialization_id"
         />
       </div>
     </div>
