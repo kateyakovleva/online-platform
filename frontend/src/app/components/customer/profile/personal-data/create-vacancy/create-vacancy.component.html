@@ -1,64 +1,100 @@
-<div class="d-flex direction-column">
-  <div>
-    <h3>{{ naming.createVacancy }}</h3>
-    <div class="d-flex direction-column">
-      <label>{{ naming.nameCompany}}</label>
-      <input/>
+<form class="d-flex a-1-start j-c-center direction-column">
+  <div class="d-flex direction-column w-100">
+    <h1 class="label mb-20 mt-40">{{ naming.createVacancy }}</h1>
+    <div class="d-flex direction-column mb-40">
+      <label class="label mb-10">{{ naming.nameSpecialisation}}</label>
+      <app-custom-select
+        [items]="[{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},]"
+        labelFieldName="name"
+        valueFieldName="id"
+        name="specialization_id"
+      />
     </div>
-    <div class="d-flex direction-column">
-      <label>{{ naming.stack }}</label>
-      <div class="d-flex direction-row">
-        @for (item of items; track item){
-        <div>{{ item.name }}</div>
-        }
+    <div class="d-flex direction-column mb-40">
+      <label class="label mb-10">{{ naming.nameCompany}}</label>
+      <app-custom-select
+        [items]="[{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},]"
+        labelFieldName="name"
+        valueFieldName="id"
+        name="specialization_id"
+      />
+    </div>
+    <div class="d-flex direction-column mb-40">
+      <label class="label mb-10">{{naming.stack1}}</label>
+      <div class="d-flex container-checkbox direction-column">
+        <app-checkbox></app-checkbox>
       </div>
     </div>
-    <div class="d-flex direction-column">
-      <label>{{ naming.whichSkills }}</label>
-      <div>текст текст текст</div>
-      <textarea></textarea>
+    <div class="d-flex direction-column mb-40">
+      <label class="label mb-10">{{ naming.whichSkills }}</label>
+      <div class="subtext mb-10">текст текст текст</div>
+      <textarea class="textarea"></textarea>
     </div>
-    <div class="d-flex direction-column">
-      <label>{{ naming.whichTasks }}</label>
-      <div>текст текст текст</div>
-      <textarea></textarea>
+    <div class="d-flex direction-column mb-40">
+      <label class="label mb-10">{{ naming.whichTasks }}</label>
+      <div class="subtext mb-10">текст текст текст</div>
+      <textarea class="textarea"></textarea>
     </div>
-    <div class="d-flex direction-column">
-      <label>{{ naming.whichProgress }}</label>
-      <div>текст текст текст</div>
-      <textarea></textarea>
+    <div class="d-flex direction-column mb-40">
+      <label class="label mb-10">{{ naming.whichProgress }}</label>
+      <div class="subtext mb-10">текст текст текст</div>
+      <textarea class="textarea"></textarea>
     </div>
-    <div class="d-flex direction-row">
-      <div class="d-flex direction-column">
-        <label>{{ naming.cityMy }}</label>
-        <select></select>
+    <div class="d-flex w-50 mb-40">
+      <div class="d-flex direction-column w-90 mr-30">
+        <label class="label mb-10">{{naming.cityMy}}</label>
+        <app-custom-select
+          [items]="[{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},
+          {id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},
+          {id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},
+          {id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},]"
+          placeholder="выбрать"
+          labelFieldName="name"
+          valueFieldName="id"
+          name="specialization_id"
+        />
       </div>
-      <div class="d-flex direction-column">
-        <label>{{ naming.workForm }}</label>
-        <select></select>
+      <div class="d-flex direction-column w-90">
+        <label class="label mb-10">{{naming.workForm}}</label>
+        <app-custom-select
+          [items]="[{id: 'бла бла бла', name: 'бла бла бла'},
+          {id: 'бла бла бла', name: 'бла бла бла'},
+          {id: 'бла бла бла', name: 'бла бла бла'},
+          {id: 'бла бла бла', name: 'бла бла бла'},
+          {id: 'бла бла бла', name: 'бла бла бла'},
+          {id: 'бла бла бла', name: 'бла бла бла'},
+          {id: 'бла бла бла', name: 'бла бла бла'},
+          {id: 'бла бла бла', name: 'бла бла бла'},]"
+          placeholder="выбрать"
+          labelFieldName="name"
+          valueFieldName="id"
+          name="specialization_id"
+        />
       </div>
     </div>
-    <div class="d-flex direction-column">
-      <label>{{ naming.whichOffer }}</label>
-      <div class="direction-row d-flex">
-        <label>От</label>
-        <input/>
-        <label>До</label>
-        <input/>
-        <input type="checkbox"/>
-        <label>По договоренности</label>
+    <div class="d-flex direction-column mb-40">
+      <label class="label mb-10">{{ naming.whichOffer }}</label>
+      <div class="direction-row d-flex a-1-center j-c-start">
+        <label class="label-s mr-10">от</label>
+        <input class="input mr-10"/>
+        <label class="label-s mr-10">до</label>
+        <input class="input mr-10"/>
+        <input type="checkbox" class="mr-10 check"/>
+        <label class="label-xs">по договоренности</label>
       </div>
     </div>
-    <div class="d-flex direction-column">
-      <label>{{ naming.benefits }}</label>
-      <div>текст текст текст</div>
-      <textarea></textarea>
+    <div class="d-flex direction-column mb-40">
+      <label class="label mb-10">{{ naming.benefits }}</label>
+      <div class="subtext mb-10">текст текст текст</div>
+      <textarea class="textarea"></textarea>
     </div>
-    <div class="d-flex direction-column">
-      <label>{{ naming.comment }}</label>
-      <div>текст текст текст</div>
-      <textarea></textarea>
+    <div class="d-flex direction-column mb-40">
+      <label class="label mb-10">{{ naming.comment }}</label>
+      <div class="subtext mb-10">текст текст текст</div>
+      <textarea class="textarea"></textarea>
     </div>
   </div>
-  <button>text</button>
-</div>
+  <div class="d-flex w-100 a-1-center j-c-center mb-100">
+    <button class="btn-sub">text</button>
+  </div>
+</form>

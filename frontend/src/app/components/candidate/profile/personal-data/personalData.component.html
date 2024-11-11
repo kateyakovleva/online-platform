@@ -1,22 +1,22 @@
 <div class="d-flex direction-column w-100">
   <h1 class="mb-20">{{naming.personalData}}</h1>
-  <div class="d-flex direction-row j-c-space-between w-100">
-    <div class="d-flex direction-column">
-      <div class="sub_title">{{naming.speciality}}</div>
+  <div class="d-flex direction-row j-c-space-between w-100 mb-40 mobile">
+    <div class="d-flex direction-column container-border padding10 w-30">
+      <div class="sub_title mb-10">{{naming.speciality1}}</div>
       <div class="sub-title__text">текст текст текст текст текст</div>
     </div>
-    <div class="d-flex direction-column">
-      <div class="sub_title">{{naming.interestVacancy}}</div>
-      <ul class="sub-title__text">
+    <div class="d-flex direction-column container-border padding10 w-30">
+      <div class="sub_title">{{naming.interestVacancy1}}</div>
+      <ul class="sub-title__text padding-left30">
         <li class="mb-5">текст текст текст текст текст</li>
         <li class="mb-5">текст текст текст текст текст</li>
         <li class="mb-5">текст текст текст текст текст</li>
         <li class="mb-5">текст текст текст текст текст</li>
       </ul>
     </div>
-    <div class="d-flex direction-column">
-      <div class="sub_title">{{naming.coursesMy}}</div>
-      <ul class="sub-title__text">
+    <div class="d-flex direction-column container-border padding10 w-30">
+      <div class="sub_title">{{naming.coursesMy1}}</div>
+      <ul class="sub-title__text padding-left30">
         <li class="mb-5">текст текст текст текст текст</li>
         <li class="mb-5">текст текст текст текст текст</li>
         <li class="mb-5">текст текст текст текст текст</li>
@@ -24,32 +24,32 @@
       </ul>
     </div>
   </div>
-  <div class="d-flex direction-column j-c-center a-1-center">
-    <div class="sub_title mb-20">{{naming.skillsMy}}</div>
+  <div class="d-flex direction-column j-c-center a-1-center container-border padding10 mb-40 mobile-container">
+    <div class="sub_title mb-20">{{naming.skillsMy1}}</div>
     <div class="d-flex direction-row a-1-center j-c-center w-80 flex-wrap">
       @for (skill of skills; track skill){
         <div class="skill">{{skill.name}}</div>
       }
     </div>
   </div>
-  <div class="d-flex direction-column">
-    <div class="sub_title">{{naming.interestTasks}}</div>
-    <ul class="sub-title__text">
+  <div class="d-flex direction-column container-border padding10 mb-40">
+    <div class="sub_title">{{naming.interestTasks1}}</div>
+    <ul class="sub-title__text padding-left30">
       <li class="mb-5">текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст</li>
       <li class="mb-5">текст текст текст текст текст</li>
       <li class="mb-5">текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст</li>
       <li class="mb-5">текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст</li>
     </ul>
   </div>
-  <div class="d-flex direction-column">
-    <div class="sub_title mb-20">{{naming.payMy}}</div>
+  <div class="d-flex direction-column container-border padding10 mb-40">
+    <div class="sub_title mb-20">{{naming.payMy1}}</div>
     <div class="sub-title__text mb-20">текст текст текст текст текст текст текст текст текст 400 000 текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст</div>
   </div>
-  <div class="d-flex direction-column mb-20">
-    <div class="sub_title mb-20">{{naming.comment}}</div>
+  <div class="d-flex direction-column container-border padding10 mb-40">
+    <div class="sub_title mb-20">{{naming.comment1}}</div>
     <div class="sub-title__text mb-20">текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст текст</div>
   </div>
-  <div class="d-flex direction-row a-1-center j-c-start">
+  <div class="d-flex direction-row a-1-center j-c-start mb-40 mobile">
     <div class="sub_title mr-30">{{naming.resume1}}</div>
     <div class="d-flex direction-row a-1-center j-c-center container__btn-resume">
       <button class="d-flex a-1-center j-c-center btn-resume">
@@ -58,5 +58,7 @@
       </button>
     </div>
   </div>
-  <button class="btn-change mb-100">{{naming.change}}</button>
+  <div class="d-flex w-100 a-1-center j-c-center mb-100">
+    <button class="btn-change">{{naming.change}}</button>
+  </div>
 </div>

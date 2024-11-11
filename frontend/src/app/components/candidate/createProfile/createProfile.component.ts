@@ -6,7 +6,6 @@ import {FormsModule} from "@angular/forms";
 import {AsyncPipe, NgForOf, NgIf} from "@angular/common";
 import {SettingsService} from "../../../stores/SettingsService";
 import {File} from "buffer";
-import {DropDownWithComponent} from "../../dropDownWith/dropDownWith.component";
 import {CustomSelectComponent} from "../customSelect/customSelect.component";
 import {CheckboxComponent} from "../../checkbox/checkbox.component";
 
@@ -20,7 +19,6 @@ import {CheckboxComponent} from "../../checkbox/checkbox.component";
     FormsModule,
     NgForOf,
     AsyncPipe,
-    DropDownWithComponent,
     CustomSelectComponent,
     NgIf,
     CheckboxComponent

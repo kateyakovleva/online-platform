@@ -1,0 +1,21 @@
+:host {
+  width: 100%;
+
+  .label {
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 35px;
+  }
+}
+
+@media (max-width: 1150px) {
+
+  :host {
+    margin-top: -20px;
+
+    .label {
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+}

@@ -4,8 +4,22 @@
   border-radius: 10px;
   border: 1px solid var(--light-grey);
   color: var(--light-grey);
+  background-color: var(--white);
 }
 
+input {
+  border: none;
+  outline: none;
+  color: var(--black);
+  font-size: 17px;
+  line-height: 20px;
+
+  &::placeholder {
+    color: var(--black);
+    font-size: 17px;
+    line-height: 20px;
+  }
+}
 
 .items-list {
   height: 200px;
@@ -41,7 +55,7 @@
 
 @media (max-width: 1150px) {
   .container-input {
-    height: 41px;
+    height: 40px;
 
     .w-55 {
       width: 100%;
@@ -55,5 +69,15 @@
     right: -1px;
     font-size: 15px;
     line-height: 30px;
+  }
+
+  input {
+    font-size: 13px;
+    line-height: 16px;
+
+    &::placeholder {
+      font-size: 13px;
+      line-height: 16px;
+    }
   }
 }

@@ -1,7 +1,31 @@
+.card-border {
+  background-color: #FAFAFA;
+  border: 1px solid var(--light-light-grey);
+  border-radius: 20px;
+  padding: 20px;
+
+  &:hover {
+    background-color: var(--white);
+    -webkit-box-shadow: 2px 22px 53px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 2px 22px 53px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 22px 53px 0px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.specialisation {
+  font-size: 18px;
+  line-height: 24px;
+}
+
 .sub-text {
   font-size: 20px;
   line-height: 26px;
-  color: var(--light-grey);
+  color: var(--dark-grey);
+}
+
+.logo {
+  width: 5%;
+  border-radius: 50%;
 }
 
 h3 {
@@ -11,6 +35,70 @@ h3 {
 
 .sub-btn {
   border-radius: 28px;
-  border: 1px solid var(--light-grey);
-  padding: 5px 10px;
+  border: 1px solid var(--dark-grey);
+  padding: 5px 15px;
+  background-color: var(--white);
+}
+
+@media (max-width: 900px) {
+
+  .specialisation {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .sub-text {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  h2 {
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  .companyName {
+    font-size: 9px;
+    line-height: 12px;
+  }
+
+  .sub-btn {
+    font-size: 11px;
+    line-height: 13px;
+    border-radius: 13px;
+    padding: 3px 10px;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1360px) {
+
+  .specialisation, .companyName {
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  .sub-text {
+    font-size: 17px;
+    line-height: 21px;
+  }
+
+  h2 {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  h3 {
+    font-size: 25px;
+  }
+
+  .sub-btn {
+    font-size: 16px;
+    line-height: 20px;
+    border-radius: 20px;
+    padding: 5px 10px;
+  }
 }

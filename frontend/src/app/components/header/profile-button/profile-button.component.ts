@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {naming} from "../../../data/naming/naming/naming.service";
-import {DropDownWithComponent} from "../../dropDownWith/dropDownWith.component";
+import {CustomSelectComponent} from "../../candidate/customSelect/customSelect.component";
 
 @Component({
   selector: 'app-profile-button',
   standalone: true,
   imports: [
-    DropDownWithComponent
+    CustomSelectComponent
   ],
   templateUrl: './profile-button.component.html',
   styleUrl: './profile-button.component.scss'

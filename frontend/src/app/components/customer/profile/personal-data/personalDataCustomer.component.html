@@ -1,12 +1,14 @@
 <div class="d-flex direction-column">
-  <h2>{{naming.personalData}}</h2>
-  <div>Информация о компании</div>
-  <div>текст текст текст</div>
-  <div class="d-flex direction-row">
-    <button>{{ naming.vacancies }}</button>
-    <button>{{ naming.createVacancy }}</button>
+  <h1 class="mb-20">{{naming.personalData}}</h1>
+  <div class="container-border mb-40">
+    <div class="text mb-20">Информация о компании</div>
+    <div class="subtext">текст текст текст</div>
   </div>
-  <div class="d-flex">
-    <app-create-vacancy></app-create-vacancy>
+  <div class="d-flex direction-row w-100 border">
+    <button class="btn-grey mr-30">{{ naming.vacancies }}</button>
+    <button class="btn-grey">{{ naming.createVacancy }}</button>
+  </div>
+  <div class="d-flex w-100">
+    <app-vacancies></app-vacancies>
   </div>
 </div>

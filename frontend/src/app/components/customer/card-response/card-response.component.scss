@@ -1,0 +1,125 @@
+.card-border {
+  background-color: #FAFAFA;
+  border: 1px solid var(--light-light-grey);
+  border-radius: 20px;
+  padding: 20px;
+
+  &:hover {
+    background-color: var(--white);
+    -webkit-box-shadow: 2px 22px 53px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 2px 22px 53px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 22px 53px 0px rgba(0, 0, 0, 0.2);
+  }
+
+  h1 {
+    font-size: 30px;
+    line-height: 35px;
+  }
+
+  .skills-title {
+    font-size: 25px;
+    line-height: 30px;
+  }
+
+  .skill {
+    text-align: center;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    background-color: var(--light-light-grey);
+    border-radius: 48px;
+    min-width: 7%;
+    padding: 7px;
+  }
+
+  .sub-text {
+    font-size: 20px;
+    line-height: 26px;
+    color: var(--dark-grey);
+  }
+
+  .logo {
+    width: 5%;
+    border-radius: 50%;
+  }
+
+  .sub-btn {
+    border-radius: 28px;
+    border: 1px solid var(--dark-grey);
+    padding: 5px 15px;
+    background-color: var(--white);
+  }
+}
+
+@media (max-width: 900px) {
+  .card-border {
+
+    .specialisation {
+      font-size: 12px;
+      line-height: 16px;
+    }
+
+    h1 {
+      font-size: 16px;
+      line-height: 19px;
+    }
+
+    .sub-text {
+      font-size: 14px;
+      line-height: 18px;
+    }
+
+    .skills-title {
+      font-size: 14px;
+      line-height: 16px;
+    }
+
+    .skill {
+      font-size: 12px;
+      line-height: 15px;
+      border-radius: 39px;
+      min-width: 15%;
+      padding: 3px;
+    }
+
+    .sub-btn {
+      font-size: 11px;
+      line-height: 13px;
+      border-radius: 13px;
+      padding: 3px 10px;
+    }
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1360px) {
+
+  .card-border {
+
+    .specialisation, .companyName {
+      font-size: 15px;
+      line-height: 20px;
+    }
+
+    h1 {
+      font-size: 18px;
+      line-height: 22px;
+    }
+
+    .sub-text {
+      font-size: 17px;
+      line-height: 21px;
+    }
+
+    .skills-title {
+      font-size: 17px;
+      line-height: 22px;
+    }
+
+    .sub-btn {
+      font-size: 16px;
+      line-height: 20px;
+      border-radius: 20px;
+      padding: 5px 10px;
+    }
+  }
+}
+

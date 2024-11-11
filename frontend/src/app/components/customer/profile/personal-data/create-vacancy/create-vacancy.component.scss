@@ -1,0 +1,136 @@
+:host {
+  width: 100%;
+
+  .label {
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 35px;
+  }
+
+  .label-s {
+    font-size: 25px;
+    color: var(--dark-grey);
+    line-height: 30px;
+  }
+
+  .label-xs {
+    font-size: 20px;
+    color: var(--dark-grey);
+    line-height: 26px;
+  }
+
+  .subtext {
+    font-size: 20px;
+    line-height: 26px;
+    color: var(--light-grey);
+  }
+
+  .check {
+    width: 20px;
+    height: 20px;
+  }
+
+  .input {
+    width: 10%;
+    padding-left: 20px;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid var(--light-grey);
+    font-size: 16px;
+  }
+
+  .textarea {
+    padding: 20px;
+    min-height: 100px;
+    border-radius: 10px;
+    border: 1px solid var(--light-grey);
+    font-size: 16px;
+
+    &::placeholder {
+      font-family: 'SF UI Display Regular';
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+
+  .btn-sub {
+    color: var(--white);
+    font-size: 18px;
+    line-height: 21px;
+    background-color: var(--dark-orange);
+    padding: 15px 25px;
+    border-radius: 88px;
+    width: 290px;
+  }
+}
+
+@media (max-width: 1150px) {
+  :host {
+
+    form {
+      margin-top: -20px;
+    }
+
+    .container-main {
+      width: 90%;
+    }
+
+    .mb-40 {
+      margin-bottom: 10px;
+    }
+
+    .label {
+      font-size: 16px;
+      line-height: 20px;
+    }
+
+    .label-s {
+      font-size: 13px;
+      line-height: 15px;
+    }
+
+    .label-xs {
+      font-size: 12px;
+      line-height: 16px;
+    }
+
+    .subtext {
+      font-size: 14px;
+      line-height: 19px;
+    }
+
+    .check {
+      width: 20px;
+      height: 20px;
+    }
+
+    .input {
+      height: 26px;
+      width: 54px;
+    }
+
+    .w-50 {
+      width: 100%;
+      flex-direction: column;
+    }
+
+    .mr-30 {
+      margin-bottom: 20px;
+    }
+
+    .mr-10 {
+      margin-right: 3px;
+    }
+
+    .textarea {
+      padding: 10px;
+      font-size: 15px;
+
+      &::placeholder {
+        font-size: 15px;
+        line-height: 18px;
+      }
+    }
+
+  }
+}

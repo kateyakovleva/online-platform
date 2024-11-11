@@ -15,6 +15,8 @@ import {
 import {CardResponseComponent} from "./components/customer/card-response/card-response.component";
 import {CreateProfileComponent} from "./components/candidate/createProfile/createProfile.component";
 import {ProfileComponent} from "./components/candidate/profile/profile.component";
+import {FilterComponent} from "./components/filter/filter.component";
+import {ProfileCustomerComponent} from "./components/customer/profile/profileCustomer.component";
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import {ProfileComponent} from "./components/candidate/profile/profile.component
     CreateProfileCompanyComponent,
     CardResponseComponent,
     CreateProfileComponent,
-    ProfileComponent
+    ProfileComponent,
+    FilterComponent,
+    ProfileCustomerComponent
   ],
   providers: [
     // provideClientHydration(),

@@ -6,3 +6,25 @@ h1 {
   font-size: 25px;
   line-height: 29px;
 }
+
+@media (max-width: 1250px) {
+
+  .w-100 {
+    justify-content: center;
+    align-items: center;
+  }
+
+  h1 {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .ml-30 {
+    margin-left: 0;
+  }
+
+  .sub-title {
+    font-size: 16px;
+    line-height: 19px;
+  }
+}

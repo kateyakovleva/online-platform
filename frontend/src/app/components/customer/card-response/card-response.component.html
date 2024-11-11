@@ -1,11 +1,18 @@
-<div class="d-flex direction-column">
-  <h2>Специализация</h2>
-  <div>Владею инструментами</div>
-  <div>react vue js</div>
-  <div class="d-flex direction-row">
-    <div>Имя</div>
-    <div>Фамилия</div>
-    <div>Казань</div>
-    <div>Онлайн</div>
+@for (item of items; track item){
+<div class="d-flex direction-column mb-100 card-border">
+  <h1 class="mb-10">Специализация: {{item.specialisation}}</h1>
+  <div class="skills-title mb-10">Владею инструментами</div>
+  <div class="d-flex direction-row a-1-start j-c-start w-80 flex-wrap mb-40">
+    @for (skill of skills; track skill){
+    <div class="skill">{{skill.name}}</div>
+    }
+  </div>
+  <div class="d-flex direction-row sub-text a-1-center j-c-start">
+    <img [src]="item.avatar" class="logo mr-10" alt="picture"/>
+    <div class="mr-10">{{item.firstName}}</div>
+    <div class="mr-10">{{item.lastName}}</div>
+    <div class="mr-10 sub-btn">{{item.city}}</div>
+    <div class="mr-10 sub-btn">{{item.status}}</div>
   </div>
 </div>
+}

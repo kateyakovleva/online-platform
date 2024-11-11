@@ -1,12 +1,25 @@
 <div class="d-flex relative direction-column container-input a-1-end j-c-center">
   <div style="cursor: pointer;" (click)="showItemsList()" class="d-flex j-c-space-between w-100">
-    <div class="w-55">{{selected ? selected[labelFieldName] : ''}}</div>
+    <input
+      type="text"
+      class="w-55"
+      [value]="(selected || defaultValue) ? (selected || defaultValue)[labelFieldName] : ''"
+      [placeholder]="placeholder"
+      readonly
+    />
     <img [style.transform]="'rotate(' + (isOpen ? '180deg' : '0deg') +')'" src="images/icon_profile.svg" alt="icon"/>
-    <input [name]="name" [value]="selected ? selected[valueFieldName] : ''" type="hidden">
+    <input
+      [name]="name"
+      [value]="(selected || defaultValue) ? (selected || defaultValue)[valueFieldName] : ''"
+      type="hidden"
+    >
   </div>
   <div class="d-flex direction-column absolute items-list" *ngIf="isOpen">
-    <ng-scrollbar class="custom-scrollbar ng-scrollbar-thumb ng-scrollbar-track" [trackClass]="'custom-track'"
-                  [thumbClass]="'custom-thumb'">
+    <ng-scrollbar
+      class="custom-scrollbar ng-scrollbar-thumb ng-scrollbar-track"
+      [trackClass]="'custom-track'"
+      [thumbClass]="'custom-thumb'"
+    >
       <div *ngFor="let item of items;" class="mb-5 item" (click)="onSelect(item)">
         <div class="hov">{{ item[labelFieldName] }}</div>
       </div>

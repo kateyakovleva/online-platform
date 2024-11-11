@@ -1,22 +1,41 @@
-<div class="d-flex container a-1-start j-c-center">
-  <form class="d-flex a-1-center j-c-space-between w-80">
-    <div class="d-flex container-search a-1-center j-c-center w-30">
-      <img src="images/search.svg" alt="search" class="mr-10"/>
-      <input placeholder="поиск" class="w-100"/>
+<div class="d-flex container a-1-center j-c-center direction-column">
+  <div class="container-main">
+    <form class="d-flex a-1-center j-c-space-between form mb-40">
+      <div class="d-flex container-search border a-1-center j-c-center w-30">
+        <img src="images/search.svg" alt="search" class="mr-10"/>
+        <input placeholder="поиск" class="w-100"/>
+      </div>
+      <app-custom-select
+        [items]="[{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},]"
+        placeholder="формат"
+        labelFieldName="name"
+        valueFieldName="id"
+        name="specialization_id"
+        class="width"
+      />
+      <app-custom-select
+        [items]="[{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},]"
+        labelFieldName="name"
+        placeholder="город"
+        valueFieldName="id"
+        name="specialization_id"
+        class="width"
+      />
+      <app-custom-select
+        [items]="[{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},]"
+        labelFieldName="name"
+        placeholder="стеки"
+        valueFieldName="id"
+        name="specialization_id"
+        class="width"
+      />
+      <button type="submit" class="btn-submit width">{{naming.buttonFind}}</button>
+    </form>
+    <div class="d-flex direction-row mb-20">
+      <div class="sub-title ml-30">{{naming.find}}</div>
+      <div class="sub-title ml-10"><b>4</b></div>
     </div>
-    <div class="d-flex a-1-center j-c-space-between container-search w-10">
-      <div class="mr-10">{{naming.workForm}}</div>
-      <app-dropDownWith></app-dropDownWith>
-    </div>
-    <div class="d-flex a-1-center j-c-space-between container-search w-10">
-      <div class="mr-10">{{naming.cityMy}}</div>
-      <app-dropDownWith></app-dropDownWith>
-    </div>
-    <div class="d-flex a-1-center j-c-space-between container-search w-10">
-      <div class="mr-10">{{naming.stack}}</div>
-      <app-dropDownWith></app-dropDownWith>
-    </div>
-    <button type="submit" class="btn-submit">{{naming.buttonFind}}</button>
-  </form>
+    <app-card class="w-80"></app-card>
+  </div>
 </div>
 
