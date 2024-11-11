@@ -7,6 +7,25 @@ form {
   }
 }
 
+.container-checkbox {
+  flex-wrap: wrap;
+  border-radius: 10px;
+  border: 1px solid var(--light-grey);
+  padding: 20px;
+
+  .writeSkills {
+    border-radius: 10px;
+    border: 1px solid var(--light-light-grey);
+    height: 50px;
+
+    &::placeholder {
+      padding-left: 20px;
+      font-size: 18px;
+      line-height: 21px;
+    }
+  }
+}
+
 
 .label {
   font-size: 30px;

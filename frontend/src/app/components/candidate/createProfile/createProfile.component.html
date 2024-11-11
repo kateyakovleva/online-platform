@@ -1,45 +1,54 @@
+@let profile = user.worker$ | async;
+@let cities = settings.cities | async;
+@let specializations = settings.specializations | async;
 <form class="d-flex a-1-start j-c-center w-100">
   <div class="container-main d-flex direction-column">
     <h1>{{naming.tellAbout}}</h1>
     <div class="d-flex direction-column mb-40">
       <label class="label mb-10">{{naming.speciality}}</label>
       <app-custom-select
-        [items]="[{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},]"
+        [items]="specializations"
         labelFieldName="name"
         valueFieldName="id"
         name="specialization_id"
+        [defaultValue]="getSelectedSpecialization(specializations, profile?.resume)"
       />
     </div>
     <div class="d-flex direction-column mb-40">
       <label class="label mb-10">{{naming.interestVacancy}}</label>
-      <input name="vacancy" class="input"/>
+      <input name="vacancy" class="input" [value]="profile?.resume?.vacancy"/>
     </div>
     <div class="d-flex direction-column mb-40">
       <label class="label mb-10">{{naming.coursesMy}}</label>
       <div class="subtext mb-10">{{naming.coursesMySubtext}}</div>
-      <textarea name="courses" class="textarea"></textarea>
+      <textarea name="courses" class="textarea">{{profile?.resume?.courses}}</textarea>
     </div>
     <div class="d-flex direction-column mb-40">
       <label class="label mb-10">{{naming.interestTasks}}</label>
-      <textarea name="interesting" class="textarea"></textarea>
+      <textarea name="interesting" class="textarea">{{profile?.resume?.interesting}}</textarea>
     </div>
     <div class="d-flex direction-column mb-40">
       <label class="label mb-10">{{naming.skillsMy}}</label>
       <div class="d-flex direction-column">
-        <app-checkbox></app-checkbox>
+        <div class="d-flex mb-20 container-checkbox">
+          <app-checkbox
+            *ngFor="let item of (settings.skills | async);" name="skills[]"
+            [value]="item.id"
+            [label]="item.name"
+            [checked]="hasSelectedSkill(item, profile?.resume)"
+          />
+        </div>
       </div>
     </div>
     <div class="d-flex w-50 mb-40">
       <div class="d-flex direction-column w-90 mr-30">
         <label class="label mb-10">{{naming.cityMy}}</label>
         <app-custom-select
-          [items]="[{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},
-          {id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},
-          {id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},
-          {id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},]"
+          [items]="cities"
           labelFieldName="name"
           valueFieldName="id"
-          name="specialization_id"
+          name="city_id"
+          [defaultValue]="getSelectedCity(cities, profile?.resume)"
         />
       </div>
       <div class="d-flex direction-column w-90">
@@ -62,13 +71,13 @@
     <div class="d-flex direction-column mb-40">
       <label class="label mb-10">{{naming.payMy}}</label>
       <div class="subtext mb-10">{{naming.payMySubtext}}</div>
-      <textarea name="finances" class="textarea"></textarea>
+      <textarea name="finances" class="textarea">{{profile?.resume?.finances}}</textarea>
     </div>
     <div class="d-flex direction-column mb-40">
       <label class="label mb-10">{{naming.comment}}</label>
       <div class="subtext mb-10">{{naming.commentSubtext}}</div>
       <textarea name="comment" class="textarea"
-                placeholder="Профессиональные или личные интересы, уровень владения навыками и другое..."></textarea>
+                placeholder="Профессиональные или личные интересы, уровень владения навыками и другое...">{{profile?.resume?.comment}}</textarea>
     </div>
     <div class="d-flex direction-column mb-40 mob">
       <div class="label mb-10">{{naming.resume}}</div>

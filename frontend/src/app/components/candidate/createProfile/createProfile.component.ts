@@ -8,6 +8,9 @@ import { SettingsStore } from "../../../stores/SettingsStore";
 import { File } from "buffer";
 import { CustomSelectComponent } from "../customSelect/customSelect.component";
 import { CheckboxComponent } from "../../checkbox/checkbox.component";
+import { UserStore } from "../../../stores/UserStore";
+import { ICity, ISkill, ISpecialization } from "../../../types/other_types";
+import { IResume } from "../../../types/customer";
 
 @Component( {
   selector: 'app-createProfile',
@@ -27,19 +30,30 @@ import { CheckboxComponent } from "../../checkbox/checkbox.component";
   styleUrl: './createProfile.component.scss'
 } )
 export class CreateProfileComponent {
-  constructor( public settings: SettingsStore ) {
+  constructor(
+    public settings: SettingsStore,
+    public user: UserStore,
+  ) {
   }
 
   naming = naming;
-
-  profile = {
-    skills: [ 1, 2, 3 ]
-  }
 
   file: File | null = null;
 
   selectFile( e: Event ) {
     //@ts-ignore
     this.file = e.target?.files[ 0 ] || null;
+  }
+
+  hasSelectedSkill( skill: ISkill, resume?: IResume ) {
+    return Boolean( resume?.skills.find( s => s.id === skill.id ) );
+  }
+
+  getSelectedCity( cities?: ICity[] | null, resume?: IResume ) {
+    return cities?.find( c => c.id === resume?.city_id );
+  }
+
+  getSelectedSpecialization( cities?: ISpecialization[] | null, resume?: IResume ) {
+    return cities?.find( c => c.id === resume?.specialization_id );
   }
 }

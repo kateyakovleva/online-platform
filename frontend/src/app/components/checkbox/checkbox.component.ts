@@ -1,11 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { naming } from "../../data/naming/naming/naming.service";
 import { RouterLink, RouterOutlet } from "@angular/router";
 import { CheckboxModule } from 'primeng/checkbox';
 import { FormsModule } from "@angular/forms";
 import { AsyncPipe, NgForOf, NgIf } from "@angular/common";
 import { SettingsStore } from "../../stores/SettingsStore";
-import { File } from "buffer";
 
 
 @Component( {
@@ -21,7 +20,10 @@ import { File } from "buffer";
     NgIf
   ],
   templateUrl: './checkbox.component.html',
-  styleUrl: './checkbox.component.scss'
+  styleUrl: './checkbox.component.scss',
+  host: {
+    class: 'd-flex direction-row w-6 a-1-center j-c-start mr-30 mb-10'
+  }
 } )
 export class CheckboxComponent {
   constructor( public settings: SettingsStore ) {
@@ -29,14 +31,15 @@ export class CheckboxComponent {
 
   naming = naming;
 
-  profile = {
-    skills: [ 1, 2, 3 ]
-  }
+  @Input()
+  name?: string | null = null;
 
-  file: File | null = null;
+  @Input()
+  label?: string | null = null;
 
-  selectFile( e: Event ) {
-    //@ts-ignore
-    this.file = e.target?.files[ 0 ] || null;
-  }
+  @Input()
+  value?: string | number | null = null;
+
+  @Input()
+  checked?: boolean | null = null;
 }
