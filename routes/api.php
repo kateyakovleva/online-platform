@@ -39,4 +39,22 @@ Route::prefix('profile')
     ->middleware('auth:sanctum')
     ->group(function () {
         Route::get('/', [\App\Http\Controllers\Api\CustomerController::class, 'profile']);
+        Route::post('/', [\App\Http\Controllers\Api\CustomerController::class, 'updateProfile']);
+        Route::post('resume', [\App\Http\Controllers\Api\WorkerController::class, 'updateResume']);
+
+        Route::prefix('vacancies')->group(function () {
+            Route::get('/', [\App\Http\Controllers\Api\CompanyController::class, 'vacancies']);
+            Route::post('/', [\App\Http\Controllers\Api\CompanyController::class, 'createVacancy']);
+
+            Route::get('{id}', [\App\Http\Controllers\Api\CompanyController::class, 'get']);
+            Route::post('{id}', [\App\Http\Controllers\Api\CompanyController::class, 'update']);
+        });
+
+        Route::prefix('requests')->group(function () {
+            Route::get('/', [\App\Http\Controllers\Api\RequestsController::class, 'list']);
+        });
+
+        Route::prefix('responses')->group(function () {
+            Route::get('/', [\App\Http\Controllers\Api\ResponsesController::class, 'list']);
+        });
     });
