@@ -24,6 +24,7 @@
       <a *ngIf="!(auth.auth$ | async)" routerLink="/auth/signin" class="d-flex height-radius container-link-auth mr-10">
         {{naming.signIn}}
       </a>
+      <app-profile-button *ngIf="(auth.auth$ | async)"/>
     </div>
 
     <button *ngIf="isMobile" type="button" (click)="showMobileMenu()">
