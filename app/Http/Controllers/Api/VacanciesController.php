@@ -8,6 +8,6 @@ class VacanciesController extends Controller
 {
     public function index()
     {
-        return Vacancy::paginate(20);
+        return Vacancy::with(['city', 'skills', 'specialization', 'company'])->paginate(20);
     }
 }

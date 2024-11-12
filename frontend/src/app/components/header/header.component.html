@@ -21,7 +21,7 @@
       <a href="#footer" class="d-flex height-radius container-link-auth mr-10">
         {{naming.callback}}
       </a>
-      <a routerLink="/auth/signin" class="d-flex height-radius container-link-auth mr-10">
+      <a *ngIf="!(auth.auth$ | async)" routerLink="/auth/signin" class="d-flex height-radius container-link-auth mr-10">
         {{naming.signIn}}
       </a>
     </div>

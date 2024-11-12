@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { naming } from "../../data/naming/naming/naming.service";
 import { ProfileButtonComponent } from "./profile-button/profile-button.component";
 import { MobileHeaderComponent } from "./mobile-header/mobile-header.component";
-import { NgIf } from "@angular/common";
+import { AsyncPipe, NgIf } from "@angular/common";
 import { ActivatedRoute, RouterLink } from "@angular/router";
+import { AuthStore } from "../../stores/AuthStore";
 
 
 @Component( {
@@ -13,7 +14,8 @@ import { ActivatedRoute, RouterLink } from "@angular/router";
     ProfileButtonComponent,
     MobileHeaderComponent,
     NgIf,
-    RouterLink
+    RouterLink,
+    AsyncPipe
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
@@ -21,6 +23,7 @@ import { ActivatedRoute, RouterLink } from "@angular/router";
 export class HeaderComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
+    public auth: AuthStore,
   ) {
   }
 

@@ -22,7 +22,9 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null $photo
+ * @property string|null $last_online
  * @property-read bool $is_company
+ * @property-read mixed $is_online
  * @property-read \App\Models\Resume $resume
  * @property-read \App\Models\Tariff|null $tariff
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Laravel\Sanctum\PersonalAccessToken> $tokens

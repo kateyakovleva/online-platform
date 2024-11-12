@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -9,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
 
 /**
- * 
+ *
  *
  * @property int $id
  * @property int $type
@@ -26,7 +27,9 @@ use Laravel\Sanctum\HasApiTokens;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null $photo
+ * @property \Illuminate\Support\Carbon|null $last_online
  * @property-read bool $is_company
+ * @property-read bool $is_online
  * @property-read \App\Models\Tariff|null $tariff
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Laravel\Sanctum\PersonalAccessToken> $tokens
  * @method static \Illuminate\Database\Eloquent\Builder|Customer newModelQuery()
@@ -55,6 +58,7 @@ class Customer extends BaseUser
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
         'tariff_end_of' => 'datetime',
+        'last_online' => 'datetime',
         'data' => 'array',
     ];
 
@@ -63,7 +67,8 @@ class Customer extends BaseUser
     ];
 
     protected $appends = [
-        'is_company'
+        'is_company',
+        'is_online'
     ];
 
     public function setPasswordAttribute($value)
@@ -85,6 +90,11 @@ class Customer extends BaseUser
             default => self::WORKER_TYPE
         };
         return $this;
+    }
+
+    public function getIsOnlineAttribute(): bool
+    {
+        return $this->last_online?->unix() > Carbon::now()->subMinutes(3)->unix();
     }
 
     public function tariff(): BelongsTo

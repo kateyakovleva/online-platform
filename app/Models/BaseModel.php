@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * 
+ *
  *
  * @method static Builder|BaseModel newModelQuery()
  * @method static Builder|BaseModel newQuery()
@@ -15,6 +15,13 @@ use Illuminate\Database\Eloquent\Model;
  */
 class BaseModel extends Model
 {
+    public function __construct(array $attributes = [])
+    {
+        $this->hidden = array_merge($this->hidden, array_values(self::$hiddens[static::class] ?? []));
+
+        parent::__construct($attributes);
+    }
+
     public function getInstanceClassName($attributes = []): string
     {
         return static::class;
@@ -50,5 +57,17 @@ class BaseModel extends Model
         $model->fireModelEvent('retrieved', false);
 
         return $model;
+    }
+
+    protected static $hiddens = [];
+
+    public static function addHidden(string $fieldName)
+    {
+        self::$hiddens[static::class][$fieldName] = $fieldName;
+    }
+
+    public static function removeHidden(string $fieldName)
+    {
+        unset(self::$hiddens[static::class][$fieldName]);
     }
 }

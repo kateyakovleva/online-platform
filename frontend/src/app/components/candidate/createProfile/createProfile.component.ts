@@ -10,8 +10,8 @@ import { CustomSelectComponent } from "../customSelect/customSelect.component";
 import { CheckboxComponent } from "../../checkbox/checkbox.component";
 import { UserStore } from "../../../stores/UserStore";
 import { ICity, ISkill, ISpecialization } from "../../../types/other_types";
-import { IResume } from "../../../types/customer";
 import { AppClient } from "../../../services/AppClient";
+import { IResume } from "../../../types/resumes";
 
 @Component( {
   selector: 'app-createProfile',

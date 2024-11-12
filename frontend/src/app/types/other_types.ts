@@ -4,7 +4,8 @@ export interface ICity {
 }
 
 export interface ISkillPivot {
-  resume_id: number;
+  vacancy_id?: number;
+  resume_id?: number;
   skill_id: number;
 }
 
@@ -28,3 +29,8 @@ export interface ISkill extends IBaseItemType {
 export interface ISpecialization extends IBaseItemType {
 }
 
+export interface IPageLink {
+  url?: any;
+  label: string;
+  active: boolean;
+}

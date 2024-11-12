@@ -24,7 +24,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\City|null $city
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Skill> $skills
+ * @property \Illuminate\Database\Eloquent\Collection<int, \App\Models\Skill> $skills
  * @property-read \App\Models\Specialization $specialization
  * @property-read \App\Models\Worker|null $worker
  * @method static \Database\Factories\ResumeFactory factory($count = null, $state = [])
@@ -54,7 +54,7 @@ class Resume extends Model
 
     public function worker(): BelongsTo
     {
-        return $this->belongsTo(Worker::class);
+        return $this->belongsTo(Worker::class, 'customer_id');
     }
 
     public function setSkillsAttribute($value)

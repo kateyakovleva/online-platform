@@ -1,24 +1,24 @@
-import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
-import {AppRoutingModule} from './app-routing.module';
-import {AppComponent} from './app.component';
-import {HeaderComponent} from "./components/header/header.component";
-import {FooterComponent} from "./components/footer/footer.component";
-import {provideHttpClient, withFetch} from "@angular/common/http";
-import {MarkdownModule, MARKED_OPTIONS, provideMarkdown} from "ngx-markdown";
-import {SplitStringPipe} from "./filters/splitString.pipe";
-import {SignUpVerifyComponent} from "./components/auth/signup/signupverify/signUpVerify.component";
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { HeaderComponent } from "./components/header/header.component";
+import { FooterComponent } from "./components/footer/footer.component";
+import { provideHttpClient, withFetch } from "@angular/common/http";
+import { MarkdownModule, MARKED_OPTIONS, provideMarkdown } from "ngx-markdown";
+import { SplitStringPipe } from "./filters/splitString.pipe";
+import { SignUpVerifyComponent } from "./components/auth/signup/signupverify/signUpVerify.component";
 import {
   CreateProfileCompanyComponent
-} from "./components/customer/create-profile-company/create-profile-company.component";
-import {CardResponseComponent} from "./components/customer/card-response/card-response.component";
-import {CreateProfileComponent} from "./components/candidate/createProfile/createProfile.component";
-import {ProfileComponent} from "./components/candidate/profile/profile.component";
-import {FilterComponent} from "./components/filter/filter.component";
-import {ProfileCustomerComponent} from "./components/customer/profile/profileCustomer.component";
+} from "./components/company/create-profile-company/create-profile-company.component";
+import { CardResponseComponent } from "./components/company/card-response/card-response.component";
+import { CreateProfileComponent } from "./components/candidate/createProfile/createProfile.component";
+import { ProfileComponent } from "./components/candidate/profile/profile.component";
+import { FilterComponent } from "./components/filter/filter.component";
+import { ProfileCustomerComponent } from "./components/company/profile/profileCustomer.component";
 
-@NgModule({
+@NgModule( {
   declarations: [
     AppComponent,
   ],
@@ -28,7 +28,7 @@ import {ProfileCustomerComponent} from "./components/customer/profile/profileCus
     AppRoutingModule,
     HeaderComponent,
     FooterComponent,
-    MarkdownModule.forRoot({
+    MarkdownModule.forRoot( {
       markedOptions: {
         provide: MARKED_OPTIONS,
         useValue: {
@@ -36,7 +36,7 @@ import {ProfileCustomerComponent} from "./components/customer/profile/profileCus
           breaks: true
         }
       }
-    }),
+    } ),
     SignUpVerifyComponent,
     CreateProfileCompanyComponent,
     CardResponseComponent,
@@ -47,13 +47,13 @@ import {ProfileCustomerComponent} from "./components/customer/profile/profileCus
   ],
   providers: [
     // provideClientHydration(),
-    provideHttpClient(withFetch()),
+    provideHttpClient( withFetch() ),
     provideMarkdown()
   ],
   exports: [
     SplitStringPipe
   ],
-  bootstrap: [AppComponent]
-})
+  bootstrap: [ AppComponent ]
+} )
 export class AppModule {
 }

@@ -1,27 +1,8 @@
-import { ICity, ISkill, ISpecialization } from "./other_types";
+import { IResume } from "./resumes";
 
 export enum ECustomerType {
   COMPANY = 1,
   WORKER = 2
-}
-
-export interface IResume {
-  id: number;
-  customer_id: number;
-  specialization_id: number;
-  vacancy: string;
-  courses: string;
-  interesting: string;
-  city_id: number;
-  format: string;
-  finances: string;
-  comment: string;
-  file?: any;
-  created_at: string;
-  updated_at: string;
-  city: ICity;
-  skills: ISkill[];
-  specialization: ISpecialization;
 }
 
 export interface ICustomer {
@@ -40,6 +21,8 @@ export interface ICustomer {
   updated_at: string;
   photo?: any;
   is_company: boolean;
+  is_online?: boolean;
+  last_online?: string;
   tariff?: any;
 }
 
