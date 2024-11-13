@@ -5,10 +5,10 @@
     <div class="subtext">текст текст текст</div>
   </div>
   <div class="d-flex direction-row w-100 border">
-    <button class="btn-grey mr-30">{{ naming.vacancies }}</button>
-    <button class="btn-grey">{{ naming.createVacancy }}</button>
+    <button routerLink="vacancies" routerLinkActive="active" class="btn-grey mr-30">{{ naming.vacancies }}</button>
+    <button routerLink="create_vacancy" routerLinkActive="active" class="btn-grey">{{ naming.createVacancy }}</button>
   </div>
   <div class="d-flex w-100">
-    <app-vacancies></app-vacancies>
+    <router-outlet></router-outlet>
   </div>
 </div>

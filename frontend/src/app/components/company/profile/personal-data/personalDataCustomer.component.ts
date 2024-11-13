@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {naming} from "../../../../data/naming/naming/naming.service";
-import {RouterLink} from "@angular/router";
-import { VacanciesComponent } from "./vacancies/vacancies.component";
-import { CreateVacancyComponent } from "./create-vacancy/create-vacancy.component";
+import {RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
+import {VacanciesComponent} from "./vacancies/vacancies.component";
+import {CreateVacancyComponent} from "./create-vacancy/create-vacancy.component";
 
 @Component({
   selector: 'app-personalDataCustomer',
   standalone: true,
-  imports: [ RouterLink, VacanciesComponent, CreateVacancyComponent ],
+  imports: [RouterLink, VacanciesComponent, CreateVacancyComponent, RouterOutlet, RouterLinkActive],
   templateUrl: './personalDataCustomer.component.html',
   styleUrl: './personalDataCustomer.component.scss'
 })

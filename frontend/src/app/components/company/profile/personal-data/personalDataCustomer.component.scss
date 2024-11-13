@@ -23,10 +23,10 @@
     font-size: 18px;
     line-height: 22px;
     color: var(--light-light-grey);
+    border-radius: 93px;
+    padding: 5px 10px;
 
-    &:hover, &:active {
-      border-radius: 93px;
-      padding: 5px 10px;
+    &:hover, &:active, &.active {
       background-color: var(--light-light-grey);
       color: var(--black);
     }

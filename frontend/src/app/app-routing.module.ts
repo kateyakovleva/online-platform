@@ -10,6 +10,15 @@ import {AuthComponent} from "./components/auth/auth/auth.component";
 import {SignUpVerifyComponent} from "./components/auth/signup/signupverify/signUpVerify.component";
 import {CreateProfileComponent} from "./components/candidate/createProfile/createProfile.component";
 import {ProfileComponent} from "./components/candidate/profile/profile.component";
+import {FilterComponent} from "./components/filter/filter.component";
+import {PersonalDataCustomerComponent} from "./components/company/profile/personal-data/personalDataCustomer.component";
+import {ResponsesComponent} from "./components/company/profile/responses/responses.component";
+import {ProfileCustomerComponent} from "./components/company/profile/profileCustomer.component";
+import {VacanciesComponent} from "./components/company/profile/personal-data/vacancies/vacancies.component";
+import {
+  CreateVacancyComponent
+} from "./components/company/profile/personal-data/create-vacancy/create-vacancy.component";
+import {VacancyComponent} from "./components/company/vacancy/vacancy.component";
 
 
 const authRoutes: Routes = [
@@ -17,9 +26,20 @@ const authRoutes: Routes = [
   {path: 'signup', component: SignUpComponent},
 ];
 
+const vacanciesRoutes: Routes = [
+  {path: 'vacancies', component: VacanciesComponent},
+  {path: 'create_vacancy', component: CreateVacancyComponent},
+  {path: 'vacancies/:id', component: VacancyComponent}
+];
+
+const profileCustomerRoutes: Routes = [
+  {path: '', component: PersonalDataCustomerComponent, children: vacanciesRoutes},
+  {path: 'company_responses', component: ResponsesComponent},
+];
+
 const profileRoutes: Routes = [
   {path: '', component: PersonalDataComponent},
-  {path: 'offers-cus', component: OfferComponent},
+  {path: 'offers', component: OfferComponent},
   {path: 'responses', component: ResponseComponent},
 ];
 
@@ -28,7 +48,9 @@ const routes: Routes = [
   {path: 'auth', component: AuthComponent, children: authRoutes},
   {path: 'verify', component: SignUpVerifyComponent},
   {path: 'create_profile', component: CreateProfileComponent},
-  {path: 'profile', component: ProfileComponent, children: profileRoutes}
+  {path: 'profile', component: ProfileComponent, children: profileRoutes},
+  {path: 'filter', component: FilterComponent},
+  {path: 'company_profile', component: ProfileCustomerComponent, children: profileCustomerRoutes},
 ];
 
 @NgModule({

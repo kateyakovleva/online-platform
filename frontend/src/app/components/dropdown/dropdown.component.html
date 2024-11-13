@@ -1,0 +1,10 @@
+<div class="d-flex relative direction-column a-1-end j-c-center">
+  <div style="cursor: pointer; height: 50px" (click)="showItemsList()" class="d-flex j-c-space-between w-100">
+    <img [style.transform]="'rotate(' + (isOpen ? '180deg' : '0deg') +')'" src="images/icon_profile.svg" alt="icon"
+         style="max-height: 50px"/>
+  </div>
+  <div class="d-flex direction-column absolute items-list a-1-start" *ngIf="isOpen">
+    <ng-content></ng-content>
+  </div>
+</div>
+

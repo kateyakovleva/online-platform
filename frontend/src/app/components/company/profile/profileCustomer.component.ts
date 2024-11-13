@@ -4,7 +4,6 @@ import {PersonalDataCustomerComponent} from "./personal-data/personalDataCustome
 import {RouterLink, RouterOutlet} from "@angular/router";
 import {ResponsesComponent} from "./responses/responses.component";
 import {PersonalDataComponent} from "../../candidate/profile/personal-data/personalData.component";
-import {OffersCusComponent} from "./offers-customer/offersCustomer.component";
 
 
 @Component({
@@ -16,8 +15,6 @@ import {OffersCusComponent} from "./offers-customer/offersCustomer.component";
     RouterLink,
     ResponsesComponent,
     PersonalDataComponent,
-    OffersCusComponent,
-    OffersCusComponent,
   ],
   templateUrl: './profileCustomer.component.html',
   styleUrl: '../../candidate/profile/profile.component.scss'

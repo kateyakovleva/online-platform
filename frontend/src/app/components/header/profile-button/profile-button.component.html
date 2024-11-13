@@ -1,5 +1,11 @@
-<div class=" d-flex j-c-space-between a-1-center">
-  <a routerLink="/profile">
-    <img class="w-100 mr-10" src="images/profile.svg" alt="profile"/>
-  </a>
+<div class="d-flex j-c-center a-1-center" style="height: 50px">
+  <div routerLink="/profile">
+    <img class="w-100 mr-10" style="max-height: 50px" src="images/profile.svg" alt="profile"/>
+  </div>
+  <app-dropdown>
+    <div *ngFor="let item of getMenuItems();" class="mb-5 item">
+      <a [routerLink]="item.link">{{ item.name }}</a>
+    </div>
+    <button (click)="logout()" type="button" class="btn-exit">выход</button>
+  </app-dropdown>
 </div>
