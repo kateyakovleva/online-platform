@@ -6,7 +6,7 @@ import { FormsModule } from "@angular/forms";
 import { AsyncPipe, NgForOf, NgIf } from "@angular/common";
 import { SettingsStore } from "../../../stores/SettingsStore";
 import { File } from "buffer";
-import { CustomSelectComponent } from "../customSelect/customSelect.component";
+import { CustomSelectComponent } from "../../customSelect/customSelect.component";
 import { CheckboxComponent } from "../../checkbox/checkbox.component";
 import { UserStore } from "../../../stores/UserStore";
 import { ICity, ISkill, ISpecialization } from "../../../types/other_types";
