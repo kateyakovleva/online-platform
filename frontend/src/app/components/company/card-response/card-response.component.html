@@ -1,11 +1,8 @@
-@for (item of items; track item){
 <div class="d-flex direction-column mb-100 card-border">
   <h1 class="mb-10">Специализация: {{item.specialisation}}</h1>
   <div class="skills-title mb-10">Владею инструментами</div>
   <div class="d-flex direction-row a-1-start j-c-start w-80 flex-wrap mb-40">
-    @for (skill of skills; track skill){
-    <div class="skill">{{skill.name}}</div>
-    }
+    <div *ngFor="let skill of item.skills;" class="skill">{{skill.name}}</div>
   </div>
   <div class="d-flex direction-row sub-text a-1-center j-c-start">
     <img [src]="item.avatar" class="logo mr-10" alt="picture"/>
@@ -15,4 +12,3 @@
     <div class="mr-10 sub-btn">{{item.status}}</div>
   </div>
 </div>
-}

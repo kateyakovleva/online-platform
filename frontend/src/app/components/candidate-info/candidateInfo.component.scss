@@ -1,0 +1,178 @@
+h1 {
+  font-size: 30px;
+}
+
+.padding10 {
+  padding: 15px 0 15px 20px;
+}
+
+.sub_title {
+  font-size: 25px;
+  line-height: 29px;
+}
+
+.sub-title__text {
+  font-size: 18px;
+  line-height: 21px;
+  align-items: end;
+
+  li {
+    padding-left: 0;
+    list-style: disc;
+    background: none;
+  }
+}
+
+.padding-left30 {
+  padding-left: 30px;
+}
+
+
+.skill {
+  text-align: center;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  background-color: var(--light-light-grey);
+  border-radius: 48px;
+  min-width: 7%;
+  padding: 7px;
+}
+
+.container__btn-resume {
+  width: 13%;
+  background-color: var(--light-grey);
+  border-radius: 43px;
+  padding: 15px 20px;
+}
+
+.btn-resume {
+  color: var(--white);
+}
+
+.btn-change {
+  width: 11%;
+  color: var(--light-grey);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  border-bottom: 0.5px solid var(--light-light-grey);
+}
+
+@media (min-width: 1251px) and (max-width: 1450px) {
+
+  .mobile-container {
+
+    .w-80 {
+      width: 100%;
+      justify-content: start;
+      align-items: start;
+    }
+
+
+    .skill {
+      padding: 10px;
+      min-width: 20%;
+    }
+  }
+}
+
+@media (min-width: 501px) and (max-width: 1250px) {
+
+  .mobile-container {
+    width: 100%;
+
+    .w-80 {
+      width: 100%;
+      justify-content: start;
+      align-items: start;
+    }
+
+    .skill {
+      padding: 10px;
+      min-width: 20%;
+    }
+  }
+
+  .mobile {
+
+    .w-30 {
+      width: 100%;
+    }
+  }
+}
+
+
+@media (min-width: 320px) and (max-width: 500px) {
+  .mobile-container {
+    width: 95%;
+
+    .w-80 {
+      width: 100%;
+      justify-content: start;
+      align-items: start;
+    }
+
+    .skill {
+      padding: 7px;
+      min-width: 15%;
+    }
+  }
+
+  .mobile {
+
+    .w-30 {
+      width: 95%;
+    }
+  }
+}
+
+@media (max-width: 1250px) {
+
+  .w-100 {
+    justify-content: center;
+    align-items: center;
+  }
+
+  h1 {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .mb-40 {
+    margin-bottom: 0;
+  }
+
+  .mobile {
+    flex-direction: column;
+
+    .mr-30 {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  }
+
+  .padding10 {
+    margin-bottom: 20px;
+  }
+
+  .sub_title {
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  .sub-title__text {
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  .container__btn-resume {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .btn-change {
+    width: 20%;
+    font-size: 16px;
+    line-height: 19px;
+  }
+}

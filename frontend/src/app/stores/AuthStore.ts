@@ -1,33 +1,33 @@
-import { Injectable } from "@angular/core";
-import { BehaviorSubject, map } from "rxjs";
+import {Injectable} from "@angular/core";
+import {BehaviorSubject, map} from "rxjs";
 
-@Injectable( {
+@Injectable({
   providedIn: 'root'
-} )
+})
 export class AuthStore {
-  _token: BehaviorSubject<string | null> = new BehaviorSubject( typeof localStorage !== 'undefined' ? localStorage.getItem( 'token' ) : null );
+  _token: BehaviorSubject<string | null> = new BehaviorSubject(typeof localStorage !== 'undefined' ? localStorage.getItem('token') : null);
 
   token$ = this._token.asObservable();
 
-  auth$ = this.token$.pipe( map( token => Boolean( token ) ) );
+  auth$ = this.token$.pipe(map(token => Boolean(token)));
 
   getToken() {
     return this._token.getValue();
   }
 
-  updateToken( token: string | null ) {
-    if ( token ) {
-      if ( typeof localStorage !== 'undefined' )
-        localStorage.setItem( 'token', token );
-      this._token.next( token );
+  updateToken(token: string | null) {
+    if (token) {
+      if (typeof localStorage !== 'undefined')
+        localStorage.setItem('token', token);
+      this._token.next(token);
     } else {
       this.logout();
     }
   }
 
   logout() {
-    if ( typeof localStorage !== 'undefined' )
-      localStorage.removeItem( 'token' );
-    this._token.next( null );
+    if (typeof localStorage !== 'undefined')
+      localStorage.removeItem('token');
+    this._token.next(null);
   }
 }
