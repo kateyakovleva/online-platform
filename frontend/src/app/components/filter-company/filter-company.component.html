@@ -1,41 +1,48 @@
-<div class="d-flex container a-1-center j-c-center direction-column">
+<div class="d-flex container a-1-center direction-column" [style.min-height]="(height.content | async)+'px'">
   <div class="container-main">
     <form class="d-flex a-1-center j-c-space-between form mb-40">
       <div class="d-flex container-search border a-1-center j-c-center w-30">
         <img src="images/search.svg" alt="search" class="mr-10"/>
-        <input placeholder="поиск" class="w-100"/>
+        <input placeholder="поиск" (change)="onChange('search', getInputValue($event))"
+               [value]="this.params.snapshot.queryParams['search'] || ''" class="w-100"/>
       </div>
       <app-custom-select
-        [items]="(settings.content | async)?.work_format"
+        [items]="unshift('---', (settings.content | async)?.work_format)"
         placeholder="формат"
         labelFieldName="name"
-        valueFieldName="id"
+        valueFieldName="name"
         name="format"
         class="width"
+        [defaultValue]="getDefaultValue('format', (settings.content | async)?.work_format)"
+        (change)="onChange('format', $event)"
       />
       <app-custom-select
-        [items]="settings.cities | async"
+        [items]="unshift({name: '---', id: ''}, (settings.cities | async))"
         labelFieldName="name"
         placeholder="город"
         valueFieldName="id"
-        name="specialization_id"
+        name="city_id"
         class="width"
+        [defaultValue]="getDefaultValue('city_id', (settings.cities | async))"
+        (change)="onChange('city_id', $event.id)"
       />
       <app-custom-select
-        [items]="settings.specializations | async"
+        [items]="unshift({name: '---', id: ''}, (settings.specializations | async))"
         labelFieldName="name"
         placeholder="стеки"
         valueFieldName="id"
         name="specialization_id"
         class="width"
+        [defaultValue]="getDefaultValue('specialization_id', (settings.specializations | async))"
+        (change)="onChange('specialization_id', $event.id)"
       />
-      <button type="submit" class="btn-submit width">{{naming.buttonFind}}</button>
+      <button type="button" class="btn-submit width" (click)="search()">{{naming.buttonFind}}</button>
     </form>
     <div class="d-flex direction-row mb-20">
       <div class="sub-title ml-30">{{naming.find}}</div>
-      <div class="sub-title ml-10"><b>4</b></div>
+      <div class="sub-title ml-10"><b>{{(resumes|async)?.total}}</b></div>
     </div>
-    <app-card-response *ngFor="let item of items;" [item]="item" class="w-80"></app-card-response>
+    <app-card-response *ngFor="let item of (resumes|async)?.data;" [item]="item" class="w-80"></app-card-response>
   </div>
 </div>
 

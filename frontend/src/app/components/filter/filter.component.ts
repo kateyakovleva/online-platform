@@ -32,10 +32,6 @@ export class FilterComponent {
     public params: ActivatedRoute,
     private router: Router,
   ) {
-    // this.params.queryParams.subscribe( ( params ) => {
-    //   this.vacancies = vacanciesStore.getVacancies( params );
-    // } );
-
     this.search();
   }
 
@@ -68,6 +64,4 @@ export class FilterComponent {
   unshift( firstItem: any, items?: any[] | null ) {
     return [ firstItem, ...( items || [] ) ];
   }
-
-  protected readonly HTMLInputElement = HTMLInputElement;
 }

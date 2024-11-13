@@ -5,6 +5,11 @@ import { CustomSelectComponent } from "../customSelect/customSelect.component";
 import { CardResponseComponent } from "../company/card-response/card-response.component";
 import { AsyncPipe, NgForOf } from "@angular/common";
 import { SettingsStore } from "../../stores/SettingsStore";
+import { Observable } from "rxjs";
+import { ContentHeightService } from "../../services/ContentHeightService";
+import { ActivatedRoute, Router } from "@angular/router";
+import { ResumesStore } from "../../stores/ResumesStore";
+import { IResumes } from "../../types/resumes";
 
 @Component( {
   selector: 'app-filter-company',
@@ -23,35 +28,41 @@ export class FilterCompanyComponent {
 
   constructor(
     public settings: SettingsStore,
+    public resumesStore: ResumesStore,
+    public height: ContentHeightService,
+    public params: ActivatedRoute,
+    private router: Router,
   ) {
+    this.search();
   }
 
   naming = naming;
 
-  items = [
-    {
-      specialisation: 'Frontend',
-      firstName: 'Наталья',
-      lastName: 'Иванова',
-      avatar: 'images/test.png',
-      city: 'Казань',
-      status: 'online',
-      skills: [ { name: 'js' }, { name: 'react' }, { name: 'react' }, { name: 'js' }, { name: 'react' },
-        { name: 'react' } ]
-    },
-    {
-      specialisation: 'QA',
-      title: 'Собрать что-то на фронте и получить бабаок',
-      text: 'Свертка не отрабатывает, т.к. много пользовательских ошибок в данных. Необходимо разобрать обработчик и убрать лишние проверки, чтобы сформировать начальные остатки\n' +
-        'по всем разделам учета. В предложении прошу называть цену, план работ и сроки.',
-      price: '150 000 - 200 000 ₽',
-      firstName: 'Ольга',
-      lastName: 'Петрова',
-      avatar: 'images/test.png',
-      city: 'Москва',
-      status: 'online',
-      skills: [ { name: 'js' }, { name: 'react' }, { name: 'react' }, { name: 'js' }, { name: 'react' },
-        { name: 'react' } ]
-    },
-  ]
+  resumes: Observable<IResumes> | null = null;
+
+  search() {
+    this.resumes = this.resumesStore.getResumes( this.params.snapshot.queryParams );
+  }
+
+  onChange( key: string, value: string ) {
+    const params = { ...this.params.snapshot.queryParams, [ key ]: value };
+
+    if ( !value || value === '---' ) delete params[ key ];
+
+    this.router.navigate( [ this.router.url.split( '?' )[ 0 ] ], {
+      queryParams: params,
+    } );
+  }
+
+  getInputValue( event: Event ) {
+    return ( event.target as HTMLInputElement ).value;
+  }
+
+  getDefaultValue( key: string, items?: any[] | null ) {
+    return items?.find( el => ( el.id || el ) == this.params.snapshot.queryParams[ key ] )
+  }
+
+  unshift( firstItem: any, items?: any[] | null ) {
+    return [ firstItem, ...( items || [] ) ];
+  }
 }

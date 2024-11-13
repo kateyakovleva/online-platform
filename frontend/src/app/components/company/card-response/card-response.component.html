@@ -1,14 +1,14 @@
-<div class="d-flex direction-column mb-100 card-border">
-  <h1 class="mb-10">Специализация: {{item.specialisation}}</h1>
+<div class="d-flex direction-column card-border">
+  <h1 class="mb-10">Специализация: {{item?.specialization?.name}}</h1>
   <div class="skills-title mb-10">Владею инструментами</div>
   <div class="d-flex direction-row a-1-start j-c-start w-80 flex-wrap mb-40">
-    <div *ngFor="let skill of item.skills;" class="skill">{{skill.name}}</div>
+    <div *ngFor="let skill of item?.skills;" class="skill">{{skill.name}}</div>
   </div>
   <div class="d-flex direction-row sub-text a-1-center j-c-start">
-    <img [src]="item.avatar" class="logo mr-10" alt="picture"/>
-    <div class="mr-10">{{item.firstName}}</div>
-    <div class="mr-10">{{item.lastName}}</div>
-    <div class="mr-10 sub-btn">{{item.city}}</div>
-    <div class="mr-10 sub-btn">{{item.status}}</div>
+    <img [src]="item?.worker?.image" class="logo mr-10" alt="picture"/>
+    <div class="mr-10">{{item?.worker?.name}}</div>
+    <!--    <div class="mr-10">{{item.lastName}}</div>-->
+    <div class="mr-10 sub-btn">{{item?.city?.name}}</div>
+    <div class="mr-10 sub-btn">{{item?.worker?.is_online ? naming.online : naming.offline}}</div>
   </div>
 </div>

@@ -32,8 +32,8 @@ export interface IResume {
   file?: any;
   created_at: string;
   updated_at: string;
-  city: ICity;
-  skills: ISkill[];
-  specialization: ISpecialization;
-  worker: IWorker;
+  city?: ICity;
+  skills?: ISkill[];
+  specialization?: ISpecialization;
+  worker?: IWorker;
 }

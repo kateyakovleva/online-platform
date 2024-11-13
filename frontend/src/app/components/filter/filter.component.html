@@ -4,7 +4,7 @@
       <div class="d-flex container-search border a-1-center j-c-center w-30">
         <img src="images/search.svg" alt="search" class="mr-10"/>
         <input placeholder="поиск" (change)="onChange('search', getInputValue($event))"
-               [value]="this.params.snapshot.queryParams['search']" class="w-100"/>
+               [value]="this.params.snapshot.queryParams['search'] || ''" class="w-100"/>
       </div>
       <app-custom-select
         [items]="unshift('---', (settings.content | async)?.work_format)"
