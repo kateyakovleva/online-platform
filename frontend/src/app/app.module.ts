@@ -17,6 +17,7 @@ import { CreateProfileComponent } from "./components/candidate/createProfile/cre
 import { ProfileComponent } from "./components/candidate/profile/profile.component";
 import { FilterComponent } from "./components/filter/filter.component";
 import { ProfileCustomerComponent } from "./components/company/profile/profileCustomer.component";
+import { PricePipe } from "./filters/price.pipe";
 
 @NgModule( {
   declarations: [
@@ -24,6 +25,7 @@ import { ProfileCustomerComponent } from "./components/company/profile/profileCu
   ],
   imports: [
     SplitStringPipe,
+    PricePipe,
     BrowserModule,
     AppRoutingModule,
     HeaderComponent,
@@ -43,7 +45,7 @@ import { ProfileCustomerComponent } from "./components/company/profile/profileCu
     CreateProfileComponent,
     ProfileComponent,
     FilterComponent,
-    ProfileCustomerComponent
+    ProfileCustomerComponent,
   ],
   providers: [
     // provideClientHydration(),
@@ -51,7 +53,8 @@ import { ProfileCustomerComponent } from "./components/company/profile/profileCu
     provideMarkdown()
   ],
   exports: [
-    SplitStringPipe
+    SplitStringPipe,
+    PricePipe,
   ],
   bootstrap: [ AppComponent ]
 } )

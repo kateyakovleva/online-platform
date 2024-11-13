@@ -14,7 +14,7 @@ input {
 }
 
 .items-list {
-  height: 200px;
+  max-height: 200px;
   z-index: 999;
   background-color: var(--white);
   top: 60px;

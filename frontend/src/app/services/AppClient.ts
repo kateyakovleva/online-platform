@@ -1,10 +1,11 @@
-import {Injectable} from '@angular/core';
-import {HttpClient as AngularHttpClient} from "@angular/common/http";
-import {AuthStore} from "../stores/AuthStore";
+import { Injectable } from '@angular/core';
+import { HttpClient as AngularHttpClient } from "@angular/common/http";
+import { AuthStore } from "../stores/AuthStore";
+import { Observable } from "rxjs";
 
-@Injectable({
+@Injectable( {
   providedIn: 'root'
-})
+} )
 export class AppClient {
 
   constructor(
@@ -19,28 +20,28 @@ export class AppClient {
     }
   }
 
-  get(url: string) {
-    return this.http.get(this.prepareUrl(url), {
-      headers: this.getHeaders()
-    });
+  get<T>( url: string, params?: any ): Observable<T> {
+    return this.http.get<T>( this.prepareUrl( url ), {
+      headers: this.getHeaders(),
+      params,
+    } );
   }
 
-  post(url: string, data: any) {
-    return this.http.post(this.prepareUrl(url), data, {
+  post<T>( url: string, data: any ): Observable<T> {
+    return this.http.post<T>( this.prepareUrl( url ), data, {
       headers: this.getHeaders()
-    });
+    } );
   }
 
-  prepareUrl(url: string) {
-    return apiUrl(url);
+  prepareUrl( url: string ) {
+    return apiUrl( url );
   }
 }
 
-export const apiUrl = (url: string) => {
-  if (!url.startsWith('http')) {
-    if (!url.startsWith('/')) url = '/' + url;
-    url = `http://hh.wi-studio.ru/api${url}`;
-    console.log('==================', url)
+export const apiUrl = ( url: string ) => {
+  if ( !url.startsWith( 'http' ) ) {
+    if ( !url.startsWith( '/' ) ) url = '/' + url;
+    url = `http://online-platform.ru/api${ url }`;
   }
 
   return url;

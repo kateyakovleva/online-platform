@@ -34,8 +34,8 @@ export interface IVacancy {
   comment: string;
   created_at: string;
   updated_at: string;
-  city: ICity;
-  skills: ISkill[];
-  specialization: ISpecialization;
-  company: ICompany;
+  city?: ICity;
+  skills?: ISkill[];
+  specialization?: ISpecialization;
+  company?: ICompany;
 }

@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { naming } from "../../data/naming/naming/naming.service";
 import { ProfileButtonComponent } from "./profile-button/profile-button.component";
 import { MobileHeaderComponent } from "./mobile-header/mobile-header.component";
 import { AsyncPipe, NgIf } from "@angular/common";
 import { ActivatedRoute, RouterLink } from "@angular/router";
 import { AuthStore } from "../../stores/AuthStore";
+import { ContentHeightService } from "../../services/ContentHeightService";
 
 
 @Component( {
@@ -20,17 +21,25 @@ import { AuthStore } from "../../stores/AuthStore";
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 } )
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, AfterViewInit {
   constructor(
     private route: ActivatedRoute,
     public auth: AuthStore,
+    public height: ContentHeightService,
   ) {
   }
+
+  @ViewChild( "ref", { read: ElementRef } )
+  ref?: ElementRef = undefined;
 
   ngOnInit() {
     this.route.fragment.subscribe( ( fragment ) => {
       if ( fragment ) this.scroll( fragment );
     } )
+  }
+
+  ngAfterViewInit() {
+    this.height.header.next( this.ref?.nativeElement?.clientHeight || 0 );
   }
 
   get isMobile() {

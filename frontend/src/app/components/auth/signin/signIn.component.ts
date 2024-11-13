@@ -5,6 +5,7 @@ import { SettingsStore } from "../../../stores/SettingsStore";
 import { NgIf } from "@angular/common";
 import { AppClient } from "../../../services/AppClient";
 import { AuthStore } from "../../../stores/AuthStore";
+import { IAuth } from "../../../types/auth";
 
 @Component( {
   selector: 'app-signIn',
@@ -35,9 +36,9 @@ export class SignInComponent {
 
   signIn( $event: SubmitEvent ) {
     $event.preventDefault();
-    this.http.post( '/auth', new FormData( $event.target as HTMLFormElement ) )
+    this.http.post<IAuth>( '/auth', new FormData( $event.target as HTMLFormElement ) )
       .subscribe( {
-        next: ( data: any ) => {
+        next: ( data ) => {
           if ( data.token ) {
             this.auth.updateToken( data.token );
           }

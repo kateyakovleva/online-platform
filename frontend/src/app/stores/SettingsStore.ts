@@ -35,8 +35,8 @@ export class SettingsStore {
   }
 
   constructor( private http: AppClient ) {
-    this.http.get( '/settings' ).subscribe( ( response ) => {
-      this._settings.next( response as ISetting );
+    this.http.get<ISetting>( '/settings' ).subscribe( ( response ) => {
+      this._settings.next( response );
     } )
   }
 }

@@ -24,9 +24,9 @@ export class UserStore {
   company$ = this._user.asObservable().pipe( map( u => !u?.is_company ? null : ( u as ICompany ) ) );
 
   updateUser() {
-    this.http.get( '/profile' ).subscribe( {
-      next: ( data: any ) => {
-        this._user.next( data as ICustomer )
+    this.http.get<ICustomer>( '/profile' ).subscribe( {
+      next: ( data ) => {
+        this._user.next( data )
       },
       error: error => {
         if ( error.status === 401 ) {

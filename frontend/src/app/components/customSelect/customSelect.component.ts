@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, Input } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, Input, Output } from '@angular/core';
 import { NgForOf, NgIf } from "@angular/common";
 import { NgScrollbar } from "ngx-scrollbar";
 
@@ -37,6 +37,12 @@ export class CustomSelectComponent {
   @Input()
   defaultValue: any = null;
 
+  @Output() change: EventEmitter<any> = new EventEmitter();
+
+  onChange( item: any ): void {
+    this.change.emit( item );
+  }
+
   selected: any;
 
   isOpen: boolean = false;
@@ -48,6 +54,7 @@ export class CustomSelectComponent {
   onSelect( item: any ) {
     this.selected = item;
     this.isOpen = false;
+    if ( this.onChange ) this.onChange( item );
   }
 
   getLabel( item: any ) {

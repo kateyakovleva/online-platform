@@ -6,15 +6,15 @@
         <input placeholder="поиск" class="w-100"/>
       </div>
       <app-custom-select
-        [items]="[{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},]"
+        [items]="(settings.content | async)?.work_format"
         placeholder="формат"
         labelFieldName="name"
         valueFieldName="id"
-        name="specialization_id"
+        name="format"
         class="width"
       />
       <app-custom-select
-        [items]="[{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},]"
+        [items]="settings.cities | async"
         labelFieldName="name"
         placeholder="город"
         valueFieldName="id"
@@ -22,7 +22,7 @@
         class="width"
       />
       <app-custom-select
-        [items]="[{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},{id: 'бла бла бла', name: 'бла бла бла'},]"
+        [items]="settings.specializations | async"
         labelFieldName="name"
         placeholder="стеки"
         valueFieldName="id"

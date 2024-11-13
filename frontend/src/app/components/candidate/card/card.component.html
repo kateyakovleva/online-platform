@@ -1,12 +1,12 @@
-<div class="d-flex direction-column mb-100 card-border" (click)="viewVacancy(item)">
-  <div class="specialisation">Специализация: {{item.specialisation}}</div>
-  <a [routerLink]="item.id"><h2 class="mb-10">{{item.title}}</h2></a>
-  <div class="sub-text mb-10">{{item.text}}</div>
-  <h3>{{item.price}}</h3>
+<div class="d-flex direction-column card-border" (click)="viewVacancy(item)">
+  <div class="specialisation">Специализация: {{item?.specialization?.name}}</div>
+  <a [routerLink]="'' + item?.id"><h2 class="mb-10">{{item?.vacancy}}</h2></a>
+  <div class="sub-text mb-10">{{item?.description}}</div>
+  <h3>{{item?.price_from|price}} - {{item?.price_to|price}}</h3>
   <div class="d-flex direction-row sub-text a-1-center j-c-start">
-    <img [src]="item.logoCompany" class="logo mr-10" alt="picture"/>
-    <div class="mr-10 companyName">{{item.company}}</div>
-    <div class="mr-10 sub-btn">{{item.city}}</div>
-    <div class="mr-10 sub-btn">{{item.status}}</div>
+    <img [src]="item?.company?.image" class="logo mr-10" alt="picture"/>
+    <div class="mr-10 companyName">{{item?.company?.name}}</div>
+    <div class="mr-10 sub-btn">{{item?.city?.name}}</div>
+    <div class="mr-10 sub-btn">{{item?.company?.is_online ? naming.online : naming.offline}}</div>
   </div>
 </div>

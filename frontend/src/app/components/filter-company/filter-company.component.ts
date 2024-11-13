@@ -1,23 +1,30 @@
-import {Component} from '@angular/core';
-import {naming} from "../../data/naming/naming/naming.service";
-import {CardComponent} from "../candidate/card/card.component";
-import {CustomSelectComponent} from "../customSelect/customSelect.component";
-import {CardResponseComponent} from "../company/card-response/card-response.component";
-import {NgForOf} from "@angular/common";
+import { Component } from '@angular/core';
+import { naming } from "../../data/naming/naming/naming.service";
+import { CardComponent } from "../candidate/card/card.component";
+import { CustomSelectComponent } from "../customSelect/customSelect.component";
+import { CardResponseComponent } from "../company/card-response/card-response.component";
+import { AsyncPipe, NgForOf } from "@angular/common";
+import { SettingsStore } from "../../stores/SettingsStore";
 
-@Component({
+@Component( {
   selector: 'app-filter-company',
   standalone: true,
   imports: [
     CardComponent,
     CustomSelectComponent,
     CardResponseComponent,
-    NgForOf
+    NgForOf,
+    AsyncPipe
   ],
   templateUrl: './filter-company.component.html',
   styleUrl: './filter-company.component.scss'
-})
+} )
 export class FilterCompanyComponent {
+
+  constructor(
+    public settings: SettingsStore,
+  ) {
+  }
 
   naming = naming;
 
@@ -29,8 +36,8 @@ export class FilterCompanyComponent {
       avatar: 'images/test.png',
       city: 'Казань',
       status: 'online',
-      skills: [{name: 'js'}, {name: 'react'}, {name: 'react'}, {name: 'js'}, {name: 'react'},
-        {name: 'react'}]
+      skills: [ { name: 'js' }, { name: 'react' }, { name: 'react' }, { name: 'js' }, { name: 'react' },
+        { name: 'react' } ]
     },
     {
       specialisation: 'QA',
@@ -43,8 +50,8 @@ export class FilterCompanyComponent {
       avatar: 'images/test.png',
       city: 'Москва',
       status: 'online',
-      skills: [{name: 'js'}, {name: 'react'}, {name: 'react'}, {name: 'js'}, {name: 'react'},
-        {name: 'react'}]
+      skills: [ { name: 'js' }, { name: 'react' }, { name: 'react' }, { name: 'js' }, { name: 'react' },
+        { name: 'react' } ]
     },
   ]
 }
