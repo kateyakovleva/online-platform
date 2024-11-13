@@ -24,6 +24,4 @@ export class FilterComponent {
   }
 
   naming = naming;
-
-  protected readonly async = async;
 }
