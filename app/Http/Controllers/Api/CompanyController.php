@@ -25,4 +25,9 @@ class CompanyController extends Controller
     {
 
     }
+
+    public function requests()
+    {
+
+    }
 }

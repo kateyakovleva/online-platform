@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient as AngularHttpClient } from "@angular/common/http";
 import { AuthStore } from "../stores/AuthStore";
-import { apiUrl } from "../utils";
 
 @Injectable( {
   providedIn: 'root'
@@ -35,4 +34,14 @@ export class AppClient {
   prepareUrl( url: string ) {
     return apiUrl( url );
   }
+}
+
+export const apiUrl = ( url: string ) => {
+  if ( !url.startsWith( 'http' ) ) {
+    if ( !url.startsWith( '/' ) ) url = '/' + url;
+    url = `http://online-platform.ru/api${ url }`;
+    console.log( '==================', url )
+  }
+
+  return url;
 }

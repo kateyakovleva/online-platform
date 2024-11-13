@@ -3,14 +3,14 @@
     <input
       type="text"
       class="w-55"
-      [value]="(selected || defaultValue) ? (selected || defaultValue)[labelFieldName] : ''"
+      [value]="getValue(selected || defaultValue)"
       [placeholder]="placeholder"
       readonly
     />
     <img [style.transform]="'rotate(' + (isOpen ? '180deg' : '0deg') +')'" src="images/icon_profile.svg" alt="icon"/>
     <input
       [name]="name"
-      [value]="(selected || defaultValue) ? (selected || defaultValue)[valueFieldName] : ''"
+      [value]="getValue(selected || defaultValue)"
       type="hidden"
     >
   </div>
@@ -21,7 +21,7 @@
       [thumbClass]="'custom-thumb'"
     >
       <div *ngFor="let item of items;" class="mb-5 item" (click)="onSelect(item)">
-        <div class="hov">{{ item[labelFieldName] }}</div>
+        <div class="hov">{{ getLabel(item) }}</div>
       </div>
     </ng-scrollbar>
   </div>

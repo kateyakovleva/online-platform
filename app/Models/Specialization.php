@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
 /**
  * 
@@ -17,7 +16,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Specialization query()
  * @mixin \Eloquent
  */
-class Specialization extends Model
+class Specialization extends BaseModel
 {
     use HasFactory;
 

@@ -3,12 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
- *
+ * 
  *
  * @property int $id
  * @property int $customer_id
@@ -24,16 +24,17 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\City|null $city
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\WorkResponse> $responses
  * @property \Illuminate\Database\Eloquent\Collection<int, \App\Models\Skill> $skills
  * @property-read \App\Models\Specialization $specialization
- * @property-read \App\Models\Worker|null $worker
+ * @property-read \App\Models\Worker $worker
  * @method static \Database\Factories\ResumeFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Resume newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Resume newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Resume query()
  * @mixin \Eloquent
  */
-class Resume extends Model
+class Resume extends BaseModel
 {
     use HasFactory;
 
@@ -55,6 +56,13 @@ class Resume extends Model
     public function worker(): BelongsTo
     {
         return $this->belongsTo(Worker::class, 'customer_id');
+    }
+
+    public function responses(): HasMany
+    {
+        return $this->hasMany(WorkResponse::class, 'resume_id')
+            ->orderByDesc('created_at')
+            ->with('vacancy');
     }
 
     public function setSkillsAttribute($value)

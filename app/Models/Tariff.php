@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
 /**
  * 
@@ -20,7 +19,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Tariff query()
  * @mixin \Eloquent
  */
-class Tariff extends Model
+class Tariff extends BaseModel
 {
     use HasFactory;
 

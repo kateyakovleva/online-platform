@@ -3,11 +3,11 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\SettingResource\Pages;
-use App\Filament\Resources\SettingResource\RelationManagers;
 use App\Models\Setting;
 use Filament\Forms;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Forms\Get;
@@ -31,7 +31,8 @@ class SettingResource extends Resource
                     ->options([
                         'bool' => 'Переключатель',
                         'string' => 'Строка',
-                        'markdown' => 'Текст с форматированием'
+                        'markdown' => 'Текст с форматированием',
+                        'tags' => 'Список',
                     ])
                     ->default('markdown')
                     ->live()
@@ -54,10 +55,14 @@ class SettingResource extends Resource
                                 ->required()
                                 ->columnSpanFull(),
                         ],
+                        'tags' => [
+                            TagsInput::make('value')
+                                ->required()
+                                ->columnSpanFull(),
+                        ],
                         default => [
                             TextInput::make('value')
                                 ->required()
-//                                ->helperText('Что бы выделить текст жирным оберните его **, например **жирный текст**')
                                 ->columnSpanFull(),
                         ],
                     })

@@ -3,9 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * 
@@ -28,6 +28,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\City|null $city
  * @property-read \App\Models\Company $company
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\WorkResponse> $responses
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Skill> $skills
  * @property-read \App\Models\Specialization $specialization
  * @method static \Database\Factories\VacancyFactory factory($count = null, $state = [])
@@ -36,7 +37,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Vacancy query()
  * @mixin \Eloquent
  */
-class Vacancy extends Model
+class Vacancy extends BaseModel
 {
     use HasFactory;
 
@@ -58,5 +59,12 @@ class Vacancy extends Model
     public function company(): BelongsTo
     {
         return $this->belongsTo(Company::class, 'company_id');
+    }
+
+    public function responses(): HasMany
+    {
+        return $this->hasMany(WorkResponse::class, 'vacancy_id')
+            ->orderByDesc('created_at')
+            ->with('resume');
     }
 }

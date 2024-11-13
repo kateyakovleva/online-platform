@@ -28,6 +28,7 @@ export interface ISettingContent {
   offer_link: string;
   requisites_link: string;
   personal_policy_link: string;
+  work_format: string[];
 }
 
 export interface ISettingTariffs {

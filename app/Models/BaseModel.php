@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- *
+ * 
  *
  * @method static Builder|BaseModel newModelQuery()
  * @method static Builder|BaseModel newQuery()
