@@ -51,18 +51,18 @@ export class CustomSelectComponent {
   }
 
   getLabel( item: any ) {
-    if ( typeof item === 'object' ) {
+    if ( item && typeof item === 'object' ) {
       return item[ this.labelFieldName ] || '';
     } else {
-      return item;
+      return item || '';
     }
   }
 
   getValue( item: any ) {
-    if ( typeof item === 'object' ) {
+    if ( item && typeof item === 'object' ) {
       return item[ this.valueFieldName ] || '';
     } else {
-      return item;
+      return item || '';
     }
   }
 }
