@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Staudenmeir\EloquentHasManyDeep\HasRelationships;
 
 /**
  * 
@@ -25,9 +27,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property \Illuminate\Support\Carbon|null $last_online
  * @property-read bool $is_company
  * @property-read bool $is_online
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, WorkResponse> $responses
  * @property-read \App\Models\Tariff|null $tariff
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \Laravel\Sanctum\PersonalAccessToken> $tokens
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Vacancy> $vacancies
+ * @property-read Collection<int, \Laravel\Sanctum\PersonalAccessToken> $tokens
+ * @property-read Collection<int, \App\Models\Vacancy> $vacancies
  * @method static \Database\Factories\CompanyFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Company newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Company newQuery()
@@ -39,6 +42,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  */
 class Company extends Customer
 {
+    use HasRelationships;
+
     protected $attributes = [
         'type' => self::COMPANY_TYPE
     ];
@@ -46,5 +51,18 @@ class Company extends Customer
     public function vacancies(): HasMany
     {
         return $this->hasMany(Vacancy::class, 'company_id');
+    }
+
+    public function responses(): \Staudenmeir\EloquentHasManyDeep\HasManyDeep
+    {
+        return $this->hasManyDeepFromRelations($this->vacancies(), (new Vacancy())->responses());
+    }
+
+    /**
+     * @return Collection<int, WorkResponse>
+     */
+    public function getResponsesAttribute()
+    {
+        return $this->responses;
     }
 }
