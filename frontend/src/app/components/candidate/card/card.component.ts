@@ -3,6 +3,7 @@ import { naming } from "../../../data/naming/naming/naming.service";
 import { Router, RouterLink } from "@angular/router";
 import { IVacancy } from "../../../types/vacancies";
 import { PricePipe } from "../../../filters/price.pipe";
+import { UserStore } from "../../../stores/UserStore";
 
 @Component( {
   selector: 'app-card',
@@ -12,11 +13,15 @@ import { PricePipe } from "../../../filters/price.pipe";
     PricePipe
   ],
   templateUrl: './card.component.html',
-  styleUrl: './card.component.scss'
+  styleUrl: './card.component.scss',
+  host: {
+    class: 'd-block'
+  }
 } )
 export class CardComponent {
   constructor(
-    private router: Router
+    private router: Router,
+    private user: UserStore,
   ) {
   }
 
@@ -25,7 +30,11 @@ export class CardComponent {
   @Input()
   item?: IVacancy = undefined;
 
-  viewVacancy( vacancy: any ) {
-    this.router.navigate( [ '/company_profile/vacancies/' + vacancy.id ] );
+  viewVacancy() {
+    if ( this.user._user.value?.id === this.item?.id ) {
+      this.router.navigate( [ '/company_profile/vacancies/' + this.item?.id ] );
+    } else {
+      this.router.navigate( [ '/search/vacancies/' + this.item?.id ] );
+    }
   }
 }

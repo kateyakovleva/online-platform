@@ -1,9 +1,9 @@
-import {Component} from '@angular/core';
-import {naming} from "../../../../data/naming/naming/naming.service";
-import {CardResponseComponent} from "../../card-response/card-response.component";
-import {RouterOutlet} from "@angular/router";
+import { Component } from '@angular/core';
+import { naming } from "../../../../data/naming/naming/naming.service";
+import { CardResponseComponent } from "../../card-response/card-response.component";
+import { RouterOutlet } from "@angular/router";
 
-@Component({
+@Component( {
   selector: 'app-responses',
   standalone: true,
   imports: [
@@ -11,8 +11,8 @@ import {RouterOutlet} from "@angular/router";
     RouterOutlet
   ],
   templateUrl: './responses.component.html',
-  styleUrl: '../personal-data/personalDataCustomer.component.scss'
-})
+  styleUrl: '../personal-data/personalDataCompany.component.scss'
+} )
 export class ResponsesComponent {
 
   naming = naming;

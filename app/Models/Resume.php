@@ -67,8 +67,9 @@ class Resume extends BaseModel
 
     public function setSkillsAttribute($value)
     {
-        if ($this->exists) {
+        $this->executeAfterSaving('skills', function () use ($value) {
             $this->skills()->sync($value);
-        }
+        });
+        return $this;
     }
 }

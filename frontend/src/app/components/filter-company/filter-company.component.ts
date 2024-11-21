@@ -3,13 +3,14 @@ import { naming } from "../../data/naming/naming/naming.service";
 import { CardComponent } from "../candidate/card/card.component";
 import { CustomSelectComponent } from "../customSelect/customSelect.component";
 import { CardResponseComponent } from "../company/card-response/card-response.component";
-import { AsyncPipe, NgForOf } from "@angular/common";
+import { AsyncPipe, NgForOf, NgIf } from "@angular/common";
 import { SettingsStore } from "../../stores/SettingsStore";
 import { Observable } from "rxjs";
 import { ContentHeightService } from "../../services/ContentHeightService";
 import { ActivatedRoute, Router } from "@angular/router";
 import { ResumesStore } from "../../stores/ResumesStore";
 import { IResumes } from "../../types/resumes";
+import { Paginator } from "../paginator/paginator.component";
 
 @Component( {
   selector: 'app-filter-company',
@@ -19,7 +20,9 @@ import { IResumes } from "../../types/resumes";
     CustomSelectComponent,
     CardResponseComponent,
     NgForOf,
-    AsyncPipe
+    AsyncPipe,
+    NgIf,
+    Paginator
   ],
   templateUrl: './filter-company.component.html',
   styleUrl: './filter-company.component.scss'
@@ -30,7 +33,7 @@ export class FilterCompanyComponent {
     public settings: SettingsStore,
     public resumesStore: ResumesStore,
     public height: ContentHeightService,
-    public params: ActivatedRoute,
+    public location: ActivatedRoute,
     private router: Router,
   ) {
     this.search();
@@ -41,11 +44,11 @@ export class FilterCompanyComponent {
   resumes: Observable<IResumes> | null = null;
 
   search() {
-    this.resumes = this.resumesStore.getResumes( this.params.snapshot.queryParams );
+    this.resumes = this.resumesStore.getResumes( this.location.snapshot.queryParams );
   }
 
   onChange( key: string, value: string ) {
-    const params = { ...this.params.snapshot.queryParams, [ key ]: value };
+    const params = { ...this.location.snapshot.queryParams, [ key ]: value };
 
     if ( !value || value === '---' ) delete params[ key ];
 
@@ -59,7 +62,7 @@ export class FilterCompanyComponent {
   }
 
   getDefaultValue( key: string, items?: any[] | null ) {
-    return items?.find( el => ( el.id || el ) == this.params.snapshot.queryParams[ key ] )
+    return items?.find( el => ( el.id || el ) == this.location.snapshot.queryParams[ key ] )
   }
 
   unshift( firstItem: any, items?: any[] | null ) {

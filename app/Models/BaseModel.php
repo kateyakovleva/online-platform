@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\AfterSaveEvent;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,6 +16,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class BaseModel extends Model
 {
+    use AfterSaveEvent;
+
     public function __construct(array $attributes = [])
     {
         $this->hidden = array_merge($this->hidden, array_values(self::$hiddens[static::class] ?? []));

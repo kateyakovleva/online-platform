@@ -1,21 +1,7 @@
-import { ICity, IPageLink, ISkill, ISpecialization } from "./other_types";
+import { ICity, IResponsePaginate, ISkill, ISpecialization } from "./other_types";
 import { ICompany } from "./company";
 
-export interface IVacancies {
-  current_page: number;
-  data: IVacancy[];
-  first_page_url: string;
-  from: number;
-  last_page: number;
-  last_page_url: string;
-  links: IPageLink[];
-  next_page_url: string;
-  path: string;
-  per_page: number;
-  prev_page_url?: any;
-  to: number;
-  total: number;
-}
+export type IVacancies = IResponsePaginate<IVacancy>;
 
 export interface IVacancy {
   id: number;

@@ -26,10 +26,12 @@ Route::prefix('settings')->group(function () {
 
 Route::prefix('vacancies')->group(function () {
     Route::get('/', [\App\Http\Controllers\Api\VacanciesController::class, 'index']);
+    Route::get('{id}', [\App\Http\Controllers\Api\VacanciesController::class, 'get']);
 });
 
 Route::prefix('resumes')->group(function () {
     Route::get('/', [\App\Http\Controllers\Api\ResumesController::class, 'index']);
+    Route::get('{id}', [\App\Http\Controllers\Api\ResumesController::class, 'get']);
 });
 
 Route::post('/register', [\App\Http\Controllers\Api\CustomerController::class, 'register']);
@@ -48,6 +50,7 @@ Route::prefix('profile')
 
             Route::get('{id}', [\App\Http\Controllers\Api\CompanyController::class, 'get']);
             Route::post('{id}', [\App\Http\Controllers\Api\CompanyController::class, 'update']);
+            Route::delete('{id}', [\App\Http\Controllers\Api\CompanyController::class, 'delete']);
         });
 
         Route::prefix('requests')->group(function () {
@@ -55,6 +58,7 @@ Route::prefix('profile')
         });
 
         Route::prefix('responses')->group(function () {
-            Route::get('/', [\App\Http\Controllers\Api\ResponsesController::class, 'list']);
+            Route::get('/', [\App\Http\Controllers\Api\ResponsesController::class, 'responses']);
+            Route::post('/', [\App\Http\Controllers\Api\ResponsesController::class, 'addResponse']);
         });
     });

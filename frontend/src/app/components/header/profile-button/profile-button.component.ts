@@ -32,16 +32,17 @@ export class ProfileButtonComponent {
   candidate = [
     { name: 'найти работу', link: '/search/vacancies' },
     { name: 'мой профиль', link: '/profile' },
-    { name: 'мои отклики', link: '/profile/offers' },
-    { name: 'входящие предложения', link: '/profile/responses' },
+    { name: 'мои отклики', link: '/profile/responses' },
+    { name: 'входящие предложения', link: '/profile/offers' },
   ];
 
   company = [
     { name: 'найти сотрудника', link: '/search/resume' },
     { name: 'мой профиль', link: '/company_profile' },
-    { name: 'отклики', link: '/company_profile/company_offers' },
-    { name: 'входящие предложения', link: '' },
+    { name: 'отклики', link: '/company_profile/company_responses' },
   ];
+
+  isOpen = false;
 
   getMenuItems() {
     if ( this.user._user.getValue()?.is_company ) {

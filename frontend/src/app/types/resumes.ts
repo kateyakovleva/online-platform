@@ -1,22 +1,7 @@
 import { IWorker } from "./customer";
-import { ICity, IPageLink, ISkill, ISpecialization } from "./other_types";
+import { ICity, IResponsePaginate, ISkill, ISpecialization } from "./other_types";
 
-export interface IResumes {
-  current_page: number;
-  data: IResume[];
-  first_page_url: string;
-  from: number;
-  last_page: number;
-  last_page_url: string;
-  links: IPageLink[];
-  next_page_url?: any;
-  path: string;
-  per_page: number;
-  prev_page_url?: any;
-  to: number;
-  total: number;
-}
-
+export type IResumes = IResponsePaginate<IResume>;
 
 export interface IResume {
   id: number;

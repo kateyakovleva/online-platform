@@ -1,10 +1,16 @@
-<div class="d-flex direction-column w-100">
+<div *ngIf="(responses | async) as _responses" class="d-flex direction-column w-100">
   <h1 class="mb-20">{{naming.personalOffers}}</h1>
   <div class="d-flex direction-row w-100 mb-20">
     <div class="sub-title ml-30">{{naming.find}}</div>
-    <div class="sub-title ml-10"><b>4</b></div>
+    <div class="sub-title ml-10"><b>{{_responses?.total}}</b></div>
   </div>
+
   <div>
-    <app-card></app-card>
+    <app-card *ngFor="let response of _responses?.data" [item]="response.vacancy" class="w-80"></app-card>
+
+    <app-paginator
+      [total]="_responses?.total || 0"
+      [perPage]="_responses?.per_page || 1"
+    />
   </div>
 </div>

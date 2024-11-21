@@ -16,8 +16,9 @@ import { CardResponseComponent } from "./components/company/card-response/card-r
 import { CreateProfileComponent } from "./components/candidate/createProfile/createProfile.component";
 import { ProfileComponent } from "./components/candidate/profile/profile.component";
 import { FilterComponent } from "./components/filter/filter.component";
-import { ProfileCustomerComponent } from "./components/company/profile/profileCustomer.component";
+import { ProfileCompanyComponent } from "./components/company/profile/profileCompany.component";
 import { PricePipe } from "./filters/price.pipe";
+import { PreloaderComponent } from "./components/preloader/preloader.component";
 
 @NgModule( {
   declarations: [
@@ -45,7 +46,8 @@ import { PricePipe } from "./filters/price.pipe";
     CreateProfileComponent,
     ProfileComponent,
     FilterComponent,
-    ProfileCustomerComponent,
+    ProfileCompanyComponent,
+    PreloaderComponent,
   ],
   providers: [
     // provideClientHydration(),

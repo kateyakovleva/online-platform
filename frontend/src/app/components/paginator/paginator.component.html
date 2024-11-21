@@ -1,0 +1,26 @@
+<a
+  *ngIf="currentPage > 1"
+  class="paginate-link back-link"
+  routerLinkActive="active"
+  [routerLink]="getUrl(currentPage-1)"
+  [queryParams]="currentPage -1 > 1 ? {page: currentPage-1} : undefined"
+  [routerLinkActiveOptions]="{exact: true}"
+><<</a>
+
+<a
+  *ngFor="let page of _pages|async;"
+  class="paginate-link "
+  routerLinkActive="active"
+  [routerLink]="getUrl(page+1)"
+  [queryParams]="page ? {page: page+1} : undefined"
+  [routerLinkActiveOptions]="{exact: true}"
+>{{page + 1}}</a>
+
+<a
+  *ngIf="currentPage < total / perPage"
+  class="paginate-link next-link"
+  routerLinkActive="active"
+  [routerLink]="getUrl(currentPage+1)"
+  [queryParams]="{page: currentPage+1}"
+  [routerLinkActiveOptions]="{exact: true}"
+>>></a>

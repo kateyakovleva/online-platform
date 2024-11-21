@@ -29,4 +29,10 @@ class VacanciesController extends Controller
             ->orderByDesc('created_at')
             ->paginate(20);
     }
+
+    public function get($id)
+    {
+        return Vacancy::with(['city', 'skills', 'specialization', 'company'])
+            ->find($id);
+    }
 }

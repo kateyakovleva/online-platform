@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { AppClient } from "./services/AppClient";
 
 @Component( {
   selector: 'app-root',
@@ -7,5 +8,10 @@ import { Component, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 } )
 export class AppComponent {
+  constructor(
+    public client: AppClient,
+  ) {
+  }
+
   title = 'online-platform';
 }

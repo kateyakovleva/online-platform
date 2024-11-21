@@ -53,7 +53,10 @@ class CompanyResource extends Resource
                     ->relationship('tariff', 'name'),
                 DatePicker::make('tariff_end_of')
                     ->label('Когда кончается подписка'),
-                MarkdownEditor::make('data.description')
+                Select::make('city_id')
+                    ->relationship('city', 'name')
+                    ->required(),
+                MarkdownEditor::make('description')
                     ->label('Описание')
                     ->columnSpanFull(),
             ]);

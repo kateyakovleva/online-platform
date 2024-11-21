@@ -3,15 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Requests\AuthRequest;
+use App\Http\Requests\ProfileRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Mail\ConfirmEmail;
-use App\Models\Company;
 use App\Models\Customer;
 use App\Models\EmailConfirm;
-use App\Models\Worker;
-use Auth;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Mail;
 
 class CustomerController extends Controller
@@ -45,17 +42,18 @@ class CustomerController extends Controller
     public function auth(AuthRequest $request)
     {
         return response()->json([
-            'token' => \Auth::user()->createToken('api')->plainTextToken
+            'token' => $this->getCustomer()
+                ->createToken('api')
+                ->plainTextToken
         ]);
     }
 
     public function profile()
     {
-        /** @var Company|Worker $customer */
-        $customer = Auth::user();
+        $customer = $this->getCustomer();
         $customer->load(['tariff']);
         if ($customer->is_company) {
-            $customer->load(['vacancies.city']);
+            $customer->load(['city']);
         } else {
             $customer->load(['resume.city', 'resume.skills', 'resume.specialization']);
         }
@@ -63,10 +61,9 @@ class CustomerController extends Controller
         return $customer;
     }
 
-    public function updateProfile(Request $request)
+    public function updateProfile(ProfileRequest $request)
     {
-        /** @var Company|Worker $customer */
-        $customer = Auth::user();
+        $customer = $this->getCustomer();
         $customer->update($request->all());
 
         return $customer;

@@ -29,7 +29,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property-read \App\Models\City|null $city
  * @property-read \App\Models\Company $company
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\WorkResponse> $responses
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Skill> $skills
+ * @property \Illuminate\Database\Eloquent\Collection<int, \App\Models\Skill> $skills
  * @property-read \App\Models\Specialization $specialization
  * @method static \Database\Factories\VacancyFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Vacancy newModelQuery()
@@ -66,5 +66,13 @@ class Vacancy extends BaseModel
         return $this->hasMany(WorkResponse::class, 'vacancy_id')
             ->orderByDesc('created_at')
             ->with('resume');
+    }
+
+    public function setSkillsAttribute($value)
+    {
+        $this->executeAfterSaving('skills', function () use ($value) {
+            $this->skills()->sync($value);
+        });
+        return $this;
     }
 }

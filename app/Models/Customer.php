@@ -28,6 +28,8 @@ use Laravel\Sanctum\HasApiTokens;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null $photo
  * @property \Illuminate\Support\Carbon|null $last_online
+ * @property string|null $description
+ * @property int|null $city_id
  * @property-read bool $is_company
  * @property-read bool $is_online
  * @property-read \App\Models\Tariff|null $tariff

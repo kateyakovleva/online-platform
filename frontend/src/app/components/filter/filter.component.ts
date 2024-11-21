@@ -3,12 +3,13 @@ import { naming } from "../../data/naming/naming/naming.service";
 import { CustomSelectComponent } from "../customSelect/customSelect.component";
 import { CardComponent } from "../candidate/card/card.component";
 import { SettingsStore } from "../../stores/SettingsStore";
-import { AsyncPipe, NgForOf } from "@angular/common";
+import { AsyncPipe, NgForOf, NgIf } from "@angular/common";
 import { VacanciesStore } from "../../stores/VacanciesStore";
 import { Observable } from "rxjs";
 import { IVacancies } from "../../types/vacancies";
 import { ContentHeightService } from "../../services/ContentHeightService";
 import { ActivatedRoute, Router } from "@angular/router";
+import { Paginator } from "../paginator/paginator.component";
 
 
 @Component( {
@@ -18,7 +19,9 @@ import { ActivatedRoute, Router } from "@angular/router";
     CustomSelectComponent,
     CardComponent,
     AsyncPipe,
-    NgForOf
+    NgForOf,
+    Paginator,
+    NgIf
   ],
   templateUrl: './filter.component.html',
   styleUrl: './filter.component.scss'
@@ -29,7 +32,7 @@ export class FilterComponent {
     public settings: SettingsStore,
     public vacanciesStore: VacanciesStore,
     public height: ContentHeightService,
-    public params: ActivatedRoute,
+    public location: ActivatedRoute,
     private router: Router,
   ) {
     this.search();
@@ -40,11 +43,11 @@ export class FilterComponent {
   vacancies: Observable<IVacancies> | null = null;
 
   search() {
-    this.vacancies = this.vacanciesStore.getVacancies( this.params.snapshot.queryParams );
+    this.vacancies = this.vacanciesStore.getVacancies( this.location.snapshot.queryParams );
   }
 
   onChange( key: string, value: string ) {
-    const params = { ...this.params.snapshot.queryParams, [ key ]: value };
+    const params = { ...this.location.snapshot.queryParams, [ key ]: value };
 
     if ( !value || value === '---' ) delete params[ key ];
 
@@ -58,7 +61,7 @@ export class FilterComponent {
   }
 
   getDefaultValue( key: string, items?: any[] | null ) {
-    return items?.find( el => ( el.id || el ) == this.params.snapshot.queryParams[ key ] )
+    return items?.find( el => ( el.id || el ) == this.location.snapshot.queryParams[ key ] )
   }
 
   unshift( firstItem: any, items?: any[] | null ) {

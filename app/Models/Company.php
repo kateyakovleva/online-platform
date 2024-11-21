@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Staudenmeir\EloquentHasManyDeep\HasRelationships;
 
@@ -25,12 +26,16 @@ use Staudenmeir\EloquentHasManyDeep\HasRelationships;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null $photo
  * @property \Illuminate\Support\Carbon|null $last_online
+ * @property string|null $description
+ * @property int|null $city_id
+ * @property-read \App\Models\City|null $city
  * @property-read bool $is_company
  * @property-read bool $is_online
- * @property-read \Illuminate\Database\Eloquent\Collection<int, WorkResponse> $responses
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\WorkResponse[] $responses
  * @property-read \App\Models\Tariff|null $tariff
  * @property-read Collection<int, \Laravel\Sanctum\PersonalAccessToken> $tokens
  * @property-read Collection<int, \App\Models\Vacancy> $vacancies
+ * @property-read int|null $responses_count
  * @method static \Database\Factories\CompanyFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Company newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Company newQuery()
@@ -56,6 +61,11 @@ class Company extends Customer
     public function responses(): \Staudenmeir\EloquentHasManyDeep\HasManyDeep
     {
         return $this->hasManyDeepFromRelations($this->vacancies(), (new Vacancy())->responses());
+    }
+
+    public function city(): BelongsTo
+    {
+        return $this->belongsTo(City::class);
     }
 
     /**

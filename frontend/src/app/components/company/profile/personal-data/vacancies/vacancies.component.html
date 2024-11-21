@@ -1,4 +1,9 @@
-<div class="d-flex a-1-start j-c-center direction-column">
+<div *ngIf="vacancies && (vacancies|async) as _vacancies" class="d-flex j-c-center direction-column">
   <h1 class="label mb-20 mt-40">Созданные вакансии</h1>
-  <app-card *ngFor="let item of []" [item]="item"></app-card>
+  <app-card *ngFor="let item of _vacancies?.data" [item]="item"></app-card>
+
+  <app-paginator
+    [total]="_vacancies?.total || 0"
+    [perPage]="_vacancies?.per_page || 1"
+  />
 </div>

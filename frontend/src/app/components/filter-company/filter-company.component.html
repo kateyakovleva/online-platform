@@ -4,7 +4,7 @@
       <div class="d-flex container-search border a-1-center j-c-center w-30">
         <img src="images/search.svg" alt="search" class="mr-10"/>
         <input placeholder="поиск" (change)="onChange('search', getInputValue($event))"
-               [value]="this.params.snapshot.queryParams['search'] || ''" class="w-100"/>
+               [value]="this.location.snapshot.queryParams['search'] || ''" class="w-100"/>
       </div>
       <app-custom-select
         [items]="unshift('---', (settings.content | async)?.work_format)"
@@ -38,11 +38,20 @@
       />
       <button type="button" class="btn-submit width" (click)="search()">{{naming.buttonFind}}</button>
     </form>
-    <div class="d-flex direction-row mb-20">
-      <div class="sub-title ml-30">{{naming.find}}</div>
-      <div class="sub-title ml-10"><b>{{(resumes|async)?.total}}</b></div>
+    <div *ngIf="(resumes|async) as _resumes">
+      <div class="d-flex direction-row mb-20">
+        <div class="sub-title ml-30">{{naming.find}}</div>
+        <div class="sub-title ml-10"><b>{{_resumes?.total}}</b></div>
+      </div>
+
+      <app-card-response *ngFor="let item of _resumes?.data;" [item]="item" class="w-80"></app-card-response>
+
+      <app-paginator
+        [total]="_resumes?.total || 0"
+        [perPage]="_resumes?.per_page || 1"
+        (onPageChange)="search()"
+      />
     </div>
-    <app-card-response *ngFor="let item of (resumes|async)?.data;" [item]="item" class="w-80"></app-card-response>
   </div>
 </div>
 

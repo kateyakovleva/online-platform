@@ -1,6 +1,8 @@
 import { ICustomer } from "./customer";
+import { ICity } from "./other_types";
 
 export interface ICompany extends ICustomer {
+  city?: ICity;
   vacancies: ICompanyVacancies[];
 }
 

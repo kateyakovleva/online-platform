@@ -1,0 +1,14 @@
+<div *ngIf="(resume|async) as _resume" class="d-flex container-main mt-40 mobile">
+  <app-candidate-aside [resume]="_resume">
+    <button class="btns btn5 mb-20" [disabled]="(success|async)"
+            (click)="addResponse(_resume?.id)">{{(success|async) || 'Откликнуться'}}</button>
+  </app-candidate-aside>
+  <div class="d-flex w-70">
+    <app-candidate-info [hideButton]="true" [resume]="_resume"/>
+  </div>
+</div>
+
+
+
+
+

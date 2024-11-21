@@ -2,7 +2,7 @@
   <h1 class="mb-20">{{naming.personalData}}</h1>
   <div class="container-border mb-40">
     <div class="text mb-20">Информация о компании</div>
-    <div class="subtext">текст текст текст</div>
+    <div class="subtext">{{(user.company$|async)?.description}}</div>
   </div>
   <div class="d-flex direction-row w-100 border">
     <button routerLink="vacancies" routerLinkActive="active" class="btn-grey mr-30">{{ naming.vacancies }}</button>

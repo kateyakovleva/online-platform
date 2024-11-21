@@ -29,4 +29,10 @@ class ResumesController extends Controller
             ->orderByDesc('updated_at')
             ->paginate(20);
     }
+
+    public function get($id)
+    {
+        return Resume::with(['city', 'skills', 'specialization', 'worker'])
+            ->find($id);
+    }
 }

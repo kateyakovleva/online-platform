@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\VacancyResource\Pages;
-use App\Filament\Resources\VacancyResource\RelationManagers;
 use App\Models\Vacancy;
 use Filament\Forms;
 use Filament\Forms\Form;

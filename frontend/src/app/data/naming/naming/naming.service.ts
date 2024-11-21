@@ -125,6 +125,7 @@ export const naming = {
 
   //ЛИЧНЫЙ КАБИНЕТ РАБОТОДАТЕЛЬ авторизация
   createVacancy: 'создать вакансию',
+  editVacancy: 'редактировать вакансию',
   vacancies: 'вакансии',
   nameCompany: 'Вакансия*',
   nameSpecialisation: 'Специализация*',

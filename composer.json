@@ -15,7 +15,7 @@
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
-        "staudenmeir/eloquent-has-many-deep": "1.18"
+        "staudenmeir/eloquent-has-many-deep": "^1.19"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^3.1",

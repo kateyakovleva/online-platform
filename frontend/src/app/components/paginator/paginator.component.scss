@@ -1,0 +1,17 @@
+:host {
+  .paginate-link {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid var(--light-green);
+
+    & + .paginate-link {
+      margin-left: 10px;
+    }
+
+    &.active {
+      background: var(--light-light-green);
+    }
+  }
+
+}
+

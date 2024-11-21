@@ -105,6 +105,7 @@ h2 {
 input, select, textarea {
   font-family: 'SF UI Display Regular';
   outline: none;
+  font-size: 17px;
 
   &:disabled {
     opacity: .6;
@@ -124,6 +125,10 @@ select {
 
 .d-flex {
   display: flex;
+}
+
+.d-block {
+  display: block;
 }
 
 .flex-wrap {
@@ -232,6 +237,10 @@ select {
 
 .mb-20 {
   margin-bottom: 20px;
+}
+
+.mb-30 {
+  margin-bottom: 30px;
 }
 
 .mb-10 {

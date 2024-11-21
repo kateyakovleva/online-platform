@@ -24,6 +24,8 @@ export interface ICustomer {
   is_online?: boolean;
   last_online?: string;
   tariff?: any;
+  description?: string;
+  city_id?: number;
 }
 
 export interface IWorker extends ICustomer {

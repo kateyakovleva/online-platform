@@ -30,7 +30,7 @@
     <div class="d-flex direction-column mb-40">
       <label class="label mb-10">{{naming.skillsMy}}</label>
       <div class="d-flex direction-column">
-        <div class="d-flex mb-20 container-checkbox">
+        <div class="d-flex mb-20 container-checkbox flex-wrap">
           <app-checkbox
             *ngFor="let item of (settings.skills | async);" name="skills[]"
             [value]="item.id"
@@ -54,11 +54,9 @@
       <div class="d-flex direction-column w-90">
         <label class="label mb-10">{{naming.workForm}}</label>
         <app-custom-select
-          [items]="[{id: 'бла бла бла', name: 'бла бла бла'},
-          {id: 'бла бла бла', name: 'бла бла бла'},
-          {id: 'бла бла бла', name: 'бла бла бла'}]"
-          labelFieldName="name"
-          valueFieldName="id"
+          name="format"
+          [items]="unshift('---', (settings.content | async)?.work_format)"
+          [defaultValue]="getDefaultValue((settings.content | async)?.work_format, profile?.resume?.format)"
         />
       </div>
     </div>

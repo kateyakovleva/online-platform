@@ -20,7 +20,8 @@ class AuthRequest extends FormRequest
             'password' => [
                 'required',
                 function (string $attribute, mixed $value, Closure $fail) {
-                    if (!Auth::attempt($this->only(['email', 'password']))) {
+                    $data = $this->only(['email', 'password']);
+                    if (!Auth::attempt($data)) {
                         $fail("Неверный логин или пароль.");
                     }
                 },

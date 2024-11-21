@@ -1,0 +1,24 @@
+<div *ngIf="(vacancy|async) as _vacancy" class="d-flex container-main mt-40 mobile"
+     [style.min-height]="(height.content | async)+'px'">
+  <app-company-aside [vacancy]="_vacancy">
+    <button class="btns btn4 mb-10" routerLink="/search/vacancies" [queryParams]="{company_id: _vacancy?.company_id}">
+      посмотреть все вакансии компании
+    </button>
+    <button class="btns btn5 mb-20" [disabled]="(success|async)"
+            (click)="addResponse(_vacancy?.id)">{{(success|async) || 'Откликнуться'}}</button>
+  </app-company-aside>
+  <div class="d-flex w-70">
+    <div class="d-flex direction-column">
+      <div class="container-border mb-40">
+        <div class="text mb-20">Информация о компании</div>
+        <div class="subtext">{{_vacancy?.company?.description}}</div>
+      </div>
+      <div class="d-flex w-100">
+        <app-vacancy [viewVacancy]="_vacancy" [hideButtons]="true"></app-vacancy>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+

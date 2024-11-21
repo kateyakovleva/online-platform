@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
@@ -23,8 +24,11 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null $photo
  * @property \Illuminate\Support\Carbon|null $last_online
+ * @property string|null $description
+ * @property int|null $city_id
  * @property-read bool $is_company
  * @property-read bool $is_online
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\WorkResponse> $responses
  * @property-read \App\Models\Resume $resume
  * @property-read \App\Models\Tariff|null $tariff
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Laravel\Sanctum\PersonalAccessToken> $tokens
@@ -48,5 +52,10 @@ class Worker extends Customer
     {
         return $this->hasOne(Resume::class, 'customer_id')
             ->withDefault();
+    }
+
+    public function responses(): HasMany
+    {
+        return $this->resume->responses();
     }
 }
