@@ -17,7 +17,8 @@
   .allCandidates {
     color: var(--white);
     background-color: var(--dark-orange);
-    padding: 25px 60px;
+    padding: 25px 0;
+    text-align: center;
     border-radius: 45px;
   }
 }
@@ -40,11 +41,14 @@
     border-bottom: 0.5px solid var(--light-light-grey);
   }
 
+  .col-3 {
+    width: 25%;
+  }
+
   .card {
     background-color: var(--light-light-grey);
     position: relative;
     min-height: 100%;
-    min-width: 22%;
     margin: 0 10px;
     border-radius: 16px;
 
@@ -77,20 +81,21 @@
       .container-white {
         background-color: var(--white);
         border-radius: 16px;
-        margin: 2%;
+        margin: 2% 0;
       }
 
       .card-container__courses {
         width: 100%;
         align-items: center;
         justify-content: center;
+
         .card-container__courses-container {
-          margin: 2%;
+          margin: 2% 0;
 
           .card-container__courses-container-title {
             font-weight: 600;
             font-size: 20px;
-            margin: 2%;
+            margin: 2% 0;
             line-height: 23px;
             text-align: center;
           }
@@ -109,7 +114,7 @@
 
       .task {
         text-align: center;
-        margin: 2%;
+        margin: 2% 0;
         line-height: 26px;
       }
 
@@ -143,15 +148,14 @@
 }
 
 
-
 .btn-talk-with-users {
-    font-size: 14px;
-    padding: 20px;
-    border-radius: 49px;
-    color: var(--brown);
-    background-color: var(--salad);
-    margin: 3%;
-  }
+  font-size: 14px;
+  padding: 20px;
+  border-radius: 49px;
+  color: var(--brown);
+  background-color: var(--salad);
+  margin: 3% 0;
+}
 
 
 @media (min-width: 1600px) {
@@ -178,15 +182,15 @@
         }
 
         .container-white {
-          margin: 3%;
+          margin: 3% 0;
         }
 
         .card-container__courses {
           .card-container__courses-container {
-            margin: 3%;
+            margin: 3% 0;
 
             .card-container__courses-container-title {
-              margin: 3%;
+              margin: 3% 0;
               line-height: 26px;
             }
 
@@ -198,7 +202,7 @@
         }
 
         .task {
-          margin: 3%;
+          margin: 3% 0;
           font-size: 20px;
         }
 
@@ -233,7 +237,7 @@
   section {
 
     .btn-talk-with-users {
-      margin: 7% 3%;
+      margin: 7% 0 3%;
       font-size: 12px;
       line-height: 16px;
     }
@@ -242,7 +246,7 @@
       width: 80%
     }
 
-    .height{
+    .height {
       flex-direction: column;
       align-items: center;
       height: auto;
@@ -252,15 +256,18 @@
         min-width: 90%;
         margin-left: 0;
       }
+
       .card {
         height: 700px;
         min-width: 90%;
         margin: 0 0 20px;
         align-items: start;
         justify-content: center;
+
         .card-container {
           width: 85%;
           align-items: center;
+
           .card-container__skills-container {
             .skills-container__skill {
               min-width: 15%;
@@ -271,13 +278,16 @@
               margin: 2%;
             }
           }
+
           .card-container__title {
             padding: 10px;
             width: 60%;
           }
+
           .card-container__courses {
             .card-container__courses-container {
               width: 90%;
+
               .card-container__courses-container-title {
                 font-size: 16px;
                 line-height: 20px;

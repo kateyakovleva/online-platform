@@ -4,6 +4,7 @@ import { RouterLink } from "@angular/router";
 import { AsyncPipe, NgForOf, NgIf } from "@angular/common";
 import { IWorker } from "../../types/customer";
 import { IResume } from "../../types/resumes";
+import { UserStore } from "../../stores/UserStore";
 
 @Component( {
   selector: 'app-candidate-aside',
@@ -16,6 +17,10 @@ import { IResume } from "../../types/resumes";
   }
 } )
 export class CandidateAside {
+  constructor(
+    public user: UserStore,
+  ) {
+  }
 
   naming = naming;
 
@@ -27,5 +32,12 @@ export class CandidateAside {
     this.candidate = resume.worker;
     //@ts-ignore
     this.candidate.resume = resume;
+  }
+
+  selectFile( event: Event ) {
+    //@ts-ignore
+    this.user.updateImage( event.target.files[ 0 ] ).subscribe( r => {
+      this.user.getUser();
+    } );
   }
 }

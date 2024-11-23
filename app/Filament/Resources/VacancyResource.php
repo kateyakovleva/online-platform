@@ -72,13 +72,17 @@ class VacancyResource extends Resource
                 Tables\Columns\TextColumn::make('company.name')
                     ->numeric()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('city.name')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('vacancy')
+                    ->limit(50)
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('specialization.name')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('city_id')
-                    ->numeric()
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('format')
+                    ->limit(50)
                     ->searchable(),
                 Tables\Columns\TextColumn::make('price_from')
                     ->numeric()

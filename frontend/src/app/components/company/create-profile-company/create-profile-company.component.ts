@@ -39,8 +39,8 @@ export class CreateProfileCompanyComponent {
     event.preventDefault();
     const data = new FormData( event.target as HTMLFormElement );
 
-    this.http.post( '/profile', data ).subscribe( r => {
-      this.user.updateUser();
+    this.user.updateUser( data ).subscribe( r => {
+      this.user.getUser();
       this.router.navigate( [ "/company_profile" ] );
     } )
   }

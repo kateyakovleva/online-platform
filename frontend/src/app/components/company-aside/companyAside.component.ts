@@ -4,6 +4,7 @@ import { RouterLink } from "@angular/router";
 import { AsyncPipe, NgForOf, NgIf } from "@angular/common";
 import { ICompany } from "../../types/company";
 import { IVacancy } from "../../types/vacancies";
+import { UserStore } from "../../stores/UserStore";
 
 @Component( {
   selector: 'app-company-aside',
@@ -16,6 +17,11 @@ import { IVacancy } from "../../types/vacancies";
   }
 } )
 export class CompanyAside {
+  constructor(
+    public user: UserStore,
+  ) {
+  }
+
   naming = naming;
 
   @Input()
@@ -26,5 +32,12 @@ export class CompanyAside {
     this.company = vacancy.company;
     // @ts-ignore
     this.company.city = vacancy.city;
+  }
+
+  selectFile( event: Event ) {
+    //@ts-ignore
+    this.user.updateImage( event.target.files[ 0 ] ).subscribe( r => {
+      this.user.getUser();
+    } );
   }
 }

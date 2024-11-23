@@ -1,6 +1,7 @@
 <form (submit)="signUp($event)" class="d-flex direction-column  w-100">
   <div class="form__inputs d-flex direction-column">
-    <input required class="input mb-10" name="name" placeholder="имя"/>
+    <input required class="input mb-10" name="name"
+           [placeholder]="type === ECustomerType.COMPANY ? 'компания' : 'имя'"/>
     <span *ngIf="errors.name" class="error">{{errors.name?.join(',')}}</span>
     <input required class="input mb-10" name="phone" placeholder="телефон"/>
     <span *ngIf="errors.phone" class="error">{{errors.phone?.join(',')}}</span>

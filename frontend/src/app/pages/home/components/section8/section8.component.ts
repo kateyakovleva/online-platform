@@ -1,40 +1,37 @@
 import { Component } from '@angular/core';
-import {naming} from "../../../../data/naming/naming/naming.service";
+import { naming } from "../../../../data/naming/naming/naming.service";
+import { VacanciesStore } from "../../../../stores/VacanciesStore";
+import { Observable } from "rxjs";
+import { IVacancies } from "../../../../types/vacancies";
+import { AsyncPipe, NgForOf, NgIf } from "@angular/common";
+import { RouterLink } from "@angular/router";
+import { LimitPipe } from "../../../../filters/limit.pipe";
 
-@Component({
+@Component( {
   selector: 'app-section8',
   standalone: true,
-  imports: [],
+  imports: [
+    NgIf,
+    AsyncPipe,
+    NgForOf,
+    RouterLink,
+    LimitPipe
+  ],
   templateUrl: './section8.component.html',
   styleUrl: './section8.component.scss'
-})
+} )
 export class Section8Component {
+  constructor(
+    public vacanciesStore: VacanciesStore,
+  ) {
+    this.search();
+  }
 
-  items = [
-    {id: 1, company: 'Ozon', role: 'открытая роль', profession: 'IT-специалист', skills: [{name: 'js'}, {name: 'react'}, {name: 'react'}, {name: 'js'}, {name: 'react'},
-        {name: 'react'}], city: 'Moscow', status: true,
-      yourSkills: [{name: 'структуры данных и алгоритмы'}, {name: 'cтруктуры данных и алгоритмы'}, {name: 'cтруктуры данных и алгоритмы'}],
-      yourTasks: [{name: 'развитие в компании'}, {name: 'cтруктуры данных и алгоритмы'}, {name: 'cтруктуры данных и алгоритмы'}],
-      yourProgress: [{name: 'развитие в компании'}, {name: 'cтруктуры данных и алгоритмы'}, {name: 'cтруктуры данных и алгоритмы'}]
-    },
-    {id: 2, company: 'Ozon', role: 'открытая роль', profession: 'IT-специалист', skills: [{name: 'vue'}, {name: 'vuex'}], city: 'Omsk', status: true,
-      yourSkills: [{name: 'структуры данных и алгоритмы'}, {name: 'cтруктуры данных и алгоритмы'}, {name: 'cтруктуры данных и алгоритмы'}],
-      yourTasks: [{name: 'развитие в компании'}, {name: 'cтруктуры данных и алгоритмы'}, {name: 'cтруктуры данных и алгоритмы'}],
-      yourProgress: [{name: 'развитие в компании'}, {name: 'cтруктуры данных и алгоритмы'}, {name: 'cтруктуры данных и алгоритмы'}]
-    },
-    {id: 3, company: 'Ozon', role: 'открытая роль', profession: 'IT-специалист', skills: [{name: 'react'}, {name: 'vuex'}, {name: 'vuex'}],
-      city: 'Kazan',
-      status: false,
-      yourSkills: [{name: 'структуры данных и алгоритмы'}, {name: 'cтруктуры данных и алгоритмы'}, {name: 'cтруктуры данных и алгоритмы'}],
-      yourTasks: [{name: 'развитие в компании'}, {name: 'cтруктуры данных и алгоритмы'}, {name: 'cтруктуры данных и алгоритмы'}],
-      yourProgress: [{name: 'развитие в компании'}, {name: 'труктуры данных и алгоритмы'}, {name: 'труктуры данных и алгоритмы'}]
-    },
-    {id: 4, company: 'Ozon', role: 'открытая роль', profession: 'IT-специалист', skills: [{name: 'vue'}, {name: 'vuex'}], city: 'Omsk', status: true,
-      yourSkills: [{name: 'структуры данных и алгоритмы'}, {name: 'cтруктуры данных и алгоритмы'}, {name: 'cтруктуры данных и алгоритмы'}],
-      yourTasks: [{name: 'развитие в компании'}, {name: 'cтруктуры данных и алгоритмы'}, {name: 'cтруктуры данных и алгоритмы'}],
-      yourProgress: [{name: 'развитие в компании'}, {name: 'cтруктуры данных и алгоритмы'}, {name: 'cтруктуры данных и алгоритмы'}]
-    },
-  ]
+  vacancies: Observable<IVacancies> | null = null;
+
+  search() {
+    this.vacancies = this.vacanciesStore.getVacancies();
+  }
 
   naming = naming;
 

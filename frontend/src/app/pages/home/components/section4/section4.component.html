@@ -1,26 +1,22 @@
-<section class="mb-100 w-100 direction-column a-1-center j-c-center d-flex">
+<section *ngIf="(resumes|async) as _resumes" class="mb-100 w-100 direction-column a-1-center j-c-center d-flex">
   <div class="d-flex j-c-center a-1-center section4-container mb-100">
     <h1 class="section4-container__title">{{naming.h1Section4}}<b>{{naming.h11Section4}}</b></h1>
   </div>
 
   <div class="d-flex direction-row w-100 j-c-space-between height">
     <!--  цикл самой карточки-->
-    @for (item of items; track item.id){
+    <div *ngFor="let resume of _resumes?.data?.slice(0,3)" class="col-3">
       <div class="d-flex card a-1-start j-c-center">
         <div class="d-flex direction-column card-container">
-          <div class="card-container__title d-flex a-1-center j-c-center mb-10">{{item.profession}}</div>
+          <div class="card-container__title d-flex a-1-center j-c-center mb-10">{{resume.vacancy}}</div>
           <!--      цикл навыков -->
           <div class="card-container__skills-container d-flex direction-row j-c-center">
-            @for (x of item.skills.slice(0,3); track x){
-              <div class="skills-container__skill">{{x.name}}</div>
-            }
+            <div *ngFor="let skill of resume.skills?.slice(0,3)" class="skills-container__skill">{{skill.name}}</div>
           </div>
           <div class="card-container__courses container-white d-flex">
             <div class="card-container__courses-container direction-column j-c-center a-1-center d-flex">
               <div class="card-container__courses-container-title">{{naming.courses}}</div>
-              @for(x of item.courses.slice(0,3); track x){
-              <div class="card-container__courses-container-text w-80 border">{{x.name}}</div>
-    }
+              <div class="card-container__courses-container-text w-80 border">{{resume.courses | limit:200}}</div>
             </div>
           </div>
           <div class="card-container__courses container-white d-flex">
@@ -28,37 +24,36 @@
               <div class="card-container__courses-container-title">{{naming.skills}}</div>
 
               <div class="card-container__skills-container d-flex direction-row j-c-center mb-20">
-                @for (x of item.skills.slice(0,3); track x){
-                  <div class="skills-container__skill">{{x.name}}</div>
-                }
+                <div *ngFor="let skill of resume.skills?.slice(3,6)"
+                     class="skills-container__skill">{{skill.name}}</div>
               </div>
 
               <div class="card-container__courses-container-title">{{naming.taskss}}</div>
 
               <div class="d-flex a-1-center j-c-center direction-column">
                 <!--      цикл задач -->
-                @for (x of item.tasks; track x){
-                  <div class="task w-80 border">{{x.name}}</div>
-                }
+                <div class="task w-80">{{resume.interesting | limit:200}}</div>
               </div>
             </div>
           </div>
           <div class="d-flex direction-row j-c-center mt-10 card-container__btns">
-            <div class="card-container__btn-city btns">{{item.city}}</div>
-            <div class="card-container__btn-status btns">{{item.status}}</div>
+            <div class="card-container__btn-city btns">{{resume.city?.name}}</div>
+            <div
+              class="card-container__btn-status btns">{{resume.worker?.is_online ? naming.online : naming.offline}}</div>
           </div>
         </div>
       </div>
-    }
+    </div>
+
     <div class="relative d-flex w-24">
       <img class="d-flex" src="/images/4section.svg" alt="picture4"/>
       <div class="d-flex absolute direction-column btn-container a-1-center">
-        <button class="filter mb-20">{{naming.filter}}</button>
-        <button class="allCandidates w-80">{{naming.allCandidates}}</button>
+        <span class="filter mb-20">{{naming.filter}}</span>
+        <a routerLink="/search/resume" class="allCandidates w-80 d-block">{{naming.allCandidates}}</a>
       </div>
     </div>
   </div>
   <div class="d-flex w-100 j-c-center a-1-center">
-    <a href="#" class="btn-talk-with-users">{{naming.talkWithCandidates}}</a>
+    <a routerLink="/auth/signup" class="btn-talk-with-users">{{naming.talkWithCandidates}}</a>
   </div>
 </section>

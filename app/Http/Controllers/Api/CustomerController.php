@@ -8,7 +8,10 @@ use App\Http\Requests\RegisterRequest;
 use App\Mail\ConfirmEmail;
 use App\Models\Customer;
 use App\Models\EmailConfirm;
+use App\Services\ImageUtil;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Mail;
 
 class CustomerController extends Controller
@@ -64,7 +67,20 @@ class CustomerController extends Controller
     public function updateProfile(ProfileRequest $request)
     {
         $customer = $this->getCustomer();
-        $customer->update($request->all());
+        $customer->update($request->except('image'));
+
+        $file = $request->file('image');
+        if ($file) {
+            $filename = Str::random(10) . "." . $file->extension();
+            Storage::putFileAs('avatars', $file, $filename);
+
+            $image = new ImageUtil(Storage::path("avatars/$filename"));
+            $image->resize(400, 400);
+            $image->save(Storage::path("avatars/$filename"));
+
+            $customer->image = "avatars/$filename";
+            $customer->save();
+        }
 
         return $customer;
     }

@@ -11,7 +11,7 @@ export class VacanciesStore {
   ) {
   }
 
-  getVacancies( params: any ) {
+  getVacancies( params?: any ) {
     return this.http.get<IVacancies>( 'vacancies', params )
   }
 

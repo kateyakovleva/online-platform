@@ -16,7 +16,17 @@ class ProfileRequest extends FormRequest
         return [
             'description' => 'nullable|string',
             'city_id' => 'nullable|string',
+            'image' => 'mimes:jpeg,jpg,png',
         ];
+    }
+
+    public function messages()
+    {
+        $messages = parent::messages();
+
+        $messages['image'] = 'Неверный формат изображения!';
+
+        return $messages;
     }
 
 }

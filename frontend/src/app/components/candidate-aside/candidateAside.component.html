@@ -1,11 +1,13 @@
 <div class="d-flex direction-column j-c-start a-1-center container-border w-80 padding-top30">
   <div class="d-flex j-c-center a-1-center w-100 relative">
     <div class="w-100 a-1-center j-c-center d-flex">
-      <img class="img-profile" [src]="candidate?.image || 'images/profile.svg'" alt="profile"/>
+      <img class="img-profile circle" [src]="candidate?.image || 'images/profile.svg'" alt="profile"/>
     </div>
-    <div class="d-flex container__img-plus absolute">
+    <label for="select-image" class="d-flex container__img-plus absolute pointer">
+      <input style="width:0;height:0;opacity:0;position: absolute" id="select-image" type="file"
+             (change)="selectFile($event)">
       <img src="images/button_plus.svg" alt="img-button"/>
-    </div>
+    </label>
   </div>
   <div class="d-flex direction-column j-c-center a-1-center mb-100">
     <div class="d-flex direction-row container__title mb-5">

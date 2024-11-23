@@ -9,10 +9,13 @@ import { ICompany } from "../types/company";
   providedIn: 'root'
 } )
 export class UserStore {
-  constructor( private http: AppClient, private auth: AuthStore ) {
+  constructor(
+    private http: AppClient,
+    private auth: AuthStore,
+  ) {
     this.auth.auth$.subscribe( ( a ) => {
       if ( a ) {
-        this.updateUser();
+        this.getUser();
       }
     } )
   }
@@ -23,7 +26,7 @@ export class UserStore {
 
   company$ = this._user.asObservable().pipe( map( u => !u?.is_company ? null : ( u as ICompany ) ) );
 
-  updateUser() {
+  getUser() {
     this.http.get<ICustomer>( '/profile' ).subscribe( {
       next: ( data ) => {
         this._user.next( data )
@@ -34,5 +37,15 @@ export class UserStore {
         }
       }
     } )
+  }
+
+  updateUser( data: FormData ) {
+    return this.http.post( '/profile', data );
+  }
+
+  updateImage( file: File ) {
+    const data = new FormData();
+    data.append( 'image', file );
+    return this.updateUser( data );
   }
 }

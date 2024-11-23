@@ -66,6 +66,10 @@ button {
   }
 }
 
+* {
+  overflow-wrap: break-word;
+}
+
 label[for] {
   cursor: pointer;
 }
@@ -78,6 +82,11 @@ ul {
     list-style: none;
     background: url("/images/marker.svg") no-repeat left center;
   }
+}
+
+.circle {
+  border-radius: 1000px;
+  overflow: hidden;
 }
 
 markdown p {
@@ -277,6 +286,22 @@ select {
 
 .ml-30 {
   margin-left: 30px;
+}
+
+.gap-4 {
+  gap: 4px;
+}
+
+.gap-5 {
+  gap: 5px;
+}
+
+.gap-8 {
+  gap: 8px;
+}
+
+.gap-10 {
+  gap: 10px;
 }
 
 .padding-top30 {

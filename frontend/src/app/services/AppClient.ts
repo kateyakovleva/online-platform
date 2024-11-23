@@ -31,9 +31,14 @@ export class AppClient {
     return this.bindRequest( request );
   }
 
-  post<T>( url: string, data: any ): Observable<T> {
+  post<T>( url: string, data: any, formData?: boolean ): Observable<T> {
+    let headers: any = this.getHeaders();
+    if ( formData ) {
+      headers[ 'Content-Type' ] = 'multipart/form-data; charset=utf-8';
+    }
+
     const request = this.http.post<T>( this.prepareUrl( url ), data, {
-      headers: this.getHeaders()
+      headers: headers
     } );
 
     return this.bindRequest( request );
@@ -49,12 +54,19 @@ export class AppClient {
 
   bindRequest<T>( request: Observable<T> ): Observable<T> {
     this.countRequests.next( this.countRequests.value + 1 );
-    request.subscribe( {
-      complete: () => {
-        this.countRequests.next( this.countRequests.value - 1 );
-      }
+    return new Observable( observer => {
+      request.subscribe( {
+        next: ( val ) => {
+          observer.next( val );
+        },
+        complete: () => {
+          this.countRequests.next( this.countRequests.value - 1 );
+        },
+        error: () => {
+          this.countRequests.next( this.countRequests.value - 1 );
+        }
+      } )
     } );
-    return request;
   }
 
   prepareUrl( url: string ) {

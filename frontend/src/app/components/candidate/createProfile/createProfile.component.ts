@@ -65,7 +65,7 @@ export class CreateProfileComponent {
     const data = new FormData( event.target as HTMLFormElement );
 
     this.http.post( '/profile/resume', data ).subscribe( r => {
-      this.user.updateUser();
+      this.user.getUser();
       this.router.navigate( [ "/profile" ] );
     } )
   }

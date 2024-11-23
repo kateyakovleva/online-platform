@@ -1,5 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { AppClient } from "./services/AppClient";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component( {
   selector: 'app-root',
@@ -10,8 +11,11 @@ import { AppClient } from "./services/AppClient";
 export class AppComponent {
   constructor(
     public client: AppClient,
+    private location: ActivatedRoute,
+    private router: Router,
   ) {
   }
+
 
   title = 'online-platform';
 }

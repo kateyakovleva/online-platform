@@ -3,8 +3,8 @@ export const naming = {
   mission: 'Миссия платформы',
   howItWorks: 'Как это работает',
   partners: 'Партнерам',
-  candidates: 'Кандидаты',
-  projects: 'Проекты',
+  candidates: 'Соискатели',
+  projects: 'Вакансии',
   tariffs: 'Тарифы',
   contacts: 'Контакты',
   //ссылки
@@ -13,8 +13,8 @@ export const naming = {
   signIn: 'Войти',
   //1 секция
 
-  signUpCustomer: 'регистрация заказчика',
-  signUpExecutor: 'регистрация исполнителя',
+  signUpCustomer: 'регистрация работодателя',
+  signUpExecutor: 'регистрация соискателя',
   //2 секция текстов нет
   //3 секция
   h1Section3: 'Преимущества:',
@@ -27,7 +27,7 @@ export const naming = {
   tasks: 'Какие навыки прокачаете:',
   taskss: 'Какие задачи будете решать:',
   tasksss: 'Потенциал развития в роли:',
-  allCandidates: 'все кандидаты',
+  allCandidates: 'все соискатели',
   talkWithCandidates: 'начать общение с кандидатами',
   //5 секция
   h1Section5: 'Преимущества',

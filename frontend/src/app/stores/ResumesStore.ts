@@ -11,7 +11,7 @@ export class ResumesStore {
   ) {
   }
 
-  getResumes( params: any ) {
+  getResumes( params?: any ) {
     return this.http.get<IResumes>( 'resumes', params )
   }
 

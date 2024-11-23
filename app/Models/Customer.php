@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Sanctum\HasApiTokens;
 
 /**
- * 
+ *
  *
  * @property int $id
  * @property int $type
@@ -81,8 +82,19 @@ class Customer extends BaseUser
 
     public function setImageAttribute($value)
     {
-        if ($value) $this->attributes['image'] = $value;
+        $image = $this->attributes['image'] ?? '';
+        if ($image && $image != $value && Storage::exists($image)) {
+            Storage::delete($image);
+        }
+
+        $this->attributes['image'] = $value;
+
         return $this;
+    }
+
+    public function getImageAttribute()
+    {
+        return config('app.url') . '/storage/' . $this->attributes['image'];
     }
 
     public function setTypeAttribute($value)

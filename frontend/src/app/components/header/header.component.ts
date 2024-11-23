@@ -34,7 +34,9 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.route.fragment.subscribe( ( fragment ) => {
-      if ( fragment ) this.scroll( fragment );
+      setTimeout( () => {
+        if ( fragment ) this.scroll( fragment );
+      }, 50 );
     } )
   }
 
