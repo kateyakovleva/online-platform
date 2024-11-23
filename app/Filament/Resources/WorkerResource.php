@@ -51,12 +51,6 @@ class WorkerResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('tariff.name')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('type')
-                    ->numeric()
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('image'),

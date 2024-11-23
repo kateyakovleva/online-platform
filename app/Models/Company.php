@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Staudenmeir\EloquentHasManyDeep\HasRelationships;
 
 /**
- * 
+ *
  *
  * @property int $id
  * @property int $type
@@ -52,6 +52,14 @@ class Company extends Customer
     protected $attributes = [
         'type' => self::COMPANY_TYPE
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+        static::addGlobalScope(function ($customer) {
+            $customer->where('type', self::COMPANY_TYPE);
+        });
+    }
 
     public function vacancies(): HasMany
     {

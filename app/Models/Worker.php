@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
- * 
+ *
  *
  * @property int $id
  * @property int $type
@@ -47,6 +47,14 @@ class Worker extends Customer
         'type' => self::WORKER_TYPE,
         'image' => ''
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+        static::addGlobalScope(function ($customer) {
+            $customer->where('type', self::WORKER_TYPE);
+        });
+    }
 
     public function resume(): HasOne
     {
