@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { AppClient } from "./services/AppClient";
-import { ActivatedRoute, Router } from "@angular/router";
+import { SettingsStore } from "./stores/SettingsStore";
 
 @Component( {
   selector: 'app-root',
@@ -10,9 +10,8 @@ import { ActivatedRoute, Router } from "@angular/router";
 } )
 export class AppComponent {
   constructor(
+    public settings: SettingsStore,
     public client: AppClient,
-    private location: ActivatedRoute,
-    private router: Router,
   ) {
   }
 

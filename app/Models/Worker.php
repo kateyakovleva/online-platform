@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\UseOptions;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
@@ -43,6 +44,8 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  */
 class Worker extends Customer
 {
+    use UseOptions;
+
     protected $attributes = [
         'type' => self::WORKER_TYPE,
         'image' => ''
@@ -65,5 +68,15 @@ class Worker extends Customer
     public function responses(): HasMany
     {
         return $this->resume->responses();
+    }
+
+    public function getTgLinkAttribute()
+    {
+        return $this->getOption('tg_link');
+    }
+
+    public function setTgLinkAttribute($val)
+    {
+        return $this->setOption('tg_link', $val);
     }
 }

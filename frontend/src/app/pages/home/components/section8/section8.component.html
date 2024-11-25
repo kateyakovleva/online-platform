@@ -1,43 +1,45 @@
 <section *ngIf="(vacancies|async) as _vacancies" class="mb-100 w-100 direction-column a-1-center j-c-center d-flex">
   <h1 class="mb-20">{{naming.h1Section8}}</h1>
-  <div class="d-flex direction-row w-100 j-c-space-between height">
-    <div *ngFor="let vacancy of _vacancies?.data?.slice(0,4)" class="d-flex card a-1-start j-c-center">
-      <div class="d-flex direction-column card-container">
-        <div class="card-container__company d-flex a-1-center j-c-center mb-5">{{vacancy.company?.name}}</div>
-        <!--          <div class="card-container__role d-flex a-1-center j-c-center mb-10">{{item.role}}</div>-->
-        <div class="card-container__title d-flex a-1-center j-c-center mb-10">{{vacancy.vacancy | limit: 30}}</div>
-        <!--      цикл скилов -->
-        <div class="card-container__skills-container d-flex direction-row j-c-center">
-          <div *ngFor="let skill of vacancy.skills?.slice(0,3)" class="skills-container__skill">{{skill.name}}</div>
-        </div>
-        <div class="card-container__courses-container direction-column j-c-center a-1-center d-flex">
-          <div class="card-container__courses-container-title w-80">{{naming.tasks}}</div>
-          <div class="d-flex a-1-center j-c-center direction-column mb-5 w-80">
-            <!--      цикл навыков -->
-            <div class="task">{{vacancy.skills_description | limit:100}}</div>
+  <div class="d-flex direction-row w-100 height">
+    <div *ngFor="let vacancy of _vacancies?.data?.slice(0,4)" class="col-3">
+      <div class="d-flex card a-1-start j-c-center">
+        <div class="d-flex direction-column card-container">
+          <div class="card-container__company d-flex a-1-center j-c-center mb-5">{{vacancy.company?.name}}</div>
+          <!--          <div class="card-container__role d-flex a-1-center j-c-center mb-10">{{item.role}}</div>-->
+          <div class="card-container__title d-flex a-1-center j-c-center mb-10">{{vacancy.vacancy | limit: 30}}</div>
+          <!--      цикл скилов -->
+          <div class="card-container__skills-container d-flex direction-row j-c-center">
+            <div *ngFor="let skill of vacancy.skills?.slice(0,3)" class="skills-container__skill">{{skill.name}}</div>
           </div>
-          <div class="card-container__courses-container-title">{{naming.taskss}}</div>
-          <div class="d-flex a-1-center j-c-center direction-column mb-5">
-            <!--      цикл задач -->
-            <div class="task">{{vacancy.description | limit:100}}</div>
+          <div class="card-container__courses-container direction-column j-c-center a-1-center d-flex">
+            <div class="card-container__courses-container-title w-80">{{naming.tasks}}</div>
+            <div class="d-flex a-1-center j-c-center direction-column mb-5 w-80">
+              <!--      цикл навыков -->
+              <div class="task">{{vacancy.skills_description | limit:100}}</div>
+            </div>
+            <div class="card-container__courses-container-title">{{naming.taskss}}</div>
+            <div class="d-flex a-1-center j-c-center direction-column mb-5">
+              <!--      цикл задач -->
+              <div class="task">{{vacancy.description | limit:100}}</div>
+            </div>
+            <div class="card-container__courses-container-title">{{naming.tasksss}}</div>
+            <div class="d-flex a-1-center j-c-center direction-column mb-100">
+              <!--      цикл прогресс -->
+              <div class="task">{{vacancy.growth_description | limit:50}}</div>
+            </div>
           </div>
-          <div class="card-container__courses-container-title">{{naming.tasksss}}</div>
-          <div class="d-flex a-1-center j-c-center direction-column mb-100">
-            <!--      цикл прогресс -->
-            <div class="task">{{vacancy.growth_description | limit:50}}</div>
+          <div class="d-flex direction-row j-c-center mt-10 card-container__btns">
+            <div class="card-container__btn mr-10">{{vacancy.city?.name}}</div>
+            <div class="card-container__btn">{{vacancy.company?.is_online ? naming.online : naming.offline}}</div>
           </div>
-        </div>
-        <div class="d-flex direction-row j-c-center mt-10 card-container__btns">
-          <div class="card-container__btn mr-10">{{vacancy.city?.name}}</div>
-          <div class="card-container__btn">{{vacancy.company?.is_online ? naming.online : naming.offline}}</div>
-        </div>
-        <div class="d-flex a-1-center j-c-center w-100 text__btn">
-          <a [routerLink]="'/search/vacancies/'+vacancy.id" class="btn w-50">Посмотреть</a>
+          <div class="d-flex a-1-center j-c-center w-100 text__btn">
+            <a [routerLink]="'/search/vacancies/'+vacancy.id" class="btn w-50">Посмотреть</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="d-flex a-1-center j-c-center container-section1__links mb-100">
+  <div class="d-flex a-1-center j-c-space-between container-section1__links mb-100">
     <a routerLink="/auth/signup" class="container-section1__link-performer1 height-radius radius">{{naming.profile}}</a>
     <a routerLink="/search/vacancies"
        class="container-section1__link-customer height-radius radius">{{naming.vacancy}}</a>

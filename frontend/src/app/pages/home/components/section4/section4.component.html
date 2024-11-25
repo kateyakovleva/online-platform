@@ -3,7 +3,7 @@
     <h1 class="section4-container__title">{{naming.h1Section4}}<b>{{naming.h11Section4}}</b></h1>
   </div>
 
-  <div class="d-flex direction-row w-100 j-c-space-between height">
+  <div class="d-flex direction-row w-100 height">
     <!--  цикл самой карточки-->
     <div *ngFor="let resume of _resumes?.data?.slice(0,3)" class="col-3">
       <div class="d-flex card a-1-start j-c-center">
@@ -28,7 +28,7 @@
                      class="skills-container__skill">{{skill.name}}</div>
               </div>
 
-              <div class="card-container__courses-container-title">{{naming.taskss}}</div>
+              <div class="card-container__courses-container-title">{{naming.task_candidate}}</div>
 
               <div class="d-flex a-1-center j-c-center direction-column">
                 <!--      цикл задач -->

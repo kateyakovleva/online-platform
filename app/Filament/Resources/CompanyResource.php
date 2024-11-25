@@ -41,12 +41,11 @@ class CompanyResource extends Resource
                     ->maxLength(255),
                 FileUpload::make('image')
                     ->label('Аватарка')
-                    ->image()
-                    ->required(),
-                TextInput::make('password')->label('Пароль')
+                    ->image(),
+                TextInput::make('password')
+                    ->label('Пароль')
                     ->revealable()
                     ->password()
-                    ->required()
                     ->maxLength(255),
                 Select::make('tariff_id')
                     ->label('Тариф')

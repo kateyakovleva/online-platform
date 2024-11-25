@@ -4,8 +4,10 @@
     <markdown class="green d-flex j-c-center mb-20 font" [data]="(settings.content | async)?.sub_title"></markdown>
     <markdown class="mb-20 font" [data]="(settings.content | async)?.description"></markdown>
     <div class="d-flex a-1-center container-section1__links ">
-      <a routerLink="/auth/signup" class="container-section1__link-performer radius">{{naming.signUpCustomer}}</a>
-      <a routerLink="/auth/signup" class="container-section1__link-customer radius">{{naming.signUpExecutor}}</a>
+      <a routerLink="/auth/signup" [queryParams]="{is_company:1}"
+         class="container-section1__link-performer radius">{{naming.signUpCustomer}}</a>
+      <a routerLink="/auth/signup" [queryParams]="{is_company:2}"
+         class="container-section1__link-customer radius">{{naming.signUpExecutor}}</a>
     </div>
   </div>
   <div class="w-45 d-flex direction-column">

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { naming } from "../../data/naming/naming/naming.service";
 import { ActivatedRoute, Router, RouterLink, RouterLinkActive, RouterOutlet } from "@angular/router";
 import { AsyncPipe, NgIf } from "@angular/common";
@@ -11,6 +11,7 @@ import { CompanyAside } from "../company-aside/companyAside.component";
 import { ResponsesStore } from "../../stores/ResponsesStore";
 import { UserStore } from "../../stores/UserStore";
 import { IResume } from "../../types/resumes";
+import { CandidateAside } from "../candidate-aside/candidateAside.component";
 
 
 @Component( {
@@ -23,7 +24,8 @@ import { IResume } from "../../types/resumes";
     RouterOutlet,
     VacancyComponent,
     NgIf,
-    CompanyAside
+    CompanyAside,
+    CandidateAside
   ],
   templateUrl: './viewVacancy.component.html',
   styleUrls: [ '../candidate/profile/profile.component.scss', '../company/profile/personal-data/personalDataCompany.component.scss' ]
@@ -45,6 +47,9 @@ export class ViewVacancyComponent {
       this.resume = w?.resume;
     } )
   }
+
+  @Input()
+  hideButtons = false;
 
   vacancy?: Observable<IVacancy>;
 

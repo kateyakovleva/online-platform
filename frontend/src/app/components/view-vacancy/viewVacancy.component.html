@@ -1,6 +1,6 @@
 <div *ngIf="(vacancy|async) as _vacancy" class="d-flex container-main mt-40 mobile"
      [style.min-height]="(height.content | async)+'px'">
-  <app-company-aside [vacancy]="_vacancy">
+  <app-company-aside [vacancy]="_vacancy" [hideButtons]="true">
     <button class="btns btn4 mb-10" routerLink="/search/vacancies" [queryParams]="{company_id: _vacancy?.company_id}">
       посмотреть все вакансии компании
     </button>

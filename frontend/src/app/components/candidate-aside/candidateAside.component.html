@@ -1,7 +1,7 @@
 <div class="d-flex direction-column j-c-start a-1-center container-border w-80 padding-top30">
   <div class="d-flex j-c-center a-1-center w-100 relative">
     <div class="w-100 a-1-center j-c-center d-flex">
-      <img class="img-profile circle" [src]="candidate?.image || 'images/profile.svg'" alt="profile"/>
+      <img #ref class="img-profile circle" [src]="candidate?.image || 'images/profile.svg'" alt="profile"/>
     </div>
     <label for="select-image" class="d-flex container__img-plus absolute pointer">
       <input style="width:0;height:0;opacity:0;position: absolute" id="select-image" type="file"
@@ -14,11 +14,13 @@
       {{candidate?.name}}
     </div>
     <div class="sub-title mb-10">{{candidate?.resume?.specialization?.name}}</div>
-    <button class="change-btn mb-20">{{naming.change}}</button>
+    <a *ngIf="!hideButtons" routerLink="/create_profile" class="change-btn mb-20">{{naming.change}}</a>
     <div class="direction-row d-flex w-100 j-c-center a-1-center">
       <div class="sub-btn mr-10">{{candidate?.resume?.city?.name}}</div>
       <div class="sub-btn">{{candidate?.is_online ? naming.online : naming.offline}}</div>
     </div>
+
+    <ng-content select='contacts'></ng-content>
   </div>
   <ng-content></ng-content>
 </div>

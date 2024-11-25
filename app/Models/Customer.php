@@ -87,13 +87,14 @@ class Customer extends BaseUser
             Storage::delete($image);
         }
 
-        $this->attributes['image'] = $value;
+        $this->attributes['image'] = $value || '';
 
         return $this;
     }
 
     public function getImageAttribute()
     {
+        if (!$this->attributes['image']) return '';
         return config('app.url') . '/storage/' . $this->attributes['image'];
     }
 

@@ -1,6 +1,9 @@
 <div *ngIf="(resume|async) as _resume" class="d-flex container-main mt-40 mobile">
-  <app-candidate-aside [resume]="_resume">
-    <button class="btns btn5 mb-20" [disabled]="(success|async)"
+  <app-candidate-aside [resume]="_resume" [hideButtons]="true">
+    <div ngProjectAs='contacts'>
+      <div class="mt-20 sub-btn" *ngIf="_resume.worker?.phone">{{_resume.worker?.phone| phone}}</div>
+    </div>
+    <button class="btns btn3 mb-20" [disabled]="(success|async)"
             (click)="addResponse(_resume?.id)">{{(success|async) || 'Откликнуться'}}</button>
   </app-candidate-aside>
   <div class="d-flex w-70">

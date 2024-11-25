@@ -19,6 +19,8 @@ import { FilterComponent } from "./components/filter/filter.component";
 import { ProfileCompanyComponent } from "./components/company/profile/profileCompany.component";
 import { PricePipe } from "./filters/price.pipe";
 import { PreloaderComponent } from "./components/preloader/preloader.component";
+import { RawHtmlPipe } from "./filters/rawHtml.pipe";
+import { NotifierModule } from "gramli-angular-notifier";
 
 @NgModule( {
   declarations: [
@@ -48,6 +50,22 @@ import { PreloaderComponent } from "./components/preloader/preloader.component";
     FilterComponent,
     ProfileCompanyComponent,
     PreloaderComponent,
+    RawHtmlPipe,
+    NotifierModule.withConfig( {
+      behaviour: {
+        autoHide: 10000,
+        onClick: 'hide',
+        showDismissButton: false,
+      },
+      position: {
+        horizontal: {
+          position: 'right'
+        },
+        vertical: {
+          position: 'top'
+        }
+      }
+    } ),
   ],
   providers: [
     // provideClientHydration(),

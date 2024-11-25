@@ -148,6 +148,10 @@ select {
   justify-content: space-between;
 }
 
+.j-c-space-around {
+  justify-content: space-around;
+}
+
 .j-c-end {
   justify-content: end;
 }
@@ -264,6 +268,10 @@ select {
   margin-top: 10px;
 }
 
+.mt-20 {
+  margin-top: 20px;
+}
+
 .mt-40 {
   margin-top: 40px;
 }
@@ -304,6 +312,14 @@ select {
   gap: 10px;
 }
 
+.mb-auto {
+  margin-bottom: auto;
+}
+
+.mt-auto {
+  margin-top: auto;
+}
+
 .padding-top30 {
   padding-top: 30px;
 }
@@ -316,6 +332,10 @@ select {
   position: absolute;
 }
 
+.text-nowrap {
+  white-space: nowrap;
+}
+
 .container-border {
   border: 1px solid var(--light-light-grey);
   border-radius: 20px;
@@ -325,14 +345,42 @@ router-outlet {
   display: none;
 }
 
+.notifier__container {
+  position: fixed;
+  top: 100px;
+  right: 30px;
+  width: 300px;
+
+  .notifier__container-list-item {
+    background: none;
+    padding: 0;
+  }
+
+  .notifier__notification {
+    .notifier__notification-message {
+      padding: 10px;
+      border: 1px solid gainsboro;
+      border-radius: 4px;
+      margin: 0 0 10px;
+    }
+
+    &--error {
+      .notifier__notification-message {
+        border: 1px solid #ff9e9e;
+        background: #ffd8d8;
+      }
+    }
+  }
+}
+
 .container-section1__links {
   margin-top: 20px;
   font-size: 16px;
   line-height: 20px;
   font-weight: 400;
 
-  a {
-    margin-right: 10px;
+  a + a {
+    margin-left: 20px;
   }
 
   .radius {

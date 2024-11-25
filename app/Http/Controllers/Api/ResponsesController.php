@@ -33,14 +33,17 @@ class ResponsesController extends Controller
 
         if ($customer->is_company) {
             /** @var $vacancy Vacancy */
-            $vacancy = $customer->vacancies()->find($request->vacancy_id);
+            if ($request->vacancy_id) {
+                $vacancy = $customer->vacancies()->find($request->vacancy_id);
+            } else {
+                $vacancy = $customer->vacancies()->first();
+            }
             $resume = Resume::find($request->resume_id);
             if ($vacancy && $resume) {
                 /** @var WorkResponse $response */
                 $response = $vacancy->responses()->where($request->only(['resume_id', 'vacancy_id']))->first();
                 if (!$response) {
-                    $response = $vacancy->responses()->updateOrCreate(
-                        $request->only(['resume_id', 'vacancy_id']),
+                    $response = $vacancy->responses()->create(
                         [...$request->all(), 'type' => WorkResponse::INIT_COMPANY_TYPE]
                     );
                     Mail::to($resume->worker->email)
@@ -54,8 +57,7 @@ class ResponsesController extends Controller
                 /** @var WorkResponse $response */
                 $response = $customer->resume->responses()->where($request->only(['resume_id', 'vacancy_id']))->first();
                 if (!$response) {
-                    $response = $customer->resume->responses()->updateOrCreate(
-                        $request->only(['resume_id', 'vacancy_id']),
+                    $response = $customer->resume->responses()->create(
                         [...$request->all(), 'type' => WorkResponse::INIT_WORKER_TYPE]
                     );
 

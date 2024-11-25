@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient as AngularHttpClient } from "@angular/common/http";
 import { AuthStore } from "../stores/AuthStore";
 import { BehaviorSubject, map, Observable } from "rxjs";
+import { NotifierService } from "gramli-angular-notifier";
 
 @Injectable( {
   providedIn: 'root'
@@ -10,6 +11,7 @@ export class AppClient {
   constructor(
     private http: AngularHttpClient,
     private auth: AuthStore,
+    private alert: NotifierService,
   ) {
   }
 
@@ -62,8 +64,15 @@ export class AppClient {
         complete: () => {
           this.countRequests.next( this.countRequests.value - 1 );
         },
-        error: () => {
+        error: ( err ) => {
           this.countRequests.next( this.countRequests.value - 1 );
+          observer.error( err );
+          if ( err.error?.message ) {
+            this.alert.show( {
+              type: 'error',
+              message: err.error?.message
+            } );
+          }
         }
       } )
     } );
@@ -80,8 +89,8 @@ export class AppClient {
 export const apiUrl = ( url: string ) => {
   if ( !url.startsWith( 'http' ) ) {
     if ( !url.startsWith( '/' ) ) url = '/' + url;
-    // url = `http://online-platform.ru/api${ url }`;
-    url = `http://hh.wi-studio/api${ url }`;
+    url = `http://online-platform.ru/api${ url }`;
+    // url = `http://hh.wi-studio.ru/api${ url }`;
   }
 
   return url;

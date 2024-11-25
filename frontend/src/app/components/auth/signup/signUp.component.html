@@ -16,12 +16,14 @@
            (change)="comparePassword($event)"/>
 
     <div class="d-flex mb-10 tab-buttons">
-      <input required id="customer-type-1" type="radio" [value]="ECustomerType.WORKER" name="type" class="" checked
+      <input required id="customer-type-1" type="radio" [value]="ECustomerType.WORKER" name="type"
+             [checked]="type===ECustomerType.WORKER"
              (change)="changeType($event)"/>
       <label for="customer-type-1" class="tab-button left">
         Соискатель
       </label>
-      <input required id="customer-type-2" type="radio" [value]="ECustomerType.COMPANY" name="type" class=""
+      <input required id="customer-type-2" type="radio" [value]="ECustomerType.COMPANY" name="type"
+             [checked]="type===ECustomerType.COMPANY"
              (change)="changeType($event)"/>
       <label for="customer-type-2" class="tab-button right">
         Компания

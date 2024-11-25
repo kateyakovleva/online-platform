@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { naming } from "../../data/naming/naming/naming.service";
 import { RouterLink } from "@angular/router";
 import { AsyncPipe, NgForOf, NgIf } from "@angular/common";
@@ -16,13 +16,19 @@ import { UserStore } from "../../stores/UserStore";
     class: 'd-flex direction-column j-c-start a-1-start w-30 mb-30'
   }
 } )
-export class CandidateAside {
+export class CandidateAside implements AfterViewInit {
   constructor(
     public user: UserStore,
   ) {
   }
 
   naming = naming;
+
+  @Input()
+  hideButtons = false;
+
+  @ViewChild( "ref", { read: ElementRef } )
+  ref?: ElementRef = undefined;
 
   @Input()
   candidate?: IWorker | null = null;
@@ -32,6 +38,11 @@ export class CandidateAside {
     this.candidate = resume.worker;
     //@ts-ignore
     this.candidate.resume = resume;
+  }
+
+  ngAfterViewInit() {
+    if ( this.ref?.nativeElement )
+      this.ref.nativeElement.style.height = this.ref.nativeElement.clientWidth + 'px';
   }
 
   selectFile( event: Event ) {

@@ -23,6 +23,8 @@ class CustomerController extends Controller
             $customer->email_verified_at = Carbon::now();
             $customer->save();
 
+            $customer = $customer->newInstance($customer->toArray());
+
             $confirm = EmailConfirm::where($request->only(['code', 'email']))->where('used', false)->first();
             $confirm?->update(['used' => true]);
 
@@ -57,6 +59,7 @@ class CustomerController extends Controller
         $customer->load(['tariff']);
         if ($customer->is_company) {
             $customer->load(['city']);
+            $customer->loadCount('vacancies');
         } else {
             $customer->load(['resume.city', 'resume.skills', 'resume.specialization']);
         }

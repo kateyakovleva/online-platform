@@ -33,6 +33,7 @@ class SettingResource extends Resource
                         'string' => 'Строка',
                         'markdown' => 'Текст с форматированием',
                         'tags' => 'Список',
+                        'text' => 'Многострочный текст',
                     ])
                     ->default('markdown')
                     ->live()
@@ -57,6 +58,11 @@ class SettingResource extends Resource
                         ],
                         'tags' => [
                             TagsInput::make('value')
+                                ->required()
+                                ->columnSpanFull(),
+                        ],
+                        'text' => [
+                            Forms\Components\Textarea::make('value')
                                 ->required()
                                 ->columnSpanFull(),
                         ],

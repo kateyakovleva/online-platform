@@ -39,10 +39,10 @@ class WorkerResource extends Resource
                 FileUpload::make('image')
                     ->label('Аватарка')
                     ->image(),
-                TextInput::make('password')->label('Пароль')
+                TextInput::make('password')
+                    ->label('Пароль')
                     ->revealable()
                     ->password()
-                    ->required()
                     ->maxLength(255),
             ]);
     }

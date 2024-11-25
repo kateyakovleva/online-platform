@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { naming } from "../../../data/naming/naming/naming.service";
-import { Router, RouterLink, RouterOutlet } from "@angular/router";
+import { ActivatedRoute, Router, RouterLink, RouterOutlet } from "@angular/router";
 import { SettingsStore } from "../../../stores/SettingsStore";
 import { AsyncPipe, NgIf } from "@angular/common";
 import { ECustomerType } from "../../../types/customer";
@@ -29,12 +29,15 @@ export class SignUpComponent {
     private router: Router,
     private regStore: RegisterStore,
     private auth: AuthStore,
+    private location: ActivatedRoute,
   ) {
     this.auth.auth$.subscribe( ( a ) => {
       if ( a ) {
         this.router.navigate( [ "/profile" ] );
       }
     } );
+
+    this.type = Number( location.snapshot.queryParams[ 'is_company' ] || '1' );
   }
 
   naming = naming;
@@ -44,7 +47,12 @@ export class SignUpComponent {
   errors: any = {}
 
   changeType( e: any ) {
-    this.type = Number( e.target.value )
+    this.type = Number( e.target.value );
+    this.router.navigate( [ this.router.url.split( '?' )[ 0 ] ], {
+      queryParams: {
+        is_company: this.type
+      },
+    } );
   }
 
   protected readonly ECustomerType = ECustomerType;

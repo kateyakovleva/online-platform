@@ -4,6 +4,7 @@
   <app-footer></app-footer>
 
   <app-preloader *ngIf="client.isLoading$|async"/>
+  <notifier-container></notifier-container>
 </div>
-
-
+<div [innerHTML]="(settings.content|async)?.analytics | rawHtml">
+</div>

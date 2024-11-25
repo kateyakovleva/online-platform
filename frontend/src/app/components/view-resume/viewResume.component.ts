@@ -8,6 +8,8 @@ import { BehaviorSubject, Observable } from "rxjs";
 import { IResume } from "../../types/resumes";
 import { ResumesStore } from "../../stores/ResumesStore";
 import { ResponsesStore } from "../../stores/ResponsesStore";
+import { PhonePipe } from "../../filters/phone.pipe";
+import { UserStore } from "../../stores/UserStore";
 
 @Component( {
   selector: 'view-resume',
@@ -17,6 +19,7 @@ import { ResponsesStore } from "../../stores/ResponsesStore";
     AsyncPipe,
     CandidateInfo,
     NgIf,
+    PhonePipe,
   ],
   templateUrl: './viewResume.component.html',
   styleUrl: './viewResume.component.scss'
@@ -27,10 +30,15 @@ export class ViewResumeComponent {
     private router: Router,
     private resumesStore: ResumesStore,
     private respStore: ResponsesStore,
+    private user: UserStore,
   ) {
     location.params.subscribe( ( params ) => {
       this.resume = this.resumesStore.getResume( params[ 'id' ] );
     } );
+
+    this.user.company$.subscribe( ( c ) => {
+
+    } )
   }
 
   resume?: Observable<IResume>;

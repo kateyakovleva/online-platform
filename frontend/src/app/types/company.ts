@@ -2,6 +2,7 @@ import { ICustomer } from "./customer";
 import { ICity } from "./other_types";
 
 export interface ICompany extends ICustomer {
+  vacancies_count?: number;
   city?: ICity;
   vacancies: ICompanyVacancies[];
 }
