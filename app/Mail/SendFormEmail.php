@@ -38,7 +38,7 @@ class SendFormEmail extends Mailable
         ], $this->request->all());
         return new Content(
             markdown: 'mail.send-form',
-            with: $this->request->all(),
+            with: $data,
         );
     }
 }
