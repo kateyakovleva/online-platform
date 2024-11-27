@@ -23,7 +23,7 @@ class FormRequest extends LaravelFormRequest
         return [
             'tariff' => 'nullable|string',
             'name' => 'string|required',
-            'company' => 'nullable|company',
+            'company' => 'nullable|string',
             'phone' => 'string|required',
             'email' => 'nullable|string',
         ];
