@@ -16,7 +16,10 @@ class CompanyController extends Controller
 
     public function createVacancy(VacanciesRequest $request)
     {
-        $this->getCustomer()->vacancies()->create($request->all());
+        $data = $request->all();
+        $data['price_from'] = $data['price_from'] ?: null;
+        $data['price_to'] = $data['price_to'] ?: null;
+        $this->getCustomer()->vacancies()->create($data);
 
         return response()->json();
     }

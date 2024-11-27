@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
- * 
+ *
  *
  * @property int $id
  * @property int $company_id
@@ -73,6 +73,18 @@ class Vacancy extends BaseModel
         $this->executeAfterSaving('skills', function () use ($value) {
             $this->skills()->sync($value);
         });
+        return $this;
+    }
+
+    public function setPriceFromAttribute($value)
+    {
+        $this->attributes['price_from'] = $value ? null : $value;
+        return $this;
+    }
+
+    public function setPriceToAttribute($value)
+    {
+        $this->attributes['price_to'] = $value ? null : $value;
         return $this;
     }
 }

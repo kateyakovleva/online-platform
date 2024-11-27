@@ -37,6 +37,8 @@ Route::prefix('resumes')->group(function () {
 Route::post('/register', [\App\Http\Controllers\Api\CustomerController::class, 'register']);
 Route::post('/auth', [\App\Http\Controllers\Api\CustomerController::class, 'auth']);
 
+Route::post('/form-request', [\App\Http\Controllers\Api\CustomerController::class, 'form']);
+
 Route::prefix('profile')
     ->middleware('auth:sanctum')
     ->group(function () {

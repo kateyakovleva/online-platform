@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $type
@@ -25,4 +25,9 @@ class Setting extends BaseModel
     protected $casts = [
         'value' => 'json'
     ];
+
+    public static function findByCode($code): static|null
+    {
+        return static::where('code', $code)->first();
+    }
 }

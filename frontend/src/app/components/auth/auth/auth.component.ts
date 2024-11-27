@@ -19,12 +19,12 @@ export class AuthComponent {
     private location: ActivatedRoute,
   ) {
     this.location.queryParams.subscribe( ( params ) => {
-      this.type = Number( params[ 'is_company' ] || '1' );
+      this.type = Number( params[ 'is_company' ] || 0 );
     } )
   }
 
   naming = naming;
 
-  type = ECustomerType.WORKER;
+  type = 0;
   protected readonly ECustomerType = ECustomerType;
 }

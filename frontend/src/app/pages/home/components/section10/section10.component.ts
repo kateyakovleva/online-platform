@@ -4,6 +4,7 @@ import { PriceFormComponent } from "../price-form/price-form.component";
 import { AsyncPipe, NgForOf, NgIf } from "@angular/common";
 import { SettingsStore } from "../../../../stores/SettingsStore";
 import { MarkdownComponent } from "ngx-markdown";
+import { ModalComponent } from "../../../../components/modal/modal.component";
 
 @Component( {
   selector: 'app-section10',
@@ -13,7 +14,8 @@ import { MarkdownComponent } from "ngx-markdown";
     NgIf,
     NgForOf,
     AsyncPipe,
-    MarkdownComponent
+    MarkdownComponent,
+    ModalComponent
   ],
   templateUrl: './section10.component.html',
   styleUrl: './section10.component.scss'
@@ -24,7 +26,7 @@ export class Section10Component {
 
   priceForm: boolean = false;
 
-  openForm() {
+  toggleForm() {
     this.priceForm = !this.priceForm;
   }
 

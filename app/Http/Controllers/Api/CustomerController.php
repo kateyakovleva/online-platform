@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Requests\AuthRequest;
+use App\Http\Requests\FormRequest;
 use App\Http\Requests\ProfileRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Mail\ConfirmEmail;
+use App\Mail\SendFormEmail;
 use App\Models\Customer;
 use App\Models\EmailConfirm;
+use App\Models\Setting;
 use App\Services\ImageUtil;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
@@ -86,5 +89,15 @@ class CustomerController extends Controller
         }
 
         return $customer;
+    }
+
+    public function form(FormRequest $request)
+    {
+        $email = Setting::findByCode('email')->value;
+
+        Mail::to($email)
+            ->send(new SendFormEmail($request));
+
+        return response()->json();
     }
 }

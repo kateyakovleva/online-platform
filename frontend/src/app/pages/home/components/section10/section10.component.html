@@ -18,9 +18,9 @@
       <div class='card-price__change white w-70'>{{item.comment}}</div>
     </div>
   </div>
-  <button class="btn-choose" type="button" (click)="openForm()">{{naming.but}}</button>
-  <div class="w-100 popup" *ngIf="priceForm">
-    <app-price-form></app-price-form>
-  </div>
+  <button class="btn-choose" type="button" (click)="toggleForm()">{{naming.but}}</button>
+  <app-modal [showModal]="priceForm">
+    <app-price-form (close)="toggleForm()"></app-price-form>
+  </app-modal>
 </section>
 

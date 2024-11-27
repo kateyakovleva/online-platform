@@ -48,6 +48,10 @@ export class SignUpComponent {
 
   changeType( e: any ) {
     this.type = Number( e.target.value );
+    this.changeRouteType();
+  }
+
+  changeRouteType() {
     this.router.navigate( [ this.router.url.split( '?' )[ 0 ] ], {
       queryParams: {
         is_company: this.type

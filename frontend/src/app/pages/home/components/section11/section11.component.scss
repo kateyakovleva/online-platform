@@ -11,6 +11,11 @@
   padding: 40px 80px;
 }
 
+.success {
+  font-size: 30px;
+  text-align: center;
+  margin: auto;
+}
 
 .grey-container-form {
   background-color: var(--background-profile);
@@ -62,7 +67,7 @@
   }
 }
 
-@media (max-width: 1150px){
+@media (max-width: 1150px) {
   section {
     flex-direction: column;
 
@@ -101,7 +106,6 @@
       }
     }
   }
-
 
 
 }

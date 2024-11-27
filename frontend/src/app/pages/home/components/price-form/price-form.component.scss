@@ -1,7 +1,6 @@
-.popup-container {
-  background-color: rgba(0, 0, 0, 0.3);
-  height: 100vh;
-  z-index: 999;
+:host {
+  height: 96%;
+  margin: 2% auto;
 
   .close {
     top: 10px;
@@ -13,8 +12,12 @@
   }
 
   .container-form {
+    min-width: 400px;
+    max-width: 100%;
     background-color: var(--white);
-    padding: 40px 0;
+    padding: 40px;
+    overflow: auto;
+    height: calc(100% - 80px);
 
     .input-form {
       padding: 0 10px;
@@ -47,14 +50,12 @@
       padding: 20px 25px;
     }
   }
-}
 
-@media (max-width: 1150px) {
-  .w-40 {
-    width: 90%;
-  }
+  @media (max-width: 1150px) {
+    .w-40 {
+      width: 90%;
+    }
 
-  .popup-container{
     .container-form {
 
       .input-form {
@@ -81,5 +82,4 @@
       }
     }
   }
-
 }

@@ -4,7 +4,7 @@
       <div class="mt-20 sub-btn" *ngIf="_resume.worker?.phone">{{_resume.worker?.phone| phone}}</div>
     </div>
     <button class="btns btn3 mb-20" [disabled]="(success|async)"
-            (click)="addResponse(_resume?.id)">{{(success|async) || 'Откликнуться'}}</button>
+            (click)="addResponse(_resume?.id)">{{(success|async) || 'Пригласить'}}</button>
   </app-candidate-aside>
   <div class="d-flex w-70">
     <app-candidate-info [hideButton]="true" [resume]="_resume"/>

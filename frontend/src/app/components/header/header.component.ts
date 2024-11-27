@@ -6,6 +6,7 @@ import { AsyncPipe, NgIf } from "@angular/common";
 import { ActivatedRoute, RouterLink } from "@angular/router";
 import { AuthStore } from "../../stores/AuthStore";
 import { ContentHeightService } from "../../services/ContentHeightService";
+import { UserStore } from "../../stores/UserStore";
 
 
 @Component( {
@@ -26,6 +27,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     private route: ActivatedRoute,
     public auth: AuthStore,
     public height: ContentHeightService,
+    public user: UserStore,
   ) {
   }
 

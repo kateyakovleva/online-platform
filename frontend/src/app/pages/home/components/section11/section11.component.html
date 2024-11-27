@@ -4,20 +4,24 @@
     <markdown class="section11-text" [data]="(settings.content | async)?.contact_form_description"></markdown>
   </div>
   <div class="d-flex grey-container-form w-45">
-    <form class="d-flex direction-column section11-form w-100">
-      <div class="d-flex direction-column a-1-start">
+    <form (submit)="send($event)" class="d-flex direction-column section11-form w-100">
+      <div class="success" *ngIf="success">
+        Запрос отправлен!
+      </div>
+
+      <div *ngIf="!success" class="d-flex direction-column a-1-start">
         <label class="mb-10 ">{{naming.name}}</label>
-        <input placeholder="Ваше имя"/>
+        <input name="name" required placeholder="Ваше имя"/>
       </div>
-      <div class="d-flex direction-column a-1-start">
+      <div *ngIf="!success" class="d-flex direction-column a-1-start">
         <label class="mb-10">{{naming.email}}</label>
-        <input placeholder="Ваша почта"/>
+        <input name="email" type="email" placeholder="Ваша почта"/>
       </div>
-      <div class="d-flex direction-column a-1-start mb-20">
+      <div *ngIf="!success" class="d-flex direction-column a-1-start mb-20">
         <label class="mb-10">{{naming.phone}}</label>
-        <input placeholder="Ваш телефон"/>
+        <input name="phone" required placeholder="Ваш телефон"/>
       </div>
-      <div class="d-flex a-1-center j-c-center mt-10">
+      <div *ngIf="!success" class="d-flex a-1-center j-c-center mt-10">
         <button class="section11-form__btn" type="submit">{{naming.submit}}</button>
       </div>
     </form>

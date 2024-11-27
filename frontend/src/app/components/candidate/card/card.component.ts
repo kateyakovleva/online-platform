@@ -4,13 +4,15 @@ import { Router, RouterLink } from "@angular/router";
 import { IVacancy } from "../../../types/vacancies";
 import { PricePipe } from "../../../filters/price.pipe";
 import { UserStore } from "../../../stores/UserStore";
+import { NgIf } from "@angular/common";
 
 @Component( {
   selector: 'app-card',
   standalone: true,
   imports: [
     RouterLink,
-    PricePipe
+    PricePipe,
+    NgIf
   ],
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss',
