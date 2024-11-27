@@ -21,7 +21,7 @@ class FormRequest extends LaravelFormRequest
     public function rules(): array
     {
         return [
-            'tariff' => 'string|required',
+            'tariff' => 'nullable|string',
             'name' => 'string|required',
             'company' => 'nullable|company',
             'phone' => 'string|required',
