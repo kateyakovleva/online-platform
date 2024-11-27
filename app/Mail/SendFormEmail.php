@@ -30,7 +30,7 @@ class SendFormEmail extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'mail.send-form.blade',
+            markdown: 'mail.send-form',
             with: $this->request->all(),
         );
     }
