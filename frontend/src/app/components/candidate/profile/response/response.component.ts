@@ -13,7 +13,10 @@ import { Paginator } from "../../../paginator/paginator.component";
   standalone: true,
   imports: [ RouterLink, CardComponent, AsyncPipe, NgForOf, NgIf, Paginator ],
   templateUrl: './response.component.html',
-  styleUrl: '../offer/offer.component.scss'
+  styleUrl: '../offer/offer.component.scss',
+  host: {
+    class: 'w-100'
+  }
 } )
 export class ResponseComponent {
   constructor(

@@ -21,4 +21,14 @@ export interface IResume {
   skills?: ISkill[];
   specialization?: ISpecialization;
   worker?: IWorker;
+  response?: IWorkResponse;
+}
+
+export interface IWorkResponse {
+  id: number;
+  resume_id: number;
+  vacancy_id: number;
+  created_at: string;
+  updated_at: string;
+  type: number;
 }

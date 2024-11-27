@@ -3,7 +3,7 @@
   <!--  <app-card-response></app-card-response>-->
 
   <div>
-    <app-card *ngFor="let response of _responses?.data" [item]="response.vacancy"></app-card>
+    <app-card-response *ngFor="let item of _responses?.data;" [item]="item.resume"></app-card-response>
 
     <app-paginator
       [total]="_responses?.total || 0"

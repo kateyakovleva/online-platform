@@ -33,7 +33,7 @@ export class ResponsesComponent {
     location.queryParams.subscribe( ( params ) => {
       this.responses = this.responsesStore.getResponses( {
         page: params[ "page" ] || 1,
-        type: EResponseType.INIT_WORKER,
+        type: params[ 'type' ] || EResponseType.INIT_WORKER,
       } );
     } );
   }

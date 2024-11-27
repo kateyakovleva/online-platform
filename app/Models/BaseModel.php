@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * 
+ *
  *
  * @method static Builder|BaseModel newModelQuery()
  * @method static Builder|BaseModel newQuery()
@@ -72,5 +72,16 @@ class BaseModel extends Model
     public static function removeHidden(string $fieldName)
     {
         unset(self::$hiddens[static::class][$fieldName]);
+    }
+
+    private static $tableNameCache = [];
+
+    public static function table()
+    {
+        if (!isset(static::$tableNameCache[static::class])) {
+            static::$tableNameCache[static::class] = (new static)->getTable();
+        }
+
+        return static::$tableNameCache[static::class];
     }
 }

@@ -6,9 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Staudenmeir\EloquentHasManyDeep\HasRelationships;
 
 /**
- * 
+ *
  *
  * @property int $id
  * @property int $customer_id
@@ -36,7 +37,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  */
 class Resume extends BaseModel
 {
-    use HasFactory;
+    use HasFactory, HasRelationships;
 
     public function skills(): BelongsToMany
     {
@@ -61,8 +62,17 @@ class Resume extends BaseModel
     public function responses(): HasMany
     {
         return $this->hasMany(WorkResponse::class, 'resume_id')
-            ->orderByDesc('created_at')
-            ->with('vacancy');
+            ->orderByDesc('created_at');
+    }
+
+    public function response()
+    {
+        /** @var Company | Worker $customer */
+        $customer = \Auth::user();
+        return $this->hasOne(WorkResponse::class, 'resume_id')
+            ->select('work_responses.*')
+            ->join(Vacancy::table(), 'work_responses.vacancy_id', 'vacancies.id')
+            ->where('vacancies.company_id', $customer?->id);
     }
 
     public function setSkillsAttribute($value)

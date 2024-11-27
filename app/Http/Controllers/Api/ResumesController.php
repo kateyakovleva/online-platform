@@ -32,7 +32,7 @@ class ResumesController extends Controller
 
     public function get($id)
     {
-        return Resume::with(['city', 'skills', 'specialization', 'worker'])
+        return Resume::with(['city', 'skills', 'specialization', 'worker', 'response'])
             ->find($id);
     }
 }

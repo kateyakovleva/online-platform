@@ -32,7 +32,14 @@ class VacanciesController extends Controller
 
     public function get($id)
     {
-        return Vacancy::with(['city', 'skills', 'specialization', 'company'])
+        /** @var Vacancy $vacancy */
+        $vacancy = Vacancy::with(['city', 'skills', 'specialization', 'company', 'response'])
             ->find($id);
+
+        if ($vacancy->company->hasActiveSubscribe) {
+            $vacancy->company->makeVisible(['email', 'phone']);
+        }
+
+        return $vacancy;
     }
 }

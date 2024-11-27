@@ -3,7 +3,7 @@ import { naming } from "../../data/naming/naming/naming.service";
 import { ActivatedRoute, Router, RouterLink, RouterLinkActive, RouterOutlet } from "@angular/router";
 import { AsyncPipe, NgIf } from "@angular/common";
 import { VacancyComponent } from "../company/vacancy/vacancy.component";
-import { BehaviorSubject, Observable } from "rxjs";
+import { map, Observable } from "rxjs";
 import { VacanciesStore } from "../../stores/VacanciesStore";
 import { IVacancy } from "../../types/vacancies";
 import { ContentHeightService } from "../../services/ContentHeightService";
@@ -12,6 +12,7 @@ import { ResponsesStore } from "../../stores/ResponsesStore";
 import { UserStore } from "../../stores/UserStore";
 import { IResume } from "../../types/resumes";
 import { CandidateAside } from "../candidate-aside/candidateAside.component";
+import { PhonePipe } from "../../filters/phone.pipe";
 
 
 @Component( {
@@ -25,7 +26,8 @@ import { CandidateAside } from "../candidate-aside/candidateAside.component";
     VacancyComponent,
     NgIf,
     CompanyAside,
-    CandidateAside
+    CandidateAside,
+    PhonePipe
   ],
   templateUrl: './viewVacancy.component.html',
   styleUrls: [ '../candidate/profile/profile.component.scss', '../company/profile/personal-data/personalDataCompany.component.scss' ]
@@ -40,7 +42,10 @@ export class ViewVacancyComponent {
     private user: UserStore,
   ) {
     location.params.subscribe( ( params ) => {
-      this.vacancy = this.vacanciesStore.getVacancy( params[ 'id' ] );
+      this.vacancy = this.vacanciesStore.getVacancy( params[ 'id' ] ).pipe( map( v => {
+        if ( v.response ) this.success = 'Отклик отправлен!';
+        return v;
+      } ) );
     } );
 
     this.user.worker$.subscribe( ( w ) => {
@@ -57,11 +62,11 @@ export class ViewVacancyComponent {
 
   naming = naming;
 
-  success = new BehaviorSubject( '' );
+  success = '';
 
   addResponse( vacancy_id?: number ) {
     this.respStore.addResponse( this.resume?.id, vacancy_id ).subscribe( ( r ) => {
-      this.success.next( 'Отклик отправлен!' );
+      this.success = 'Отклик отправлен!';
     } )
   }
 }

@@ -114,6 +114,7 @@ export const naming = {
   personalData: 'Личные данные',
   personalVacancy: 'Мои отклики',
   personalVacancy1: 'Отклики',
+  personalOffers1: 'Приглашения',
   personalOffers: 'Входящие предложения',
   exit: 'выйти',
   resume1: 'Резюме:',

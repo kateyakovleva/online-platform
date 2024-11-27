@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -74,6 +75,11 @@ class Company extends Customer
     public function city(): BelongsTo
     {
         return $this->belongsTo(City::class);
+    }
+
+    public function getHasActiveSubscribeAttribute()
+    {
+        return $this->tariff_id && $this->tariff_end_of?->unix() > Carbon::now()->unix();
     }
 
     /**

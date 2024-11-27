@@ -13,7 +13,10 @@
     <div class="d-flex container__title mb-5">{{company?.name}}</div>
     <a *ngIf="!hideButtons" class="change-btn mb-20"
        routerLink="/create_company_profile">{{naming.change}}</a>
-    <div class="sub-btn">{{company?.city?.name}}</div>
+    <div class="direction-row d-flex w-100 j-c-center a-1-center">
+      <div class="sub-btn mr-10">{{company?.city?.name}}</div>
+      <div class="sub-btn">{{company?.is_online ? naming.online : naming.offline}}</div>
+    </div>
 
     <ng-content select='contacts'></ng-content>
   </div>

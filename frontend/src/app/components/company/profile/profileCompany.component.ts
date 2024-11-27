@@ -9,6 +9,7 @@ import { AuthStore } from "../../../stores/AuthStore";
 import { UserStore } from "../../../stores/UserStore";
 import { AsyncPipe } from "@angular/common";
 import { ContentHeightService } from "../../../services/ContentHeightService";
+import { EResponseType } from "../../../types/responses";
 
 
 @Component( {
@@ -57,4 +58,6 @@ export class ProfileCompanyComponent {
   signOut() {
     this.auth.logout();
   }
+
+  protected readonly EResponseType = EResponseType;
 }

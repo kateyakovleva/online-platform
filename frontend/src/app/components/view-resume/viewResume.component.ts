@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { CandidateAside } from "../candidate-aside/candidateAside.component";
 import { AsyncPipe, NgIf } from "@angular/common";
 import { CandidateInfo } from "../candidate-info/candidateInfo.component";
-import { BehaviorSubject, Observable } from "rxjs";
+import { map, Observable } from "rxjs";
 import { IResume } from "../../types/resumes";
 import { ResumesStore } from "../../stores/ResumesStore";
 import { ResponsesStore } from "../../stores/ResponsesStore";
@@ -33,7 +33,10 @@ export class ViewResumeComponent {
     private user: UserStore,
   ) {
     location.params.subscribe( ( params ) => {
-      this.resume = this.resumesStore.getResume( params[ 'id' ] );
+      this.resume = this.resumesStore.getResume( params[ 'id' ] ).pipe( map( r => {
+        if ( r.response ) this.success = 'Приглашение отправлено!';
+        return r;
+      } ) );
     } );
 
     this.user.company$.subscribe( ( c ) => {
@@ -45,11 +48,11 @@ export class ViewResumeComponent {
 
   naming = naming;
 
-  success = new BehaviorSubject( '' );
+  success = '';
 
   addResponse( resume_id?: number ) {
     this.respStore.addResponse( resume_id, 0 ).subscribe( ( r ) => {
-      this.success.next( 'Отклик отправлен!' );
+      this.success = 'Приглашение отправлено!';
     } )
   }
 }

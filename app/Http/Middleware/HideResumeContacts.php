@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Company;
 use App\Models\Customer;
 use App\Models\Worker;
 use Carbon\Carbon;
@@ -18,11 +19,14 @@ class HideResumeContacts
 
         if (!$user && $request->bearerToken()) {
             $user = PersonalAccessToken::findToken($request->bearerToken())?->tokenable;
+            if ($user) \Auth::login($user);
         }
 
         if (!$user?->tariff_end_of || $user->tariff_end_of->unix() < Carbon::now()->unix()) {
             Worker::addHidden('email');
             Worker::addHidden('phone');
+            Company::addHidden('email');
+            Company::addHidden('phone');
         }
 
         return $next($request);

@@ -33,7 +33,7 @@ export class CardComponent {
   item?: IVacancy = undefined;
 
   viewVacancy() {
-    if ( this.user._user.value?.id === this.item?.id ) {
+    if ( this.user._user.value?.id === this.item?.company?.id ) {
       this.router.navigate( [ '/company_profile/vacancies/' + this.item?.id ] );
     } else {
       this.router.navigate( [ '/search/vacancies/' + this.item?.id ] );

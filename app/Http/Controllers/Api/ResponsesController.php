@@ -15,8 +15,8 @@ class ResponsesController extends Controller
     public function responses(Request $request)
     {
         $customer = $this->getCustomer();
-        $with = !$customer->is_company ? 'resume' : 'vacancy';
-        $with2 = !$customer->is_company ? 'resume.worker' : 'vacancy.company';
+        $with = $customer->is_company ? 'resume' : 'vacancy';
+        $with2 = $customer->is_company ? 'resume.worker' : 'vacancy.company';
 
         return $this->getCustomer()
             ->responses()

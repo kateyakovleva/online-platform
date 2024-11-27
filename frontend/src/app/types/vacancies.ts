@@ -1,5 +1,6 @@
 import { ICity, IResponsePaginate, ISkill, ISpecialization } from "./other_types";
 import { ICompany } from "./company";
+import { IWorkResponse } from "./resumes";
 
 export type IVacancies = IResponsePaginate<IVacancy>;
 
@@ -24,4 +25,5 @@ export interface IVacancy {
   skills?: ISkill[];
   specialization?: ISpecialization;
   company?: ICompany;
+  response?: IWorkResponse;
 }

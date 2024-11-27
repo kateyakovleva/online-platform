@@ -2,7 +2,9 @@
 <div class="d-flex container-main mt-40 mobile" [style.min-height]="(height.content | async)+'px'">
   <app-company-aside [company]="company">
     <button class="btns btn4 mb-10" routerLink="vacancies">{{naming.personalData}}</button>
-    <button class="btns btn5 mb-20" routerLink="company_responses">{{naming.personalVacancy1}}</button>
+    <button class="btns btn5 mb-10" routerLink="company_responses">{{naming.personalVacancy1}}</button>
+    <button class="btns btn5 mb-20" routerLink="company_responses"
+            [queryParams]="{type: EResponseType.INIT_COMPANY}">{{naming.personalOffers1}}</button>
     <div class="d-flex direction-row a-1-center j-c-center mb-20">
       <button (click)="signOut()" class="btn-exit d-flex direction-row a-1-center j-c-center">
         <img class="mr-10" src="images/button_exit.svg" alt="exit"/>
