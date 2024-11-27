@@ -29,6 +29,13 @@ class SendFormEmail extends Mailable
 
     public function content(): Content
     {
+        $data = array_merge([
+            'name' => '',
+            'company' => '',
+            'phone' => '',
+            'email' => '',
+            'tariff' => '',
+        ], $this->request->all());
         return new Content(
             markdown: 'mail.send-form',
             with: $this->request->all(),
