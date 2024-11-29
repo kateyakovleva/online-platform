@@ -23,7 +23,7 @@ class NewWorkerResponseEmail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Новое предложение',
+            subject: 'Новый отклик кандидата',
         );
     }
 

@@ -5,11 +5,13 @@ import { AsyncPipe, NgForOf, NgIf } from "@angular/common";
 import { ICompany } from "../../types/company";
 import { IVacancy } from "../../types/vacancies";
 import { UserStore } from "../../stores/UserStore";
+import { PhonePipe } from "../../filters/phone.pipe";
+import { OnlineComponent } from "../online/online.component";
 
 @Component( {
   selector: 'app-company-aside',
   standalone: true,
-  imports: [ RouterLink, AsyncPipe, NgIf, NgForOf ],
+  imports: [ RouterLink, AsyncPipe, NgIf, NgForOf, PhonePipe, OnlineComponent ],
   templateUrl: './companyAside.component.html',
   styleUrl: './companyAside.component.scss',
   host: {

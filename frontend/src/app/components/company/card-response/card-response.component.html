@@ -9,6 +9,6 @@
     <div class="mr-10">{{item?.worker?.name}}</div>
     <!--    <div class="mr-10">{{item.lastName}}</div>-->
     <div class="mr-10 sub-btn">{{item?.city?.name}}</div>
-    <div class="mr-10 sub-btn">{{item?.worker?.is_online ? naming.online : naming.offline}}</div>
+    <online [online]="item?.worker?.is_online"/>
   </div>
 </div>

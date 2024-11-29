@@ -5,6 +5,7 @@ import { IVacancy } from "../../../types/vacancies";
 import { PricePipe } from "../../../filters/price.pipe";
 import { UserStore } from "../../../stores/UserStore";
 import { NgIf } from "@angular/common";
+import { OnlineComponent } from "../../online/online.component";
 
 @Component( {
   selector: 'app-card',
@@ -12,7 +13,8 @@ import { NgIf } from "@angular/common";
   imports: [
     RouterLink,
     PricePipe,
-    NgIf
+    NgIf,
+    OnlineComponent
   ],
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss',
@@ -39,4 +41,6 @@ export class CardComponent {
       this.router.navigate( [ '/search/vacancies/' + this.item?.id ] );
     }
   }
+
+  protected readonly undefined = undefined;
 }

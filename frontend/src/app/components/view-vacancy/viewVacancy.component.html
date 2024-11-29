@@ -1,10 +1,6 @@
 <div *ngIf="(vacancy|async) as _vacancy" class="d-flex container-main mt-40 mobile"
      [style.min-height]="(height.content | async)+'px'">
   <app-company-aside [vacancy]="_vacancy" [hideButtons]="true">
-    <div ngProjectAs='contacts'>
-      <div class="mt-20 sub-btn" *ngIf="_vacancy.company?.email">{{_vacancy.company?.email}}</div>
-      <div class="mt-20 sub-btn" *ngIf="_vacancy.company?.phone">{{_vacancy.company?.phone| phone}}</div>
-    </div>
     <button class="btns btn4 mb-10" routerLink="/search/vacancies" [queryParams]="{company_id: _vacancy?.company_id}">
       все вакансии компании
     </button>

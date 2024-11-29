@@ -21,7 +21,9 @@ import { SplitStringPipe } from "../../../../filters/splitString.pipe";
   styleUrl: './section5.component.scss'
 } )
 export class Section5Component {
-  constructor( public settings: SettingsStore ) {
+  constructor(
+    public settings: SettingsStore,
+  ) {
   }
 
   naming = naming;

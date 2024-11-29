@@ -11,6 +11,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { ResumesStore } from "../../stores/ResumesStore";
 import { IResumes } from "../../types/resumes";
 import { Paginator } from "../paginator/paginator.component";
+import { AuthStore } from "../../stores/AuthStore";
 
 @Component( {
   selector: 'app-filter-company',
@@ -35,8 +36,15 @@ export class FilterCompanyComponent {
     public height: ContentHeightService,
     public location: ActivatedRoute,
     private router: Router,
+    private auth: AuthStore,
   ) {
-    this.search();
+    this.auth.auth$.subscribe( ( a ) => {
+      if ( a ) {
+        this.search();
+      } else {
+        this.router.navigate( [ '/auth/signup' ] );
+      }
+    } )
   }
 
   naming = naming;

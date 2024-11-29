@@ -1,5 +1,5 @@
 <x-mail::message>
-    <p>Вам предлагают посмотреть вакансию!</p>
+    <p>Ура! Новый отклик на вакансию!</p>
     <p>{{ $vacancy['vacancy'] }}</p>
     <a href="{{ config('app.url') }}/profile/offers">Посмотреть</a>
 

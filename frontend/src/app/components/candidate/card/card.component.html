@@ -8,6 +8,6 @@
     <img [src]="item?.company?.image  || 'images/profile.svg'" class="logo mr-10" alt="picture"/>
     <div class="mr-10 companyName">{{item?.company?.name}}</div>
     <div class="mr-10 sub-btn">{{item?.city?.name}}</div>
-    <div class="mr-10 sub-btn">{{item?.company?.is_online ? naming.online : naming.offline}}</div>
+    <online [online]="item?.company?.is_online"/>
   </div>
 </div>

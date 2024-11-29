@@ -31,15 +31,19 @@ export class ResponsesComponent {
     private router: Router,
   ) {
     location.queryParams.subscribe( ( params ) => {
+      this.type = params[ 'type' ] || EResponseType.INIT_WORKER;
       this.responses = this.responsesStore.getResponses( {
         page: params[ "page" ] || 1,
-        type: params[ 'type' ] || EResponseType.INIT_WORKER,
+        type: this.type,
       } );
     } );
   }
+
+  type: EResponseType = EResponseType.INIT_WORKER;
 
   responses?: Observable<IResponses> | undefined;
 
   naming = naming;
 
+  protected readonly EResponseType = EResponseType;
 }

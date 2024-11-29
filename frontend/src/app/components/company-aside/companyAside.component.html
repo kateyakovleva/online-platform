@@ -15,10 +15,13 @@
        routerLink="/create_company_profile">{{naming.change}}</a>
     <div class="direction-row d-flex w-100 j-c-center a-1-center">
       <div class="sub-btn mr-10">{{company?.city?.name}}</div>
-      <div class="sub-btn">{{company?.is_online ? naming.online : naming.offline}}</div>
+      <online [online]="company?.is_online" type="medium"/>
     </div>
 
-    <ng-content select='contacts'></ng-content>
+    <div>
+      <div class="mt-20 sub-btn" *ngIf="company?.email">{{company?.email}}</div>
+      <div class="mt-20 sub-btn" *ngIf="company?.phone">{{company?.phone| phone}}</div>
+    </div>
   </div>
   <div class="d-flex direction-column w-70 mobile-container">
     <ng-content></ng-content>

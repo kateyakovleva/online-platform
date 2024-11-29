@@ -38,6 +38,9 @@ export class SignUpComponent {
     } );
 
     this.type = Number( location.snapshot.queryParams[ 'is_company' ] || '1' );
+    if ( !location.snapshot.queryParams[ 'is_company' ] ) {
+      this.changeRouteType();
+    }
   }
 
   naming = naming;

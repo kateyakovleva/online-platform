@@ -1,0 +1,36 @@
+.btn-status {
+  background-color: var(--white);
+  border: 1px solid var(--dark-grey);
+
+  &.online {
+    background-color: var(--light-green);
+    color: var(--white);
+    border: none;
+  }
+
+  &.large {
+    padding: 10px 25px;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+    border-radius: 48px;
+
+    @media (min-width: 1600px) {
+      padding: 15px 30px;
+      font-size: 20px;
+      line-height: 26px;
+    }
+  }
+
+  &.small {
+    border-radius: 28px;
+    padding: 5px 15px;
+  }
+
+  &.medium {
+    border-radius: 28px;
+    font-size: 20px;
+    line-height: 23px;
+    padding: 7px 20px;
+  }
+}

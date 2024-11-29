@@ -38,8 +38,7 @@
           </div>
           <div class="d-flex direction-row j-c-center mt-10 card-container__btns">
             <div class="card-container__btn-city btns">{{resume.city?.name}}</div>
-            <div
-              class="card-container__btn-status btns">{{resume.worker?.is_online ? naming.online : naming.offline}}</div>
+            <online [online]="resume.worker?.is_online" type="large"/>
           </div>
         </div>
       </div>

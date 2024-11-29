@@ -1,5 +1,5 @@
 <div *ngIf="(responses | async) as _responses" class="d-flex direction-column">
-  <h1 class="mb-40">Отклики</h1>
+  <h1 class="mb-40">{{type === EResponseType.INIT_WORKER ? 'Отклики' : 'Приглашения'}}</h1>
   <!--  <app-card-response></app-card-response>-->
 
   <div>

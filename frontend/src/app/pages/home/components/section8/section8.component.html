@@ -30,7 +30,7 @@
           </div>
           <div class="d-flex direction-row j-c-center mt-10 card-container__btns">
             <div class="card-container__btn mr-10">{{vacancy.city?.name}}</div>
-            <div class="card-container__btn">{{vacancy.company?.is_online ? naming.online : naming.offline}}</div>
+            <online [online]="vacancy.company?.is_online" type="large"/>
           </div>
           <div class="d-flex a-1-center j-c-center w-100 text__btn">
             <a [routerLink]="'/search/vacancies/'+vacancy.id" class="btn w-50">Посмотреть</a>

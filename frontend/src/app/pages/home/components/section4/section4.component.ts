@@ -6,6 +6,7 @@ import { IResumes } from "../../../../types/resumes";
 import { AsyncPipe, NgForOf, NgIf } from "@angular/common";
 import { RouterLink } from "@angular/router";
 import { LimitPipe } from "../../../../filters/limit.pipe";
+import { OnlineComponent } from "../../../../components/online/online.component";
 
 @Component( {
   selector: 'app-section4',
@@ -15,7 +16,8 @@ import { LimitPipe } from "../../../../filters/limit.pipe";
     AsyncPipe,
     NgForOf,
     RouterLink,
-    LimitPipe
+    LimitPipe,
+    OnlineComponent
   ],
   templateUrl: './section4.component.html',
   styleUrl: './section4.component.scss'

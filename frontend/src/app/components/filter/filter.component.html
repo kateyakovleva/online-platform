@@ -43,7 +43,7 @@
         <div class="sub-title ml-30">{{naming.find}}</div>
         <div class="sub-title ml-10"><b>{{_vacancies?.total}}</b></div>
       </div>
-      <app-card *ngFor="let vacancy of _vacancies?.data" [item]="vacancy" class="w-80"></app-card>
+      <app-card *ngFor="let vacancy of _vacancies?.data" [item]="vacancy"></app-card>
 
       <app-paginator
         [total]="_vacancies?.total || 0"

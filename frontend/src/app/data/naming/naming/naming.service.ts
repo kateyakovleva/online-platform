@@ -112,6 +112,7 @@ export const naming = {
   change: 'изменить',
   delete: 'удалить',
   personalData: 'Личные данные',
+  personalDataCompany: 'Данные работодателя',
   personalVacancy: 'Мои отклики',
   personalVacancy1: 'Отклики',
   personalOffers1: 'Приглашения',

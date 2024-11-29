@@ -5,11 +5,13 @@ import { AsyncPipe, NgForOf, NgIf } from "@angular/common";
 import { IWorker } from "../../types/customer";
 import { IResume } from "../../types/resumes";
 import { UserStore } from "../../stores/UserStore";
+import { PhonePipe } from "../../filters/phone.pipe";
+import { OnlineComponent } from "../online/online.component";
 
 @Component( {
   selector: 'app-candidate-aside',
   standalone: true,
-  imports: [ RouterLink, AsyncPipe, NgIf, NgForOf ],
+  imports: [ RouterLink, AsyncPipe, NgIf, NgForOf, PhonePipe, OnlineComponent ],
   templateUrl: './candidateAside.component.html',
   styleUrl: './candidateAside.component.scss',
   host: {
@@ -51,4 +53,6 @@ export class CandidateAside implements AfterViewInit {
       this.user.getUser();
     } );
   }
+
+  protected readonly undefined = undefined;
 }

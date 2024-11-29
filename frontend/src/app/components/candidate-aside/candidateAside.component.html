@@ -17,10 +17,13 @@
     <a *ngIf="!hideButtons" routerLink="/create_profile" class="change-btn mb-20">{{naming.change}}</a>
     <div class="direction-row d-flex w-100 j-c-center a-1-center">
       <div class="sub-btn mr-10">{{candidate?.resume?.city?.name}}</div>
-      <div class="sub-btn">{{candidate?.is_online ? naming.online : naming.offline}}</div>
+      <online [online]="candidate?.is_online" type="medium"/>
     </div>
 
-    <ng-content select='contacts'></ng-content>
+    <div>
+      <div class="mt-20 sub-btn" *ngIf="candidate?.email">{{candidate?.email}}</div>
+      <div class="mt-20 sub-btn" *ngIf="candidate?.phone">{{candidate?.phone| phone}}</div>
+    </div>
   </div>
   <ng-content></ng-content>
 </div>

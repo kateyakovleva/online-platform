@@ -10,6 +10,7 @@ import { IVacancies } from "../../types/vacancies";
 import { ContentHeightService } from "../../services/ContentHeightService";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Paginator } from "../paginator/paginator.component";
+import { AuthStore } from "../../stores/AuthStore";
 
 
 @Component( {
@@ -34,8 +35,15 @@ export class FilterComponent {
     public height: ContentHeightService,
     public location: ActivatedRoute,
     private router: Router,
+    private auth: AuthStore,
   ) {
-    this.search();
+    this.auth.auth$.subscribe( ( a ) => {
+      if ( a ) {
+        this.search();
+      } else {
+        this.router.navigate( [ '/auth/signup' ] );
+      }
+    } )
   }
 
   naming = naming;
