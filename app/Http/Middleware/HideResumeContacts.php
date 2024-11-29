@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use App\Models\Company;
 use App\Models\Customer;
+use App\Models\Setting;
 use App\Models\Worker;
 use Carbon\Carbon;
 use Closure;
@@ -24,9 +25,9 @@ class HideResumeContacts
 
         if (!$user?->tariff_end_of || $user->tariff_end_of->unix() < Carbon::now()->unix()) {
             Worker::addHidden('email');
-            Worker::addHidden('phone');
+            if (!Setting::findByCode('show_phone')?->value) Worker::addHidden('phone');
             Company::addHidden('email');
-            Company::addHidden('phone');
+            if (!Setting::findByCode('show_phone')?->value) Company::addHidden('phone');
         }
 
         return $next($request);
