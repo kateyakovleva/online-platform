@@ -1,17 +1,15 @@
 :host {
   .modal, .overlay {
     position: fixed;
-    top: 0;
     left: 0;
+    bottom: 0;
     width: 100%;
   }
 
   .modal {
     z-index: 99;
-    height: calc(100% - 40px);
-    padding: 20px 0;
+    height: calc(100vh - 70px);
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
   }
@@ -20,6 +18,45 @@
     position: absolute;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.3);
-  }
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+    .popup {
+      z-index: 99;
+      width: 60%;
+      height: 60vh;
+      padding: 20px;
+      background-color: var(--white);
+      border-radius: 20px;
+
+      .button {
+        font-size: 20px;
+        line-height: 24px;
+        color: #636363;
+        border-bottom: 0.5px solid rgba(99, 99, 99, 0.4);
+      }
+    }
+
+  }
+}
+
+@media (max-width: 1250px) {
+  :host {
+    .modal {
+      height: 100vh;
+    }
+
+    .overlay {
+      .popup {
+        width: 75%;
+        height: 70vh;
+
+        .button {
+          font-size: 13px;
+          line-height: 16px;
+        }
+      }
+    }
+  }
 }
