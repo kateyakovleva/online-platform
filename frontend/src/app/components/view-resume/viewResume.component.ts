@@ -10,6 +10,8 @@ import { ResumesStore } from "../../stores/ResumesStore";
 import { ResponsesStore } from "../../stores/ResponsesStore";
 import { PhonePipe } from "../../filters/phone.pipe";
 import { UserStore } from "../../stores/UserStore";
+import { ModalComponent } from "../modal/modal.component";
+import { VacanciesModalComponent } from "../vacanciesModal/vacanciesModal.component";
 
 @Component( {
   selector: 'view-resume',
@@ -20,6 +22,8 @@ import { UserStore } from "../../stores/UserStore";
     CandidateInfo,
     NgIf,
     PhonePipe,
+    ModalComponent,
+    VacanciesModalComponent,
   ],
   templateUrl: './viewResume.component.html',
   styleUrl: './viewResume.component.scss'
@@ -40,7 +44,8 @@ export class ViewResumeComponent {
     } );
 
     this.user.company$.subscribe( ( c ) => {
-
+      if ( c && !c?.vacancies_count ) this.success = 'Сначала создайте вакансию';
+      this.manyVacancies = ( c?.vacancies_count || 0 ) > 1;
     } )
   }
 
@@ -50,7 +55,16 @@ export class ViewResumeComponent {
 
   success = '';
 
+  showModal = false;
+
+  manyVacancies = false;
+
   addResponse( resume_id?: number ) {
+    if ( this.manyVacancies ) {
+      this.showModal = true;
+      return;
+    }
+
     this.respStore.addResponse( resume_id, 0 ).subscribe( ( r ) => {
       this.success = 'Приглашение отправлено!';
     } )

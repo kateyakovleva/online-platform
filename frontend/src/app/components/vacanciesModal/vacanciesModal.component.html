@@ -1,0 +1,12 @@
+<div class="popup d-flex direction-column">
+  <div class="d-flex j-c-end mb-10">
+    <button type="button" (click)="close.emit()" class="button">закрыть</button>
+  </div>
+  <ng-scrollbar
+    class="custom-scrollbar ng-scrollbar-thumb ng-scrollbar-track"
+    [trackClass]="'custom-track'"
+    [thumbClass]="'custom-thumb'"
+  >
+    <app-card></app-card>
+  </ng-scrollbar>
+</div>

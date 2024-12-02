@@ -6,6 +6,10 @@
   <div class="d-flex w-70">
     <app-candidate-info [hideButton]="true" [resume]="_resume"/>
   </div>
+
+  <app-modal [showModal]="showModal">
+    <vacancies-modal (close)="showModal = false"/>
+  </app-modal>
 </div>
 
 
