@@ -12,7 +12,8 @@ class WorkerController extends Controller
         $customer = $this->getCustomer();
 
         if ($customer instanceof Worker) {
-            $customer->resume->fill($request->all());
+            $customer->update($request->only('phone'));
+            $customer->resume->fill($request->except('phone'));
             $customer->resume->save();
         }
 

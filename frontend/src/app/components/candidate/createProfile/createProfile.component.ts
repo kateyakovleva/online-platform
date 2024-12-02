@@ -61,8 +61,12 @@ export class CreateProfileComponent {
   }
 
   onSave( event: Event ) {
+    const form = event.target as HTMLFormElement;
     event.preventDefault();
-    const data = new FormData( event.target as HTMLFormElement );
+    if ( form.classList.contains( 'ng-invalid' ) ) {
+      return;
+    }
+    const data = new FormData( form );
 
     this.http.post( '/profile/resume', data ).subscribe( r => {
       this.user.getUser();

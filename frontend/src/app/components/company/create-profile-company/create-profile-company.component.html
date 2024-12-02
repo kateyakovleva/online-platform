@@ -1,10 +1,14 @@
 @let company = user.company$ | async;
 @let cities = settings.cities | async;
 <div class="d-flex j-c-start a-1-start container">
-  <form (submit)="onSave($event)" class="container-main d-flex direction-column">
+  <form ngNativeValidate (submit)="onSave($event)" class="container-main d-flex direction-column">
     <div class="d-flex direction-column">
       <h1 class="mt-40 mb-10">Рассказать о компании</h1>
-      <div class="d-flex direction-column w-90 mb-20 mt-40">
+      <label class="label mb-10">Телефон*</label>
+      <input name="phone" [value]="company?.phone" required class="input w-100"/>
+
+
+      <div class="d-flex direction-column mb-20 mt-40">
         <label class="label mb-10">{{naming.cityMy}}</label>
         <app-custom-select
           [items]="cities"

@@ -4,7 +4,7 @@
     <markdown class="section11-text" [data]="(settings.content | async)?.contact_form_description"></markdown>
   </div>
   <div class="d-flex grey-container-form w-45">
-    <form (submit)="send($event)" class="d-flex direction-column section11-form w-100">
+    <form ngNativeValidate (submit)="send($event)" class="d-flex direction-column section11-form w-100">
       <div class="success" *ngIf="success">
         Запрос отправлен!
       </div>

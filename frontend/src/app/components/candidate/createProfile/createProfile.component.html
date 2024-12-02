@@ -1,9 +1,14 @@
 @let profile = user.worker$ | async;
 @let cities = settings.cities | async;
 @let specializations = settings.specializations | async;
-<form (submit)="onSave($event)" class="d-flex a-1-start j-c-center w-100">
+<form ngNativeValidate (submit)="onSave($event)" class="d-flex a-1-start j-c-center w-100">
   <div class="container-main d-flex direction-column">
     <h1>{{naming.tellAbout}}</h1>
+    <div class="d-flex direction-column mb-40">
+      <label class="label mb-10">Телефон*</label>
+      <input name="phone" [value]="profile?.phone" required class="input w-100"/>
+    </div>
+
     <div class="d-flex direction-column mb-40">
       <label class="label mb-10">{{naming.speciality}}</label>
       <app-custom-select
@@ -11,21 +16,23 @@
         labelFieldName="name"
         valueFieldName="id"
         name="specialization_id"
+        [required]="true"
         [defaultValue]="getSelectedSpecialization(specializations, profile?.resume)"
       />
     </div>
     <div class="d-flex direction-column mb-40">
       <label class="label mb-10">{{naming.interestVacancy}}</label>
-      <input name="vacancy" class="input" [value]="profile?.resume?.vacancy"/>
+      <input name="vacancy" [required]="true" class="input" [value]="profile?.resume?.vacancy||''"/>
     </div>
     <div class="d-flex direction-column mb-40">
       <label class="label mb-10">{{naming.coursesMy}}</label>
       <div class="subtext mb-10">{{naming.coursesMySubtext}}</div>
-      <textarea name="courses" class="textarea">{{profile?.resume?.courses}}</textarea>
+      <textarea name="courses" [required]="true" class="textarea">{{profile?.resume?.courses}}</textarea>
     </div>
     <div class="d-flex direction-column mb-40">
       <label class="label mb-10">{{naming.interestTasks}}</label>
-      <textarea name="interesting" class="textarea">{{profile?.resume?.interesting}}</textarea>
+      <textarea name="interesting" [required]="true"
+                class="textarea">{{profile?.resume?.interesting}}</textarea>
     </div>
     <div class="d-flex direction-column mb-40">
       <label class="label mb-10">{{naming.skillsMy}}</label>
@@ -49,6 +56,7 @@
           valueFieldName="id"
           name="city_id"
           [defaultValue]="getSelectedCity(cities, profile?.resume)"
+          [required]="true"
         />
       </div>
       <div class="d-flex direction-column w-90">
@@ -57,6 +65,7 @@
           name="format"
           [items]="unshift('---', (settings.content | async)?.work_format)"
           [defaultValue]="getDefaultValue((settings.content | async)?.work_format, profile?.resume?.format)"
+          [required]="true"
         />
       </div>
     </div>

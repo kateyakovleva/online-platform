@@ -127,6 +127,10 @@ select {
   cursor: pointer;
 }
 
+input.ng-invalid {
+  border: 1px solid red !important;
+}
+
 .container-main {
   width: 80%;
   margin: 0 auto 0;

@@ -1,4 +1,4 @@
-<form (submit)="signUp($event)" class="d-flex direction-column  w-100">
+<form ngNativeValidate (submit)="signUp($event)" class="d-flex direction-column  w-100">
   <div class="form__inputs d-flex direction-column">
     <input required class="input mb-10" name="name"
            [placeholder]="type === ECustomerType.COMPANY ? 'компания' : 'имя'"/>

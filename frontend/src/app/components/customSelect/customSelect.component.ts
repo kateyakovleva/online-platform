@@ -1,6 +1,7 @@
 import { Component, ElementRef, EventEmitter, HostListener, Input, Output } from '@angular/core';
 import { NgForOf, NgIf } from "@angular/common";
 import { NgScrollbar } from "ngx-scrollbar";
+import { FormsModule } from "@angular/forms";
 
 @Component( {
   selector: 'app-custom-select',
@@ -8,7 +9,8 @@ import { NgScrollbar } from "ngx-scrollbar";
   imports: [
     NgIf,
     NgForOf,
-    NgScrollbar
+    NgScrollbar,
+    FormsModule
   ],
   templateUrl: './customSelect.component.html',
   styleUrl: './customSelect.component.scss'
@@ -36,6 +38,8 @@ export class CustomSelectComponent {
   placeholder: string = '';
   @Input()
   defaultValue: any = null;
+  @Input()
+  required: boolean = false;
 
   @Output() change: EventEmitter<any> = new EventEmitter();
 
@@ -66,10 +70,13 @@ export class CustomSelectComponent {
   }
 
   getValue( item: any ) {
+    let val = '';
     if ( item && typeof item === 'object' ) {
-      return item[ this.valueFieldName ] || '';
+      val = item[ this.valueFieldName ] || '';
     } else {
-      return item || '';
+      val = item || '';
     }
+    
+    return val;
   }
 }
