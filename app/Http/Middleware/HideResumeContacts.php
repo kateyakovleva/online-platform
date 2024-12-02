@@ -22,10 +22,10 @@ class HideResumeContacts
             if ($user) \Auth::login($user);
         }
 
+        Worker::addHidden('email');
+        Company::addHidden('email');
         if (!$user?->tariff_end_of || $user->tariff_end_of->unix() < Carbon::now()->unix()) {
-            Worker::addHidden('email');
             Worker::addHidden('phone');
-            Company::addHidden('email');
             Company::addHidden('phone');
         }
 

@@ -37,7 +37,7 @@ class VacanciesController extends Controller
             ->find($id);
 
         if ($vacancy->company->hasActiveSubscribe) {
-            $vacancy->company->makeVisible(['email', 'phone']);
+            $vacancy->company->makeVisible(['phone']);
         }
 
         return $vacancy;
