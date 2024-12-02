@@ -1,19 +1,4 @@
 <div class="modal" *ngIf="showModal">
-  <div class="overlay">
-    <div class="popup d-flex direction-column">
-      <div class="d-flex j-c-end mb-10">
-        <button type="button" (click)="close()" class="button">закрыть</button>
-      </div>
-      <ng-scrollbar
-        class="custom-scrollbar ng-scrollbar-thumb ng-scrollbar-track"
-        [trackClass]="'custom-track'"
-        [thumbClass]="'custom-thumb'"
-      >
-        <app-card-response></app-card-response>
-      </ng-scrollbar>
-    </div>
-  </div>
-  <!--    <ng-content></ng-content>-->
+  <div class="overlay"></div>
+  <ng-content></ng-content>
 </div>
-
-
