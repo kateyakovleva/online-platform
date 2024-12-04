@@ -89,8 +89,8 @@ export class AppClient {
 export const apiUrl = ( url: string ) => {
   if ( !url.startsWith( 'http' ) ) {
     if ( !url.startsWith( '/' ) ) url = '/' + url;
-    url = `//online-platform.ru/api${ url }`;
-    // url = `//hh.wi-studio.ru/api${ url }`;
+    // url = `//online-platform.ru/api${ url }`;
+    url = `//hh.wi-studio.ru/api${ url }`;
   }
 
   return url;
