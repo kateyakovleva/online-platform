@@ -20,7 +20,7 @@ class Frontend
 
         $analytics = Setting::findByCode('analytics');
 
-        if ($analytics) $html = str_replace('</body>', "$analytics</body>", $html);
+        if ($analytics) $html = str_replace('</body>', "$analytics->value</body>", $html);
 
         return response($html);
     }
