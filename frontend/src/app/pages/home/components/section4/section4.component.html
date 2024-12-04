@@ -5,7 +5,7 @@
 
   <div class="d-flex direction-row w-100 height">
     <!--  цикл самой карточки-->
-    <div *ngFor="let resume of _resumes?.data?.slice(0,3)" class="col-3">
+    <div *ngFor="let resume of _resumes?.data?.slice(0,3)" class="col-3 col-m-12">
       <div class="d-flex card a-1-start j-c-center">
         <div class="d-flex direction-column card-container">
           <div class="card-container__title d-flex a-1-center j-c-center mb-10">{{resume.vacancy}}</div>
@@ -36,7 +36,7 @@
               </div>
             </div>
           </div>
-          <div class="d-flex direction-row j-c-center mt-10 card-container__btns">
+          <div class="d-flex direction-row j-c-center mt-10 mb-20 card-container__btns w-80">
             <div *ngIf="resume?.city?.name" class="card-container__btn-city btns">{{resume.city?.name}}</div>
             <format [format]="resume.format" type="large"/>
           </div>

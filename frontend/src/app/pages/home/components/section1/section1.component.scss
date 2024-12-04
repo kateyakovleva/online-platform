@@ -23,7 +23,7 @@ section {
   }
 }
 
-@media (min-width: 1151px) and (max-width: 1600px){
+@media (min-width: 1151px) and (max-width: 1600px) {
 
   section {
 
@@ -111,7 +111,8 @@ section {
 @media (max-width: 500px) {
 
   section {
-    min-height: 700px;
+    min-height: 0;
+    height: 80vh;
 
     .container-section1__links {
 

@@ -1,21 +1,20 @@
 <section class="mb-100 w-100 direction-column a-1-center j-c-center d-flex">
   <div *ngIf="settings.content | async; let content" class="d-flex w-100 a-1-center j-c-center direction-column mb-20">
-    <div *ngFor="let item of content.home_text | splitString">
-      <markdown class="mb-20 w-80 h1" [data]="item"></markdown>
-    </div>
+    <markdown *ngFor="let item of content.home_text | splitString" class="mb-20 w-80 h1 fw-500 text-center"
+              [data]="item"></markdown>
   </div>
-  <div class="d-flex direction-row w-100 j-c-space-between a-1-center mt-10">
+  <div class="d-flex direction-row w-100 j-c-space-between mt-10 mb-20">
 
     <div *ngFor="let item of (settings.tariffs | async); let last = last;"
-         [class]="'d-flex card-price'+(last ? 1 : '')+' direction-column a-1-center j-c-start'">
+         [class]="'d-flex card-price'+(last ? 1 : '')+' direction-column j-c-start a-1-center'">
       <div class="card-price__title mb-20">{{item.name}}</div>
       <div class="d-flex direction-column a-1-center j-c-center w-100">
         <div class="card-price__count mb-20">{{item.price}}</div>
         <div class="d-flex direction-column a-1-center j-c-center white w-70 mb-20">
-          <markdown class="card-price__text mb-20" [data]="item.description"></markdown>
+          <markdown class="card-price__text" [data]="item.description"></markdown>
         </div>
       </div>
-      <div class='card-price__change white w-70'>{{item.comment}}</div>
+      <div class='card-price__change white w-70 mb-20'>{{item.comment}}</div>
     </div>
   </div>
   <button class="btn-choose" type="button" (click)="toggleForm()">{{naming.but}}</button>

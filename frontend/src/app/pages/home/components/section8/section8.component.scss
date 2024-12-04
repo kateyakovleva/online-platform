@@ -16,6 +16,7 @@
     border-radius: 16px;
 
     .card-container {
+      height: 100%;
       margin-top: 20px;
       width: 90%;
 
@@ -23,6 +24,9 @@
         font-size: 25px;
         font-weight: 500;
         line-height: 30px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
       .card-container__role {
@@ -64,6 +68,7 @@
         border-radius: 16px;
         margin: 2%;
         padding: 4px;
+        margin-bottom: auto;
 
         .card-container__courses-container-title {
           margin-top: 10px;
@@ -100,11 +105,12 @@
       }
 
       .text__btn {
-        position: absolute;
-        margin: auto;
-        right: 0;
-        left: 0;
-        bottom: 20px;
+        margin-bottom: 20px;
+        //position: absolute;
+        //margin: auto;
+        //right: 0;
+        //left: 0;
+        //bottom: 20px;
       }
 
       .btn {
@@ -246,7 +252,10 @@
       height: auto;
 
       .card {
-        height: 750px;
+        @media (min-width: 1000px) {
+          height: 750px;
+        }
+
         min-width: 90%;
         margin: 0 0 20px;
         align-items: start;

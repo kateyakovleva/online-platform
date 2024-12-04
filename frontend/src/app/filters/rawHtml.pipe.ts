@@ -24,7 +24,7 @@ export class RawHtmlPipe implements PipeTransform {
   }
 
   addScript( src: string ) {
-    if ( !src ) return;
+    if ( !src || typeof document === 'undefined' ) return;
     let script = document.createElement( 'script' );
     script.type = 'text/javascript';
     script.src = src;

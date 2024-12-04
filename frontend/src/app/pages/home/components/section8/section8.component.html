@@ -1,10 +1,10 @@
 <section *ngIf="(vacancies|async) as _vacancies" class="mb-100 w-100 direction-column a-1-center j-c-center d-flex">
   <div class="mb-20 h1">{{naming.h1Section8}}</div>
   <div class="d-flex direction-row w-100 height">
-    <div *ngFor="let vacancy of _vacancies?.data?.slice(0,4)" class="col-3">
+    <div *ngFor="let vacancy of _vacancies?.data?.slice(0,4)" class="col-3 col-m-12">
       <div class="d-flex card a-1-start j-c-center">
         <div class="d-flex direction-column card-container">
-          <div class="card-container__company d-flex a-1-center j-c-center mb-5">{{vacancy.company?.name}}</div>
+          <div class="card-container__company mb-5">{{vacancy.company?.name}}</div>
           <!--          <div class="card-container__role d-flex a-1-center j-c-center mb-10">{{item.role}}</div>-->
           <div class="card-container__title d-flex a-1-center j-c-center mb-10">{{vacancy.vacancy | limit: 30}}</div>
           <!--      цикл скилов -->
@@ -15,12 +15,12 @@
             <div class="card-container__courses-container-title w-80">{{naming.tasks}}</div>
             <div class="d-flex a-1-center j-c-center direction-column mb-5 w-80">
               <!--      цикл навыков -->
-              <div class="task">{{vacancy.skills_description | limit:100}}</div>
+              <div class="task">{{vacancy.skills_description | limit:80}}</div>
             </div>
             <div class="card-container__courses-container-title">{{naming.taskss}}</div>
             <div class="d-flex a-1-center j-c-center direction-column mb-5">
               <!--      цикл задач -->
-              <div class="task">{{vacancy.description | limit:100}}</div>
+              <div class="task">{{vacancy.description | limit:80}}</div>
             </div>
             <div class="card-container__courses-container-title">{{naming.tasksss}}</div>
             <div class="d-flex a-1-center j-c-center direction-column mb-100">
@@ -28,12 +28,12 @@
               <div class="task">{{vacancy.growth_description | limit:50}}</div>
             </div>
           </div>
-          <div class="d-flex direction-row j-c-center mt-10 card-container__btns">
+          <div class="d-flex direction-row j-c-center mt-10 mb-10 card-container__btns">
             <div *ngIf="vacancy?.city?.name" class="card-container__btn mr-10">{{vacancy.city?.name}}</div>
             <format [format]="vacancy.format" type="large"/>
           </div>
           <div class="d-flex a-1-center j-c-center w-100 text__btn">
-            <a [routerLink]="'/search/vacancies/'+vacancy.id" class="btn w-50">Посмотреть</a>
+            <a [routerLink]="'/search/vacancies/'+vacancy.id" class="btn w-50 mb-20">Посмотреть</a>
           </div>
         </div>
       </div>

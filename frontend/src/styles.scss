@@ -97,10 +97,36 @@ img {
   max-width: 100%;
 }
 
-h1 {
+h1, .h1 {
   margin: 0;
   font-size: 45px;
   font-weight: 700;
+
+  &.fw-500 {
+    font-weight: 500;
+  }
+
+  @media (max-width: 1000px) {
+    font-size: 30px;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.col-3 {
+  width: 25%;
+}
+
+@media (max-width: 1000px) {
+  .col-m-12 {
+    width: 100%;
+  }
+}
+
+markdown.h1 {
+  display: block;
 }
 
 h2 {
@@ -387,8 +413,10 @@ router-outlet {
   line-height: 20px;
   font-weight: 400;
 
-  a + a {
-    margin-left: 20px;
+  @media (min-width: 1000px) {
+    a + a {
+      margin-left: 20px;
+    }
   }
 
   .radius {
