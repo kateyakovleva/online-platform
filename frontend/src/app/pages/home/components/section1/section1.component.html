@@ -1,6 +1,6 @@
 <section class="d-flex j-c-space-between a-1-center w-100">
   <div class="w-55 d-flex direction-column">
-    <h1 class="h1 w-100 mb-20">{{ (settings.content | async)?.title }}</h1>
+    <div class="h1 w-100 mb-20 h1">{{ (settings.content | async)?.title }}</div>
     <markdown class="green d-flex j-c-center mb-20 font" [data]="(settings.content | async)?.sub_title"></markdown>
     <markdown class="mb-20 font" [data]="(settings.content | async)?.description"></markdown>
     <div class="d-flex a-1-center container-section1__links ">

@@ -16,8 +16,8 @@
     <div class="sub-title mb-10">{{candidate?.resume?.specialization?.name}}</div>
     <a *ngIf="!hideButtons" routerLink="/create_profile" class="change-btn mb-20">{{naming.change}}</a>
     <div class="direction-row d-flex w-100 j-c-center a-1-center">
-      <div class="sub-btn mr-10">{{candidate?.resume?.city?.name}}</div>
-      <online [online]="candidate?.is_online" type="medium"/>
+      <div *ngIf="candidate?.resume?.city?.name" class="sub-btn mr-10">{{candidate?.resume?.city?.name}}</div>
+      <format [format]="candidate?.resume?.format" type="medium"/>
     </div>
 
     <div>

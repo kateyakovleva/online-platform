@@ -30,6 +30,7 @@ export interface ISettingContent {
   personal_policy_link: string;
   work_format: string[];
   analytics?: string;
+  home_text: string;
 }
 
 export interface ISettingTariffs {

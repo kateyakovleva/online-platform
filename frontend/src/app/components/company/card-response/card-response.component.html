@@ -8,7 +8,7 @@
     <img [src]="item?.worker?.image  || 'images/profile.svg'" class="logo mr-10" alt="picture"/>
     <div class="mr-10">{{item?.worker?.name}}</div>
     <!--    <div class="mr-10">{{item.lastName}}</div>-->
-    <div class="mr-10 sub-btn">{{item?.city?.name}}</div>
-    <online [online]="item?.worker?.is_online"/>
+    <div *ngIf="item?.city?.name" class="mr-10 sub-btn">{{item?.city?.name}}</div>
+    <format [format]="item?.format"/>
   </div>
 </div>

@@ -1,8 +1,8 @@
 <section class="mb-100 w-100 direction-column a-1-center j-c-center d-flex">
-  <div class="d-flex w-100 a-1-center j-c-center direction-column mb-20">
-    <h1 class="mb-20 w-80">{{naming.h1Section10}}</h1>
-    <h1 class="mb-20 w-80">{{naming.h2Section10}}</h1>
-    <div class="h1__subtitle mb-20 w-100">{{naming.subtextSection10}}</div>
+  <div *ngIf="settings.content | async; let content" class="d-flex w-100 a-1-center j-c-center direction-column mb-20">
+    <div *ngFor="let item of content.home_text | splitString">
+      <markdown class="mb-20 w-80 h1" [data]="item"></markdown>
+    </div>
   </div>
   <div class="d-flex direction-row w-100 j-c-space-between a-1-center mt-10">
 

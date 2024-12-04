@@ -1,6 +1,6 @@
 <section *ngIf="(resumes|async) as _resumes" class="mb-100 w-100 direction-column a-1-center j-c-center d-flex">
   <div class="d-flex j-c-center a-1-center section4-container mb-100">
-    <h1 class="section4-container__title">{{naming.h1Section4}}<b>{{naming.h11Section4}}</b></h1>
+    <div class="section4-container__title h1">{{naming.h1Section4}}<b>{{naming.h11Section4}}</b></div>
   </div>
 
   <div class="d-flex direction-row w-100 height">
@@ -37,8 +37,8 @@
             </div>
           </div>
           <div class="d-flex direction-row j-c-center mt-10 card-container__btns">
-            <div class="card-container__btn-city btns">{{resume.city?.name}}</div>
-            <online [online]="resume.worker?.is_online" type="large"/>
+            <div *ngIf="resume?.city?.name" class="card-container__btn-city btns">{{resume.city?.name}}</div>
+            <format [format]="resume.format" type="large"/>
           </div>
         </div>
       </div>

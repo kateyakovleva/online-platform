@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\Storage;
 use Staudenmeir\EloquentHasManyDeep\HasRelationships;
 
 /**
@@ -73,6 +74,24 @@ class Resume extends BaseModel
             ->select('work_responses.*')
             ->join(Vacancy::table(), 'work_responses.vacancy_id', 'vacancies.id')
             ->where('vacancies.company_id', $customer?->id);
+    }
+
+    public function setFileAttribute($value)
+    {
+        $image = $this->attributes['file'] ?? '';
+        if ($image && $image != $value && Storage::exists($image)) {
+            Storage::delete($image);
+        }
+
+        $this->attributes['file'] = $value ?? '';
+
+        return $this;
+    }
+
+    public function getFileAttribute()
+    {
+        if (!$this->attributes['file']) return '';
+        return config('app.url') . '/storage/' . $this->attributes['file'];
     }
 
     public function setSkillsAttribute($value)

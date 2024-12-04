@@ -60,10 +60,10 @@ export class ViewResumeComponent {
   manyVacancies = false;
 
   addResponse( resume_id?: number ) {
-    if ( this.manyVacancies ) {
-      this.showModal = true;
-      return;
-    }
+    // if ( this.manyVacancies ) {
+    //   this.showModal = true;
+    //   return;
+    // }
 
     this.respStore.addResponse( resume_id, 0 ).subscribe( ( r ) => {
       this.success = 'Приглашение отправлено!';

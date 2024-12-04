@@ -53,4 +53,6 @@ export class CompanyAside implements AfterViewInit {
       this.user.getUser();
     } );
   }
+
+  protected readonly undefined = undefined;
 }

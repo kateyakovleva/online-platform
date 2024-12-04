@@ -7,11 +7,12 @@ import { IResume } from "../../types/resumes";
 import { UserStore } from "../../stores/UserStore";
 import { PhonePipe } from "../../filters/phone.pipe";
 import { OnlineComponent } from "../online/online.component";
+import { FormatComponent } from "../format/format.component";
 
 @Component( {
   selector: 'app-candidate-aside',
   standalone: true,
-  imports: [ RouterLink, AsyncPipe, NgIf, NgForOf, PhonePipe, OnlineComponent ],
+  imports: [ RouterLink, AsyncPipe, NgIf, NgForOf, PhonePipe, OnlineComponent, FormatComponent ],
   templateUrl: './candidateAside.component.html',
   styleUrl: './candidateAside.component.scss',
   host: {
@@ -53,6 +54,4 @@ export class CandidateAside implements AfterViewInit {
       this.user.getUser();
     } );
   }
-
-  protected readonly undefined = undefined;
 }

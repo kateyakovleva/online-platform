@@ -13,9 +13,9 @@
     <div class="d-flex container__title mb-5">{{company?.name}}</div>
     <a *ngIf="!hideButtons" class="change-btn mb-20"
        routerLink="/create_company_profile">{{naming.change}}</a>
-    <div class="direction-row d-flex w-100 j-c-center a-1-center">
+    <div *ngIf="company?.city?.name" class="direction-row d-flex w-100 j-c-center a-1-center">
       <div class="sub-btn mr-10">{{company?.city?.name}}</div>
-      <online [online]="company?.is_online" type="medium"/>
+      <!--      <online [online]="company?.is_online" type="medium"/>-->
     </div>
 
     <div>

@@ -87,7 +87,7 @@ class Customer extends BaseUser
             Storage::delete($image);
         }
 
-        $this->attributes['image'] = $value || '';
+        $this->attributes['image'] = $value ?? '';
 
         return $this;
     }

@@ -5,6 +5,7 @@ import { AsyncPipe, NgForOf, NgIf } from "@angular/common";
 import { SettingsStore } from "../../../../stores/SettingsStore";
 import { MarkdownComponent } from "ngx-markdown";
 import { ModalComponent } from "../../../../components/modal/modal.component";
+import { SplitStringPipe } from "../../../../filters/splitString.pipe";
 
 @Component( {
   selector: 'app-section10',
@@ -15,7 +16,8 @@ import { ModalComponent } from "../../../../components/modal/modal.component";
     NgForOf,
     AsyncPipe,
     MarkdownComponent,
-    ModalComponent
+    ModalComponent,
+    SplitStringPipe
   ],
   templateUrl: './section10.component.html',
   styleUrl: './section10.component.scss'

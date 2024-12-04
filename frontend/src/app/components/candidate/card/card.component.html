@@ -7,7 +7,7 @@
   <div class="d-flex direction-row sub-text a-1-center j-c-start">
     <img [src]="item?.company?.image  || 'images/profile.svg'" class="logo mr-10" alt="picture"/>
     <div class="mr-10 companyName">{{item?.company?.name}}</div>
-    <div class="mr-10 sub-btn">{{item?.city?.name}}</div>
-    <online [online]="item?.company?.is_online"/>
+    <div *ngIf="item?.city?.name" class="mr-10 sub-btn">{{item?.city?.name}}</div>
+    <format [format]="item?.format"/>
   </div>
 </div>
