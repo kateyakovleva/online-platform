@@ -6,5 +6,4 @@
   <app-preloader *ngIf="client.isLoading$|async"/>
   <notifier-container></notifier-container>
 </div>
-<div [innerHTML]="(settings.content|async)?.analytics | rawHtml">
-</div>
+<!--<raw-html [html]="(settings.content|async)?.analytics  | rawHtml"/>-->

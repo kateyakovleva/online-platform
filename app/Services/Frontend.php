@@ -4,15 +4,24 @@
 namespace App\Services;
 
 
+use App\Models\Setting;
+
 class Frontend
 {
     public function handle()
     {
+        $html = '';
         if (is_file(public_path('index.html'))) {
-            return response(file_get_contents(public_path('index.html')));
+            $html = file_get_contents(public_path('index.html'));
         }
         if (is_file(public_path('index.csr.html'))) {
-            return response(file_get_contents(public_path('index.csr.html')));
+            $html = file_get_contents(public_path('index.csr.html'));
         }
+
+        $analytics = Setting::findByCode('analytics');
+
+        if ($analytics) $html = str_replace('</body>', "$analytics</body>");
+
+        return response($html);
     }
 }

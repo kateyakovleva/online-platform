@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 } )
 export class RawHtmlPipe implements PipeTransform {
   transform( html?: string ): string {
-    if ( !html ) return '';
+    if ( !html || typeof document === 'undefined' ) return '';
     let re = /<script\b([^>]*)>([\s\S]*?)<\/script>/gm;
 
     if ( html.indexOf( '<script' ) !== -1 ) {

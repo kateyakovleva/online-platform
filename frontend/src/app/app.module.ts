@@ -22,6 +22,7 @@ import { PreloaderComponent } from "./components/preloader/preloader.component";
 import { RawHtmlPipe } from "./filters/rawHtml.pipe";
 import { NotifierModule } from "gramli-angular-notifier";
 import { ModalComponent } from "./components/modal/modal.component";
+import { HtmlComponent } from "./components/html/html.component";
 
 @NgModule( {
   declarations: [
@@ -68,6 +69,7 @@ import { ModalComponent } from "./components/modal/modal.component";
       }
     } ),
     ModalComponent,
+    HtmlComponent,
   ],
   providers: [
     // provideClientHydration(),
