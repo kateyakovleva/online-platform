@@ -67,15 +67,18 @@ class ResumeResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('customer_id')
+                Tables\Columns\TextColumn::make('worker.name')
                     ->numeric()
-                    ->sortable(),
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('worker.email')
+                    ->numeric()
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('specialization.name')
                     ->numeric()
-                    ->sortable(),
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('city.name')
                     ->numeric()
-                    ->sortable(),
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('format')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')

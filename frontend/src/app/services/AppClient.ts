@@ -90,7 +90,8 @@ export const apiUrl = ( url: string ) => {
   if ( !url.startsWith( 'http' ) ) {
     if ( !url.startsWith( '/' ) ) url = '/' + url;
     // url = `//online-platform.ru/api${ url }`;
-    url = `//hh.wi-studio.ru/api${ url }`;
+    // url = `//hh.wi-studio.ru/api${ url }`;
+    url = `//переход-улёт.рф/api${ url }`;
   }
 
   return url;
